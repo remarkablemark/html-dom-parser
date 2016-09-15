@@ -9,5 +9,9 @@
     "parser",
     "htmlparser2"
   ],
+  "dependencies": {
+    "domhandler": "^2.3.0",
+    "htmlparser2": "^3.9.1"
+  },
   "license": "MIT"
 }
