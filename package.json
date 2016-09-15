@@ -1,0 +1,13 @@
+{
+  "name": "html-dom-parser",
+  "version": "0.0.0",
+  "description": "An HTML to DOM parser that works on the server and client.",
+  "author": "Mark <mark@remarkablemark.org>",
+  "keywords": [
+    "html",
+    "dom",
+    "parser",
+    "htmlparser2"
+  ],
+  "license": "MIT"
+}
