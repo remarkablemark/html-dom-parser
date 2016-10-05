@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "An HTML to DOM parser that works on the server and client.",
   "author": "Mark <mark@remarkablemark.org>",
+  "main": "index.js",
   "keywords": [
     "html",
     "dom",
@@ -12,6 +13,9 @@
   "dependencies": {
     "domhandler": "^2.3.0",
     "htmlparser2": "^3.9.1"
+  },
+  "browser": {
+    "./index.js": "./lib/html-to-dom-client.js"
   },
   "license": "MIT"
 }
