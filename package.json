@@ -4,6 +4,9 @@
   "description": "An HTML to DOM parser that works on the server and client.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
+  "scripts": {
+    "build": "webpack index.js dist/html-dom-parser.js -p"
+  },
   "keywords": [
     "html",
     "dom",
@@ -13,6 +16,9 @@
   "dependencies": {
     "domhandler": "^2.3.0",
     "htmlparser2": "^3.9.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2"
   },
   "browser": {
     "./index.js": "./lib/html-to-dom-client.js"
