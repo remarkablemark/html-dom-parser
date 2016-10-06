@@ -1,0 +1,16 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "mocha": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+        "strict": 2,
+        "no-cond-assign": 2
+    }
+}
