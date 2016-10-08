@@ -36,4 +36,22 @@ describe('html-dom-parser', function() {
         runTests(parser, mocks.svg);
     });
 
+    // client
+    describe('client parser', function() {
+        var parser = require('../lib/html-to-dom-client');
+        var jsdomify = require('jsdomify').default;
+
+        before(function() {
+            jsdomify.create();
+        });
+
+        after(function() {
+            jsdomify.destroy();
+        });
+
+        // should return the same output as `htmlparser2.parseDOM()`
+        runTests(parser, mocks.html);
+        runTests(parser, mocks.svg);
+    });
+
 });
