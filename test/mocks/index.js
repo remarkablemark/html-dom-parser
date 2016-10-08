@@ -37,10 +37,15 @@ var html = {
 html.multiple = html.single + html.single;
 html.complex = read('./complex.html');
 
+// svg
+var svg = {
+    complex: read('./complex.svg')
+};
 
 /**
  * Export mocks.
  */
 module.exports = {
-    html: html
+    html: html,
+    svg: svg
 };
