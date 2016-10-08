@@ -1,5 +1,25 @@
 'use strict';
 
+/**
+ * Module dependencies.
+ */
+var fs = require('fs');
+var path = require('path');
+
+/**
+ * Helper for `readFileSync`.
+ *
+ * @param  {String} filepath - The file path.
+ * @return {String}          - The file text.
+ */
+function read(filepath) {
+    try {
+        return fs.readFileSync(path.join(__dirname, filepath), 'utf8');
+    } catch (error) {
+        throw error;
+    }
+}
+
 // html
 var html = {
     directive: '<!DOCTYPE html>',
@@ -15,6 +35,8 @@ var html = {
 };
 
 html.multiple = html.single + html.single;
+html.complex = read('./complex.html');
+
 
 /**
  * Export mocks.
