@@ -5,7 +5,8 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm run build",
+    "prepublish": "npm run clean && npm run build",
+    "clean": "rm -rf dist",
     "build": "webpack index.js dist/html-dom-parser.js -p --output-library HTMLDOMParser --output-library-target umd",
     "test": "mocha",
     "lint": "eslint . --ignore-path .gitignore",
