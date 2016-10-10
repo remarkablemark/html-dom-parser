@@ -7,7 +7,8 @@
   "scripts": {
     "build": "webpack index.js dist/html-dom-parser.js -p",
     "test": "mocha",
-    "lint": "eslint . --ignore-path .gitignore"
+    "lint": "eslint . --ignore-path .gitignore",
+    "cover": "istanbul cover _mocha -- -R spec"
   },
   "keywords": [
     "html",
@@ -23,6 +24,7 @@
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "html-minifier": "^3.1.0",
+    "istanbul": "^0.4.5",
     "jsdomify": "^3.1.0",
     "mocha": "^3.0.2",
     "webpack": "^1.13.2"
