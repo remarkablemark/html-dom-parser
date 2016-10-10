@@ -23,6 +23,19 @@ function runTests(parser, mockObj) {
 }
 
 /**
+ * Helper that runs tests and confirms an error is thrown.
+ *
+ * @param {Function} parser - The parser.
+ */
+function throwTests(parser) {
+    [undefined, null, 1, true, {}, [], Function].forEach(function(parameter) {
+        it('throws error for invalid parameter: ' + parameter, function() {
+            assert.throws(function() { parser(parameter); }, TypeError);
+        });
+    });
+}
+
+/**
  * Tests for parser.
  */
 describe('html-dom-parser', function() {
@@ -30,6 +43,9 @@ describe('html-dom-parser', function() {
     // server
     describe('server parser', function() {
         var parser = require('../');
+
+        // check if invalid parameter type throws error
+        throwTests(parser);
 
         // should be equivalent to `htmlparser2.parseDOM()`
         runTests(parser, mocks.html);
@@ -48,6 +64,9 @@ describe('html-dom-parser', function() {
         after(function() {
             jsdomify.destroy();
         });
+
+        // check if invalid parameter type throws error
+        throwTests(parser);
 
         // should return the same output as `htmlparser2.parseDOM()`
         runTests(parser, mocks.html);
