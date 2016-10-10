@@ -32,7 +32,8 @@ var html = {
     style: '<style>body > .foo { color: #f00; }</style>',
     img: '<img src="http://stat.ic/img.jpg" alt="Image"/>',
     void: '<link/><meta/><img/><br/><hr/><input/>',
-    comment: '<!-- comment -->'
+    comment: '<!-- comment -->',
+    'closing tag': '</div>'
 };
 
 html.multiple = html.single + html.single;
