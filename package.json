@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "webpack index.js dist/html-dom-parser.js -p",
+    "build": "webpack index.js dist/html-dom-parser.js -p --output-library HTMLDOMParser --output-library-target umd",
     "test": "mocha",
     "lint": "eslint . --ignore-path .gitignore",
     "cover": "istanbul cover _mocha -- -R spec",
