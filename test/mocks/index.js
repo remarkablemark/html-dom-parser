@@ -5,6 +5,7 @@
  */
 var fs = require('fs');
 var path = require('path');
+var minify = require('html-minifier').minify;
 
 /**
  * Helper for `readFileSync`.
@@ -35,7 +36,9 @@ var html = {
 };
 
 html.multiple = html.single + html.single;
-html.complex = read('./complex.html');
+html.complex = minify(read('./complex.html'), {
+    collapseWhitespace: true
+});
 
 // svg
 var svg = {
