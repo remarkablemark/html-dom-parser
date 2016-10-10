@@ -11,6 +11,13 @@
     "cover": "istanbul cover _mocha -- -R spec",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remarkablemark/html-dom-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/remarkablemark/html-dom-parser/issues"
+  },
   "keywords": [
     "html",
     "dom",
