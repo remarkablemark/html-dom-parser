@@ -11,14 +11,27 @@ An HTML to DOM parser that works on both the server and client.
 
 ## Installation
 
+NPM:
+
 ```sh
-$ npm html-dom-parser
+$ npm install html-dom-parser
+```
+
+CDN:
+
+```html
+<script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.js"></script>
 ```
 
 ## Usage
 
 ```js
+// server
 var Parser = require('html-dom-parser');
+
+// client
+var Parser = window.HTMLDOMParser;
+
 Parser('<p>Hello, world!</p>');
 ```
 
