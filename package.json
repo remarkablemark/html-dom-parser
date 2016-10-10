@@ -5,6 +5,7 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "webpack index.js dist/html-dom-parser.js -p",
     "test": "mocha",
     "lint": "eslint . --ignore-path .gitignore",
