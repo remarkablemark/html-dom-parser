@@ -4,19 +4,19 @@
  * Module dependencies.
  */
 var assert = require('chai').assert;
-var mocks = require('./mocks/');
+var fixtures = require('./fixtures/');
 var htmlparser = require('htmlparser2');
 
 /**
- * Helper that creates and runs tests based on mock data.
+ * Helper that creates and runs tests based on fixture data.
  *
  * @param {Function} parser  - The parser.
- * @param {Object}   mockObj - The mock object.
+ * @param {Object}   fixture - The fixture.
  */
-function runTests(parser, mockObj) {
-    Object.keys(mockObj).forEach(function(type) {
+function runTests(parser, fixture) {
+    Object.keys(fixture).forEach(function(type) {
         it(type, function() {
-            var data = mockObj[type];
+            var data = fixture[type];
             assert.deepEqual(parser(data), htmlparser.parseDOM(data));
         })
     });
@@ -48,8 +48,8 @@ describe('html-dom-parser', function() {
         throwTests(parser);
 
         // should be equivalent to `htmlparser2.parseDOM()`
-        runTests(parser, mocks.html);
-        runTests(parser, mocks.svg);
+        runTests(parser, fixtures.html);
+        runTests(parser, fixtures.svg);
     });
 
     // client
@@ -69,9 +69,9 @@ describe('html-dom-parser', function() {
         throwTests(parser);
 
         // should return the same output as `htmlparser2.parseDOM()`
-        runTests(parser, mocks.html);
+        runTests(parser, fixtures.html);
         // svg does not work in jsdom
-        // runTests(parser, mocks.svg);
+        // runTests(parser, fixtures.svg);
     });
 
 });
