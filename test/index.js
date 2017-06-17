@@ -54,16 +54,9 @@ describe('html-dom-parser', function() {
 
     // client
     describe('client parser', function() {
-        var parser = require('../lib/html-to-dom-client');
         var jsdomify = require('jsdomify').default;
-
-        before(function() {
-            jsdomify.create();
-        });
-
-        after(function() {
-            jsdomify.destroy();
-        });
+        jsdomify.create();
+        var parser = require('../lib/html-to-dom-client');
 
         // check if invalid parameter type throws error
         throwTests(parser);
@@ -72,6 +65,8 @@ describe('html-dom-parser', function() {
         runTests(parser, fixtures.html);
         // svg does not work in jsdom
         // runTests(parser, fixtures.svg);
+
+        jsdomify.destroy();
     });
 
 });
