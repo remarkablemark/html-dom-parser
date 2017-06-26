@@ -63,8 +63,7 @@ describe('html-dom-parser', function() {
 
         // should return the same output as `htmlparser2.parseDOM()`
         runTests(parser, fixtures.html);
-        // svg does not work in jsdom
-        // runTests(parser, fixtures.svg);
+        runTests(parser, fixtures.svg);
 
         jsdomify.destroy();
     });
