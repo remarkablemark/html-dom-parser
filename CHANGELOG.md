@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](http://semver.org).
 ### Fixed
 - Fix client parser on IE by specifying required parameter for `createHTMLDocument` (#4)
 
+## [0.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v0.0.2...v0.1.0) - 2017-06-17
+### Changed
+- Improve, refactor, and optimize client parser
+  - Use `template`, `DOMImplementation`, and/or `DOMParser`
+
 ## [0.0.2](https://github.com/remarkablemark/html-dom-parser/compare/v0.0.1...v0.0.2) - 2016-10-10
 ### Added
 - Create npm scripts for prepublish
