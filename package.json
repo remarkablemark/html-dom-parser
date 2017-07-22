@@ -37,8 +37,8 @@
     "html-minifier": "^3.1.0",
     "istanbul": "^0.4.5",
     "jsdomify": "^3.1.0",
-    "mocha": "^3.0.2",
-    "webpack": "^1.13.2"
+    "mocha": "^3.4.2",
+    "webpack": "^2.6.1"
   },
   "browser": {
     "./index.js": "./lib/html-to-dom-client.js"
