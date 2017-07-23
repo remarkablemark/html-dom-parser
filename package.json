@@ -7,7 +7,9 @@
   "scripts": {
     "prepublish": "npm run clean && npm run build",
     "clean": "rm -rf dist",
-    "build": "webpack index.js dist/html-dom-parser.js -p --output-library HTMLDOMParser --output-library-target umd",
+    "build": "npm run build:min && npm run build:unmin",
+    "build:min": "webpack index.js dist/html-dom-parser.min.js -p --output-library HTMLDOMParser --output-library-target umd",
+    "build:unmin": "webpack index.js dist/html-dom-parser.js --output-library HTMLDOMParser --output-library-target umd",
     "test": "mocha",
     "lint": "eslint . --ignore-path .gitignore",
     "cover": "istanbul cover _mocha -- -R spec",
