@@ -57,10 +57,8 @@ The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlpars
 ## Testing
 
 ```sh
-$ git clone https://github.com/remarkablemark/html-dom-parser.git
-$ npm install
-$ npm run lint
 $ npm test
+$ npm run lint
 ```
 
 ## License

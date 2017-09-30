@@ -29,8 +29,8 @@
     "htmlparser2"
   ],
   "dependencies": {
-    "domhandler": "^2.3.0",
-    "htmlparser2": "^3.9.1"
+    "domhandler": "2.3.0",
+    "htmlparser2": "3.9.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
