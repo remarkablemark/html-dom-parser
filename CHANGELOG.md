@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com)
 and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [Unreleased](https://github.com/remarkablemark/html-dom-parser/compare/v0.1.0...HEAD)
+### Added
+- Create helper `isIE()` in utilities (#7)
+
+### Fixed
+- Fix client parser in IE/IE9 (#6, #7)
+
+### Changed
+- Upgrade `mocha@3.4.2` and `webpack@2.6.1` (#5)
+- npm script `build` runs both `build:min` and `build:unmin` (#5)
+
 ## [0.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v0.1.0...v0.1.1) - 2017-06-26
 ### Added
 - CHANGELOG with previous releases backfilled
