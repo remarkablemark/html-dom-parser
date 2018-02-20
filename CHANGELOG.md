@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com)
 and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [0.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v0.1.2...v0.1.3) - 2018-02-20
+### Fixed
+- Fix regular expression vulnerability (#8)
+  - Regex has potential for catastrophic backtracking
+  - Credit goes to @davisjam for discovering it
+
+### Changed
+- Refactored and updated tests (#8)
+
 ## [0.1.2](https://github.com/remarkablemark/html-dom-parser/compare/v0.1.1...v0.1.2) - 2017-09-30
 ### Added
 - Create helper `isIE()` in utilities (#7)
