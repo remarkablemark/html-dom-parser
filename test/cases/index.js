@@ -22,9 +22,17 @@ function read(filepath) {
 }
 
 // html
-var html = {
+module.exports.html = {
     directive: '<!DOCTYPE html>',
-    single: '<p>foo</p>',
+    head: '<head></head>',
+    'head with title': '<head><title>content</title></head>',
+    body: '<body></body>',
+    'body with div': '<body><div>hello</div></body>',
+    'capitalized body': '<BODY></BODY>',
+    'head and body': '<head></head><body></body>',
+    'empty paragraph': '<p></p>',
+    'paragraph with text': '<p>text</p>',
+    'multiple spans': '<span>1</span><span>2</span>',
     nested: '<ul><li>foo<span>bar</span></li><li>baz</li></ul>',
     attributes: '<hr id="foo" class="bar baz" style="background: #fff; text-align: center;" data-foo="bar" />',
     textarea: '<textarea>foo</textarea>',
@@ -33,23 +41,13 @@ var html = {
     img: '<img src="http://stat.ic/img.jpg" alt="Image"/>',
     void: '<link/><meta/><img/><br/><hr/><input/>',
     comment: '<!-- comment -->',
-    'closing tag': '</div>'
+    'closing tag': '</div>',
+    'complex html': minify(read('./complex.html'), {
+        collapseWhitespace: true
+    })
 };
-
-html.multiple = html.single + html.single;
-html.complex = minify(read('./complex.html'), {
-    collapseWhitespace: true
-});
 
 // svg
-var svg = {
-    complex: read('./complex.svg')
-};
-
-/**
- * Export mocks.
- */
-module.exports = {
-    html: html,
-    svg: svg
+module.exports.svg = {
+    'complex svg': read('./complex.svg')
 };

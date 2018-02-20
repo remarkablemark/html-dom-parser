@@ -4,19 +4,19 @@
  * Module dependencies.
  */
 var assert = require('chai').assert;
-var fixtures = require('./fixtures/');
+var cases = require('./cases');
 var htmlparser = require('htmlparser2');
 
 /**
- * Helper that creates and runs tests based on fixture data.
+ * Helper that creates and runs tests based on available cases.
  *
- * @param {Function} parser  - The parser.
- * @param {Object}   fixture - The fixture.
+ * @param {Function} parser - The parser.
+ * @param {Object}   cases  - The cases.
  */
-function runTests(parser, fixture) {
-    Object.keys(fixture).forEach(function(type) {
+function runTests(parser, cases) {
+    Object.keys(cases).forEach(function(type) {
         it(type, function() {
-            var data = fixture[type];
+            var data = cases[type];
             assert.deepEqual(parser(data), htmlparser.parseDOM(data));
         })
     });
@@ -28,9 +28,18 @@ function runTests(parser, fixture) {
  * @param {Function} parser - The parser.
  */
 function throwTests(parser) {
-    [undefined, null, 1, true, {}, [], Function].forEach(function(parameter) {
-        it('throws error for invalid parameter: ' + parameter, function() {
-            assert.throws(function() { parser(parameter); }, TypeError);
+    [
+        undefined,
+        null,
+        1,
+        true,
+        {},
+        ['Array'],
+        Function,
+        Date
+    ].forEach(function(value) {
+        it('throws when argument is ' + value, function() {
+            assert.throws(function() { parser(value); }, TypeError);
         });
     });
 }
@@ -39,21 +48,18 @@ function throwTests(parser) {
  * Tests for parser.
  */
 describe('html-dom-parser', function() {
-
-    // server
-    describe('server parser', function() {
+    describe('server', function() {
         var parser = require('../');
 
         // check if invalid parameter type throws error
         throwTests(parser);
 
         // should be equivalent to `htmlparser2.parseDOM()`
-        runTests(parser, fixtures.html);
-        runTests(parser, fixtures.svg);
+        runTests(parser, cases.html);
+        runTests(parser, cases.svg);
     });
 
-    // client
-    describe('client parser', function() {
+    describe('client', function() {
         var jsdomify = require('jsdomify').default;
         jsdomify.create();
         var parser = require('../lib/html-to-dom-client');
@@ -62,10 +68,9 @@ describe('html-dom-parser', function() {
         throwTests(parser);
 
         // should return the same output as `htmlparser2.parseDOM()`
-        runTests(parser, fixtures.html);
-        runTests(parser, fixtures.svg);
+        runTests(parser, cases.html);
+        runTests(parser, cases.svg);
 
         jsdomify.destroy();
     });
-
 });
