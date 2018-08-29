@@ -7,36 +7,49 @@
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-dom-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-dom-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-dom-parser.svg)](https://david-dm.org/remarkablemark/html-dom-parser)
 
-An HTML to DOM parser that works on both the server and client.
+An isomorphic HTML to DOM parser:
+```
+Parser(string[, options])
+```
+
+The parser converts an HTML string to a JavaScript object that describes the DOM tree.
+
+[repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/)
 
 ## Installation
 
-NPM:
-
+[NPM](https://www.npmjs.com/package/html-dom-parser):
 ```sh
-$ npm install html-dom-parser
+npm install --save html-dom-parser
 ```
 
-CDN:
+[Yarn](https://yarnpkg.com/package/html-dom-parser):
+```sh
+yarn add html-dom-parser
+```
 
+[CDN](https://unpkg.com/html-dom-parser/):
 ```html
 <script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.js"></script>
 ```
 
 ## Usage
 
+Import parser:
 ```js
 // server
 var Parser = require('html-dom-parser');
 
 // client
 var Parser = window.HTMLDOMParser;
+```
 
+Parse input:
+```js
 Parser('<p>Hello, world!</p>');
 ```
 
-Output:
-
+Return output:
 ```js
 [ { type: 'tag',
     name: 'p',
@@ -52,7 +65,7 @@ Output:
     parent: null } ]
 ```
 
-The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM()` and the client parser uses the browser's [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) API to mimic the output of the server parser.
+The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM()` and the client parser uses the browser's [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to mimic the output of the server parser.
 
 ## Testing
 
