@@ -4,19 +4,18 @@
   "description": "An HTML to DOM parser that works on the server and client.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
-  "types": "types",
   "scripts": {
     "build": "npm run build:min && npm run build:unmin",
     "build:min": "webpack index.js dist/html-dom-parser.min.js -p --output-library HTMLDOMParser --output-library-target umd",
     "build:unmin": "webpack index.js dist/html-dom-parser.js --output-library HTMLDOMParser --output-library-target umd",
     "clean": "rm -rf dist",
+    "test": "mocha",
+    "lint": "eslint . --ignore-path .gitignore",
+    "dtslint": "dtslint .",
     "cover": "istanbul cover _mocha -- -R spec",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "dtslint": "dtslint types",
-    "lint": "eslint . --ignore-path .gitignore",
     "prepublish": "npm run clean && npm run build",
-    "release": "standard-version --no-verify",
-    "test": "mocha"
+    "release": "standard-version --no-verify"
   },
   "repository": {
     "type": "git",
@@ -32,11 +31,11 @@
     "htmlparser2"
   ],
   "dependencies": {
+    "@types/domhandler": "2.4.1",
     "domhandler": "2.3.0",
     "htmlparser2": "3.9.1"
   },
   "devDependencies": {
-    "@types/domhandler": "^2.4.1",
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
     "dtslint": "^0.5.9",

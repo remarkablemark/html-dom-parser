@@ -1,3 +1,5 @@
+// TypeScript Version: 3.3
+
 import { DomElement } from 'domhandler';
 
 /**
