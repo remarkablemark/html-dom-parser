@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "baseUrl": ".",
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": { "html-dom-parser": ["."], "html-dom-parser/lib/*": ["./lib/*"] }
+  },
+  "files": [
+    "index.d.ts",
+    "lib/domparser.d.ts",
+    "lib/html-to-dom-client.d.ts",
+    "lib/html-to-dom-server.d.ts",
+    "lib/utilities.d.ts",
+    "test/types/index.test.ts"
+  ]
+}

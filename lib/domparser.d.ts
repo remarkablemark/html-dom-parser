@@ -1,3 +1,5 @@
+// TypeScript Version: 3.3
+
 /**
  * Parses HTML string to DOM nodes.
  *
