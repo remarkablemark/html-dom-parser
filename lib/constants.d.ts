@@ -5,4 +5,4 @@
  *
  * @see {@link https://developer.mozilla.org/docs/Web/SVG/Element#SVG_elements_A_to_Z}
  */
-export const CASE_SENSITIVE_TAGS: string[];
+export const CASE_SENSITIVE_TAG_NAMES: string[];

@@ -6,7 +6,7 @@
 var assert = require('chai').assert;
 var cases = require('./cases');
 var htmlparser = require('htmlparser2');
-var CASE_SENSITIVE_TAGS = require('../lib/constants').CASE_SENSITIVE_TAGS;
+var CASE_SENSITIVE_TAG_NAMES = require('../lib/constants').CASE_SENSITIVE_TAG_NAMES;
 
 /**
  * Helper that creates and runs tests based on available cases.
@@ -52,7 +52,7 @@ function throwTests(parser) {
  */
 function testCaseSensitiveTags(parser) {
     it('preserves case of case-sensitive SVG tags', function() {
-        CASE_SENSITIVE_TAGS.forEach(function(tag) {
+        CASE_SENSITIVE_TAG_NAMES.forEach(function(tag) {
             var parsed = parser('<' + tag + '></' + tag + '>');
             assert.equal(parsed[0].name, tag);
         });
