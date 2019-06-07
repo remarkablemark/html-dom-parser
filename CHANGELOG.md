@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.2](https://github.com/remarkablemark/html-dom-parser/compare/v0.2.1...v0.2.2) (2019-06-07)
+
+
+### Bug Fixes
+
+* **utilities:** do not lowercase case-sensitive SVG tags ([4083004](https://github.com/remarkablemark/html-dom-parser/commit/4083004))
+
+
+### Performance Improvements
+
+* **utilities:** optimize case-sensitive tag replace with hash map ([6aa06ee](https://github.com/remarkablemark/html-dom-parser/commit/6aa06ee))
+
+
+
 ## [0.2.1](https://github.com/remarkablemark/html-dom-parser/compare/v0.2.0...v0.2.1) (2019-04-03)
 
 
