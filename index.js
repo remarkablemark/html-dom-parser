@@ -1,9 +1,7 @@
-'use strict';
-
 /**
- * Use the server/node parser by default.
+ * When running on Node.js, use the server parser.
+ * When bundling for the browser, use the client parser.
  *
- * But use the client parser when bundling for the browser:
- * https://github.com/substack/node-browserify#browser-field
+ * @see {@link https://github.com/substack/node-browserify#browser-field}
  */
 module.exports = require('./lib/html-to-dom-server');
