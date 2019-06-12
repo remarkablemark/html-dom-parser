@@ -1,14 +1,9 @@
-'use strict';
+const fs = require('fs');
+const path = require('path');
+const { minify } = require('html-minifier');
 
 /**
- * Module dependencies.
- */
-var fs = require('fs');
-var path = require('path');
-var minify = require('html-minifier').minify;
-
-/**
- * Helper for `readFileSync`.
+ * Reads file (helper for `readFileSync`).
  *
  * @param  {String} filepath - The file path.
  * @return {String}          - The file text.
@@ -21,8 +16,7 @@ function read(filepath) {
   }
 }
 
-// html
-module.exports.html = {
+const html = {
   directive: '<!DOCTYPE html>',
   head: '<head></head>',
   'head with title': '<head><title>content</title></head>',
@@ -48,7 +42,11 @@ module.exports.html = {
   })
 };
 
-// svg
-module.exports.svg = {
+const svg = {
   'complex svg': read('./complex.svg')
+};
+
+module.exports = {
+  html,
+  svg
 };

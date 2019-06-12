@@ -1,40 +1,33 @@
-'use strict';
+const { assert } = require('chai');
+const cases = require('./cases');
+const htmlparser = require('htmlparser2');
+const { CASE_SENSITIVE_TAG_NAMES } = require('../lib/constants');
 
 /**
- * Module dependencies.
- */
-var assert = require('chai').assert;
-var cases = require('./cases');
-var htmlparser = require('htmlparser2');
-var CASE_SENSITIVE_TAG_NAMES = require('../lib/constants')
-  .CASE_SENSITIVE_TAG_NAMES;
-
-/**
- * Helper that creates and runs tests based on available cases.
+ * Runs tests (a helper that creates and runs tests based on cases).
  *
  * @param {Function} parser - The parser.
  * @param {Object}   cases  - The cases.
  */
 function runTests(parser, cases) {
-  Object.keys(cases).forEach(function(type) {
-    it(type, function() {
-      var data = cases[type];
+  Object.keys(cases).forEach(type => {
+    it(type, () => {
+      const data = cases[type];
       assert.deepEqual(parser(data), htmlparser.parseDOM(data));
     });
   });
 }
 
 /**
- * Helper that runs tests and confirms an error is thrown.
+ * Throws tests (a helper that runs tests and verifies that error is thrown).
  *
  * @param {Function} parser - The parser.
  */
 function throwTests(parser) {
-  [undefined, null, 1, true, {}, ['Array'], Function, Date].forEach(function(
-    value
-  ) {
-    it('throws when argument is ' + value, function() {
-      assert.throws(function() {
+  const values = [undefined, null, 1, true, {}, ['Array'], Function, Date];
+  values.forEach(value => {
+    it(`throws when argument is ${value}`, () => {
+      assert.throws(() => {
         parser(value);
       }, TypeError);
     });
@@ -42,14 +35,14 @@ function throwTests(parser) {
 }
 
 /**
- * Tests the case sensitive SVG tags to make sure their case is preserved.
+ * Tests case-sensitive tags (SVG) to make sure their case is preserved.
  *
  * @param {Function} parser - The parser.
  */
 function testCaseSensitiveTags(parser) {
-  it('preserves case of case-sensitive SVG tags', function() {
-    CASE_SENSITIVE_TAG_NAMES.forEach(function(tag) {
-      var parsed = parser('<' + tag + '></' + tag + '>');
+  it('preserves case of case-sensitive SVG tags', () => {
+    CASE_SENSITIVE_TAG_NAMES.forEach(tag => {
+      const parsed = parser(`<${tag}></${tag}>`);
       assert.equal(parsed[0].name, tag);
     });
   });
@@ -58,32 +51,30 @@ function testCaseSensitiveTags(parser) {
 /**
  * Tests for parser.
  */
-describe('html-dom-parser', function() {
-  describe('server', function() {
-    var parser = require('../');
+describe('server parser', () => {
+  const parser = require('../');
 
-    // check if invalid parameter type throws error
-    throwTests(parser);
+  // check if invalid parameter type throws error
+  throwTests(parser);
 
-    // should be equivalent to `htmlparser2.parseDOM()`
-    runTests(parser, cases.html);
-    runTests(parser, cases.svg);
-  });
+  // should be equivalent to `htmlparser2.parseDOM()`
+  runTests(parser, cases.html);
+  runTests(parser, cases.svg);
+});
 
-  describe('client', function() {
-    var jsdomify = require('jsdomify').default;
-    jsdomify.create();
-    var parser = require('../lib/html-to-dom-client');
+describe('client parser', () => {
+  const jsdomify = require('jsdomify').default;
+  jsdomify.create();
+  const parser = require('../lib/html-to-dom-client');
 
-    // check if invalid parameter type throws error
-    throwTests(parser);
+  // check if invalid parameter type throws error
+  throwTests(parser);
 
-    // should return the same output as `htmlparser2.parseDOM()`
-    runTests(parser, cases.html);
-    runTests(parser, cases.svg);
+  // should return the same output as `htmlparser2.parseDOM()`
+  runTests(parser, cases.html);
+  runTests(parser, cases.svg);
 
-    testCaseSensitiveTags(parser);
+  testCaseSensitiveTags(parser);
 
-    jsdomify.destroy();
-  });
+  jsdomify.destroy();
 });
