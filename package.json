@@ -11,6 +11,7 @@
     "clean": "rm -rf dist",
     "test": "mocha",
     "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
     "dtslint": "dtslint .",
     "cover": "istanbul cover _mocha -- -R spec",
     "coveralls": "cat coverage/lcov.info | coveralls",
