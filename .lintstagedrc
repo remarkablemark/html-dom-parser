@@ -1,0 +1,10 @@
+{
+  "*.js": [
+    "npm run lint:fix",
+    "git add"
+  ],
+  "*.{md,yml}": [
+    "prettier --write",
+    "git add"
+  ]
+}
