@@ -9,13 +9,13 @@
     "build:min": "webpack index.js dist/html-dom-parser.min.js -p --output-library HTMLDOMParser --output-library-target umd",
     "build:unmin": "webpack index.js dist/html-dom-parser.js --output-library HTMLDOMParser --output-library-target umd",
     "clean": "rm -rf dist",
-    "test": "mocha",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "npm run lint -- --fix",
-    "dtslint": "dtslint .",
     "cover": "istanbul cover _mocha -- -R spec",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "prepublish": "npm run clean && npm run build",
+    "dtslint": "dtslint .",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "mocha",
     "release": "standard-version --no-verify"
   },
   "repository": {
