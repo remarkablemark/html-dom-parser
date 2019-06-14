@@ -33,25 +33,25 @@
   ],
   "dependencies": {
     "@types/domhandler": "2.4.1",
-    "domhandler": "2.3.0",
-    "htmlparser2": "3.9.1"
+    "domhandler": "2.4.2",
+    "htmlparser2": "3.10.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
-    "dtslint": "^0.5.9",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.4",
+    "dtslint": "^0.8.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "html-minifier": "^3.1.0",
+    "html-minifier": "^4.0.0",
     "husky": "^2.4.1",
     "istanbul": "^0.4.5",
     "jsdomify": "^3.1.0",
     "lint-staged": "^8.2.0",
-    "mocha": "^3.4.2",
+    "mocha": "^6.1.4",
     "prettier": "^1.18.2",
-    "standard-version": "^5.0.2",
+    "standard-version": "^6.0.1",
     "webpack": "^2.6.1"
   },
   "browser": {
