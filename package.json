@@ -1,7 +1,7 @@
 {
   "name": "html-dom-parser",
   "version": "0.2.2",
-  "description": "An HTML to DOM parser that works on the server and client.",
+  "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
   "scripts": {
@@ -26,10 +26,12 @@
     "url": "https://github.com/remarkablemark/html-dom-parser/issues"
   },
   "keywords": [
+    "html-dom-parser",
     "html",
     "dom",
     "parser",
-    "htmlparser2"
+    "htmlparser2",
+    "pojo"
   ],
   "dependencies": {
     "@types/domhandler": "2.4.1",
