@@ -55,6 +55,11 @@
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4"
   },
+  "files": [
+    "/dist",
+    "/index.d.ts",
+    "/lib"
+  ],
   "browser": {
     "./index.js": "./lib/html-to-dom-client.js"
   },
