@@ -10,7 +10,7 @@ script:
   - npm run lint
   - npm run dtslint
   - npm run test:coverage
-after_script:
+after_success:
   - npm run coveralls
 notifications:
   email: false
