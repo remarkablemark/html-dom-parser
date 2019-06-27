@@ -25,18 +25,19 @@ parse('<div>text</div>');
 Output:
 
 ```js
-[ { type: 'tag',
+[
+  {
+    type: 'tag',
     name: 'div',
     attribs: {},
-    children:
-     [ { data: 'text',
-         type: 'text',
-         next: null,
-         prev: null,
-         parent: [Circular] } ],
+    children: [
+      { data: 'text', type: 'text', next: null, prev: null, parent: [Circular] }
+    ],
     next: null,
     prev: null,
-    parent: null } ]
+    parent: null
+  }
+];
 ```
 
 [Repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/)
@@ -85,18 +86,25 @@ parse('<p class="primary" style="color: skyblue;">Hello world</p>');
 Output:
 
 ```js
-[ { type: 'tag',
+[
+  {
+    type: 'tag',
     name: 'p',
     attribs: { class: 'primary', style: 'color: skyblue;' },
-    children:
-     [ { data: 'Hello world',
-         type: 'text',
-         next: null,
-         prev: null,
-         parent: [Circular] } ],
+    children: [
+      {
+        data: 'Hello world',
+        type: 'text',
+        next: null,
+        prev: null,
+        parent: [Circular]
+      }
+    ],
     next: null,
     prev: null,
-    parent: null } ]
+    parent: null
+  }
+];
 ```
 
 The **server parser** is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM`.
@@ -115,7 +123,7 @@ $ npm run dtslint
 Run tests with coverage:
 
 ```sh
-$ npm run cover
+$ npm run test:coverage
 ```
 
 Lint files:
