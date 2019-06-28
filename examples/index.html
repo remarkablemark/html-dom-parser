@@ -1,0 +1,35 @@
+<textarea cols="50" rows="5"><div>text</div></textarea>
+<pre><code></code></pre>
+<script src="../dist/html-dom-parser.min.js"></script>
+<script>
+  var code = document.querySelector('code');
+  var textarea = document.querySelector('textarea');
+
+  function renderOutput(event) {
+    cache = [];
+    code.innerText = JSON.stringify(
+      window.HTMLDOMParser(event.target.value),
+      replacer,
+      2
+    );
+  }
+
+  textarea.addEventListener('input', renderOutput);
+  renderOutput({ target: textarea });
+
+  /**
+   * @see {@link https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json}
+   */
+  var cache;
+  function replacer(key, value) {
+    if (typeof value === 'object' && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // duplicate reference found
+        return '[Circular]';
+      }
+      // store value in our collection
+      cache.push(value);
+    }
+    return value;
+  }
+</script>
