@@ -7,15 +7,40 @@
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-dom-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-dom-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-dom-parser.svg)](https://david-dm.org/remarkablemark/html-dom-parser)
 
-An HTML to DOM parser that works on both the server and the browser:
+HTML to DOM parser that works on both the server (Node.js) and the client (browser):
 
 ```
 HTMLDOMParser(string[, options])
 ```
 
-The parser converts an HTML string to a JavaScript object that describes the DOM tree.
+It converts an HTML string to a JavaScript object that describes the DOM tree.
 
-[repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/)
+#### Example:
+
+```js
+var parse = require('html-dom-parser');
+parse('<div>text</div>');
+```
+
+Output:
+
+```js
+[
+  {
+    type: 'tag',
+    name: 'div',
+    attribs: {},
+    children: [
+      { data: 'text', type: 'text', next: null, prev: null, parent: [Circular] }
+    ],
+    next: null,
+    prev: null,
+    parent: null
+  }
+];
+```
+
+[Repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
 
 ## Installation
 
@@ -31,7 +56,7 @@ $ npm install html-dom-parser --save
 $ yarn add html-dom-parser
 ```
 
-[unpkg](https://unpkg.com/html-dom-parser/) (CDN):
+[CDN](https://unpkg.com/html-dom-parser/):
 
 ```html
 <script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.js"></script>
@@ -42,50 +67,91 @@ $ yarn add html-dom-parser
 
 ## Usage
 
-Import parser:
+Import the module:
 
 ```js
-// server
-var parser = require('html-dom-parser');
+// CommonJS
+var parse = require('html-dom-parser');
 
-// client
-var parser = window.HTMLDOMParser;
+// ES Modules
+import parse from 'html-dom-parser';
 ```
 
-Parse input:
+Parse markup:
 
 ```js
-parser('<p>Hello, world!</p>');
+parse('<p class="primary" style="color: skyblue;">Hello world</p>');
 ```
 
-Get output:
+Output:
 
 ```js
-[ { type: 'tag',
+[
+  {
+    type: 'tag',
     name: 'p',
-    attribs: {},
-    children:
-     [ { data: 'Hello, world!',
-         type: 'text',
-         next: null,
-         prev: null,
-         parent: [Circular] } ],
+    attribs: { class: 'primary', style: 'color: skyblue;' },
+    children: [
+      {
+        data: 'Hello world',
+        type: 'text',
+        next: null,
+        prev: null,
+        parent: [Circular]
+      }
+    ],
     next: null,
     prev: null,
-    parent: null } ]
+    parent: null
+  }
+];
 ```
 
-On the server-side (Node.js), the parser is a wrapper of `parseDOM` from [htmlparser2](https://github.com/fb55/htmlparser2).
+The **server parser** is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM`.
 
-On the client-side (browser), the parser uses the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to mimic the output schema of the server parser.
+The **client parser** mimics the server parser using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API.
 
 ## Testing
 
+Run tests:
+
 ```sh
 $ npm test
-$ npm run lint # npm run lint:fix
 $ npm run dtslint
 ```
+
+Run tests with coverage:
+
+```sh
+$ npm run test:coverage
+```
+
+Lint files:
+
+```sh
+$ npm run lint
+$ npm run dtslint
+```
+
+Fix lint errors:
+
+```sh
+$ npm run lint:fix
+```
+
+## Release
+
+Only collaborators with credentials can release and publish:
+
+```sh
+$ npm run release
+$ git push --follow-tags && npm publish
+```
+
+## Special Thanks
+
+- [Contributors](https://github.com/remarkablemark/html-dom-parser/graphs/contributors)
+- [htmlparser2](https://github.com/fb55/htmlparser2)
 
 ## License
 

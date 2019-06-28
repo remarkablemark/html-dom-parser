@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-    - stable
+  - stable
 cache:
-    directories:
-        - node_modules
+  directories:
+    - node_modules
 install:
-    - npm install
+  - npm install
 script:
-    - npm run lint
-    - npm run dtslint
-    - npm run cover
-after_script:
-    - npm run coveralls
+  - npm run lint
+  - npm run dtslint
+  - npm run test:coverage
+after_success:
+  - npm run coveralls
 notifications:
-    email: false
+  email: false
