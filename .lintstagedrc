@@ -3,7 +3,7 @@
     "npm run lint:fix",
     "git add"
   ],
-  "*.{md,yml}": [
+  "*.{html,json,md,yml}": [
     "prettier --write",
     "git add"
   ]
