@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/remarkablemark/html-dom-parser.svg?branch=master)](https://travis-ci.org/remarkablemark/html-dom-parser)
 [![Coverage Status](https://coveralls.io/repos/github/remarkablemark/html-dom-parser/badge.svg?branch=master)](https://coveralls.io/github/remarkablemark/html-dom-parser?branch=master)
 [![Dependency status](https://david-dm.org/remarkablemark/html-dom-parser.svg)](https://david-dm.org/remarkablemark/html-dom-parser)
+[![NPM downloads](https://img.shields.io/npm/dm/html-dom-parser.svg?style=flat-square)](https://www.npmjs.com/package/html-dom-parser)
 
 HTML to DOM parser that works on both the server (Node.js) and the client (browser):
 
