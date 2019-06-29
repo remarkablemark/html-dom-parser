@@ -25,20 +25,19 @@ parse('<div>text</div>');
 
 Output:
 
-```js
-[
-  {
-    type: 'tag',
+```
+[ { type: 'tag',
     name: 'div',
     attribs: {},
-    children: [
-      { data: 'text', type: 'text', next: null, prev: null, parent: [Circular] }
-    ],
+    children:
+     [ { data: 'text',
+         type: 'text',
+         next: null,
+         prev: null,
+         parent: [Circular] } ],
     next: null,
     prev: null,
-    parent: null
-  }
-];
+    parent: null } ]
 ```
 
 [Repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
@@ -86,31 +85,22 @@ parse('<p class="primary" style="color: skyblue;">Hello world</p>');
 
 Output:
 
-```js
-[
-  {
-    type: 'tag',
+```
+[ { type: 'tag',
     name: 'p',
     attribs: { class: 'primary', style: 'color: skyblue;' },
-    children: [
-      {
-        data: 'Hello world',
-        type: 'text',
-        next: null,
-        prev: null,
-        parent: [Circular]
-      }
-    ],
+    children:
+     [ { data: 'Hello world',
+         type: 'text',
+         next: null,
+         prev: null,
+         parent: [Circular] } ],
     next: null,
     prev: null,
-    parent: null
-  }
-];
+    parent: null } ]
 ```
 
-The **server parser** is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM`.
-
-The **client parser** mimics the server parser using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API.
+The _server parser_ is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM`; the _client parser_ mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API.
 
 ## Testing
 
