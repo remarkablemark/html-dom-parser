@@ -4,10 +4,10 @@ const htmlparser = require('htmlparser2');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../lib/constants');
 
 /**
- * Runs tests (a helper that creates and runs tests based on cases).
+ * Runs test cases.
  *
  * @param {Function} parser - The parser.
- * @param {Object}   cases  - The cases.
+ * @param {Object}   cases  - The test cases.
  */
 function runTests(parser, cases) {
   Object.keys(cases).forEach(type => {
@@ -62,7 +62,7 @@ describe('server parser', () => {
   runTests(parser, cases.svg);
 });
 
-describe('client parser', () => {
+describe('client parser in jsdom', () => {
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
   const parser = require('../lib/html-to-dom-client');
