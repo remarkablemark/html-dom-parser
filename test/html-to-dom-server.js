@@ -1,23 +1,9 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
 const cases = require('./cases');
+const runTests = require('./helpers/run-tests');
 const throwsError = require('./helpers/throws-error');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../lib/constants');
-
-/**
- * Runs test cases.
- *
- * @param {Function} parser - The parser.
- * @param {Object}   cases  - The test cases.
- */
-function runTests(parser, cases) {
-  Object.keys(cases).forEach(type => {
-    it(type, () => {
-      const data = cases[type];
-      assert.deepEqual(parser(data), htmlparser.parseDOM(data));
-    });
-  });
-}
 
 /**
  * Tests case-sensitive tags (SVG) to make sure their case is preserved.
@@ -39,8 +25,8 @@ describe('server parser', () => {
 
   // tests
   throwsError(parser);
-  runTests(parser, cases.html);
-  runTests(parser, cases.svg);
+  runTests(cases.html, parser, htmlparser.parseDOM);
+  runTests(cases.svg, parser, htmlparser.parseDOM);
 });
 
 describe('client parser in jsdom', () => {
@@ -51,8 +37,8 @@ describe('client parser in jsdom', () => {
 
   // tests
   throwsError(parser);
-  runTests(parser, cases.html);
-  runTests(parser, cases.svg);
+  runTests(cases.html, parser, htmlparser.parseDOM);
+  runTests(cases.svg, parser, htmlparser.parseDOM);
   testCaseSensitiveTags(parser);
 
   // after
