@@ -1,6 +1,7 @@
 const { assert } = require('chai');
-const cases = require('./cases');
 const htmlparser = require('htmlparser2');
+const cases = require('./cases');
+const throwsError = require('./helpers/throws-error');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../lib/constants');
 
 /**
@@ -19,22 +20,6 @@ function runTests(parser, cases) {
 }
 
 /**
- * Throws tests (a helper that runs tests and verifies that error is thrown).
- *
- * @param {Function} parser - The parser.
- */
-function throwTests(parser) {
-  const values = [undefined, null, 1, true, {}, ['Array'], Function, Date];
-  values.forEach(value => {
-    it(`throws when argument is ${value}`, () => {
-      assert.throws(() => {
-        parser(value);
-      }, TypeError);
-    });
-  });
-}
-
-/**
  * Tests case-sensitive tags (SVG) to make sure their case is preserved.
  *
  * @param {Function} parser - The parser.
@@ -48,33 +33,28 @@ function testCaseSensitiveTags(parser) {
   });
 }
 
-/**
- * Tests for parser.
- */
 describe('server parser', () => {
+  // before
   const parser = require('../');
 
-  // check if invalid parameter type throws error
-  throwTests(parser);
-
-  // should be equivalent to `htmlparser2.parseDOM()`
+  // tests
+  throwsError(parser);
   runTests(parser, cases.html);
   runTests(parser, cases.svg);
 });
 
 describe('client parser in jsdom', () => {
+  // before
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
   const parser = require('../lib/html-to-dom-client');
 
-  // check if invalid parameter type throws error
-  throwTests(parser);
-
-  // should return the same output as `htmlparser2.parseDOM()`
+  // tests
+  throwsError(parser);
   runTests(parser, cases.html);
   runTests(parser, cases.svg);
-
   testCaseSensitiveTags(parser);
 
+  // after
   jsdomify.destroy();
 });
