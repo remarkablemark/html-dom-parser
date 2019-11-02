@@ -19,11 +19,14 @@ function runTests(testCases, expectedParser, actualParser, assert) {
     throw new TypeError('Missing or invalid actual parser');
   }
 
-  Object.keys(testCases).forEach(function(type) {
-    var testCase = testCases[type];
+  testCases.forEach(function(testCase) {
+    var _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
-    it(type, function() {
-      assert.deepEqual(expectedParser(testCase), actualParser(testCase));
+    _it('parses ' + testCase.name, function() {
+      assert.deepEqual(
+        expectedParser(testCase.data),
+        actualParser(testCase.data)
+      );
     });
   });
 }
