@@ -9,7 +9,9 @@ install:
 script:
   - npm run lint
   - npm run dtslint
-  - npm run test:coverage
+  - npm test
+  - npm run test:server:coverage
+  - npm run build
 after_success:
   - npm run coveralls
 notifications:
