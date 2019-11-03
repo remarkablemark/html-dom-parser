@@ -13,7 +13,7 @@
     "dtslint": "dtslint .",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run lint && npm run dtslint && npm test && npm run clean && npm run build",
     "release": "standard-version --no-verify",
     "test": "mocha test/server",
     "test:coverage": "istanbul cover _mocha -- test/server"
