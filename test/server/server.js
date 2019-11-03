@@ -1,9 +1,9 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
-const cases = require('./cases');
-const runTests = require('./helpers/run-tests');
-const throwsError = require('./helpers/throws-error');
-const { CASE_SENSITIVE_TAG_NAMES } = require('../lib/constants');
+const cases = require('../cases');
+const runTests = require('../helpers/run-tests');
+const throwsError = require('../helpers/throws-error');
+const { CASE_SENSITIVE_TAG_NAMES } = require('../../lib/constants');
 
 /**
  * Tests case-sensitive tags (SVG) to make sure their case is preserved.
@@ -21,7 +21,7 @@ function testCaseSensitiveTags(parser) {
 
 describe('server parser', () => {
   // before
-  const parser = require('../');
+  const parser = require('../..');
 
   // tests
   throwsError(parser);
@@ -33,7 +33,7 @@ describe('client parser in jsdom', () => {
   // before
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
-  const parser = require('../lib/html-to-dom-client');
+  const parser = require('../../lib/html-to-dom-client');
 
   // tests
   throwsError(parser);

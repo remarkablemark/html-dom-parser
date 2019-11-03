@@ -15,8 +15,8 @@
     "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run clean && npm run build",
     "release": "standard-version --no-verify",
-    "test": "mocha",
-    "test:coverage": "istanbul cover _mocha -- -R spec"
+    "test": "mocha test/server",
+    "test:coverage": "istanbul cover _mocha -- test/server"
   },
   "repository": {
     "type": "git",
