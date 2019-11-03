@@ -186,5 +186,9 @@ module.exports = [
   {
     name: 'closing tag',
     data: '</div>'
+  },
+  {
+    name: 'empty string',
+    data: ''
   }
 ];
