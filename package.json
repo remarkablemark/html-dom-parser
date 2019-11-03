@@ -15,7 +15,11 @@
     "lint:fix": "npm run lint -- --fix",
     "prepublishOnly": "npm run lint && npm run dtslint && npm test && npm run clean && npm run build",
     "release": "standard-version --no-verify",
-    "test": "npm run test:server",
+    "test": "npm run test:server && npm run test:client",
+    "test:client": "npm run test:client:watch -- --single-run",
+    "test:client:build": "webpack node_modules/htmlparser2/lib/index.js -o dist/htmlparser2.js --mode production --output-library htmlparser2 --output-library-target umd",
+    "test:client:setup": "test -f dist/htmlparser2.js || npm run test:client:build",
+    "test:client:watch": "npm run test:client:setup && karma start",
     "test:server": "mocha test/server",
     "test:server:coverage": "istanbul cover _mocha -- test/server"
   },
