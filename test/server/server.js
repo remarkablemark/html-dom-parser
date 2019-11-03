@@ -1,8 +1,7 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
 const cases = require('../cases');
-const runTests = require('../helpers/run-tests');
-const throwsError = require('../helpers/throws-error');
+const { runTests, throwsError } = require('../helpers');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../../lib/constants');
 
 /**
