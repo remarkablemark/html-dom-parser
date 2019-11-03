@@ -1,24 +1,35 @@
+// skip test cases where PhantomJS does not support `DOMParser.parseFromString`
+var isPhantomJS =
+  typeof navigator === 'object' && navigator.userAgent
+    ? /PhantomJS/i.test(navigator.userAgent)
+    : false;
+
 module.exports = [
   // high-level tags
   {
     name: 'empty html',
-    data: '<html></html>'
+    data: '<html></html>',
+    skip: isPhantomJS
   },
   {
     name: 'html with attribute',
-    data: '<html lang="en"></html>'
+    data: '<html lang="en"></html>',
+    skip: isPhantomJS
   },
   {
     name: 'html with empty head and body',
-    data: '<html><head></head><body></body></html>'
+    data: '<html><head></head><body></body></html>',
+    skip: isPhantomJS
   },
   {
     name: 'html with empty head',
-    data: '<html><head></head></html>'
+    data: '<html><head></head></html>',
+    skip: isPhantomJS
   },
   {
     name: 'html with empty body',
-    data: '<html><body></body></html>'
+    data: '<html><body></body></html>',
+    skip: isPhantomJS
   },
 
   {
@@ -161,7 +172,8 @@ module.exports = [
   },
   {
     name: 'directive with html',
-    data: '<!DOCTYPE html><html></html>'
+    data: '<!DOCTYPE html><html></html>',
+    skip: isPhantomJS
   },
   {
     name: 'comment',
