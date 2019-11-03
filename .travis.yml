@@ -1,3 +1,7 @@
+addons:
+  chrome: stable
+services:
+  - xvfb
 language: node_js
 node_js:
   - stable
@@ -6,10 +10,14 @@ cache:
     - node_modules
 install:
   - npm install
+before_script:
+  - export DISPLAY=:99.0
 script:
   - npm run lint
   - npm run dtslint
-  - npm run test:coverage
+  - npm test
+  - npm run test:server:coverage
+  - npm run build
 after_success:
   - npm run coveralls
 notifications:
