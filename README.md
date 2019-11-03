@@ -104,30 +104,40 @@ The _server parser_ is a wrapper of [htmlparser2](https://github.com/fb55/htmlpa
 
 ## Testing
 
-Run tests:
+Run server and client tests:
 
 ```sh
 $ npm test
-$ npm run dtslint
 ```
 
-Run tests with coverage:
+Run server tests with coverage:
 
 ```sh
-$ npm run test:coverage
+$ npm run test:server:coverage
+
+# generate html report
+$ npm run test:server:coverage:report
+```
+
+Run client tests:
+
+```sh
+$ npm run test:client
 ```
 
 Lint files:
 
 ```sh
 $ npm run lint
-$ npm run dtslint
+
+# fix lint errors
+$ npm run lint:fix
 ```
 
-Fix lint errors:
+Test TypeScript declaration file for style and correctness:
 
 ```sh
-$ npm run lint:fix
+$ npm run dtslint
 ```
 
 ## Release
