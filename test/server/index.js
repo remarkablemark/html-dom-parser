@@ -48,14 +48,6 @@ describe('server parser', () => {
     expect(parserEndSpy.called).to.equal(true);
   });
 
-  it.skip('uses the cached instance of `domhandler` if options is undefined', () => {
-    expect(DomHandlerSpy.callCount).to.equal(1);
-    expect(ParserSpy.callCount).to.equal(1);
-    parser(html);
-    expect(DomHandlerSpy.callCount).to.equal(1);
-    expect(ParserSpy.callCount).to.equal(2);
-  });
-
   it('passes options to `domhandler` and arguments to `htmlparser2/lib/Parser`', () => {
     const options = { decodeEntities: true };
     parser(html, options);
