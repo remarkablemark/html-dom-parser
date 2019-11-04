@@ -31,6 +31,21 @@ module.exports = [
     data: '<html><body></body></html>',
     skip: isPhantomJS
   },
+  {
+    name: 'unclosed html and head tags',
+    data: '<html><head>',
+    skip: isPhantomJS
+  },
+  {
+    name: 'unclosed html and body tags',
+    data: '<html><body>',
+    skip: isPhantomJS
+  },
+  {
+    name: 'unclosed html, head, and body tags',
+    data: '<html><head><body>',
+    skip: isPhantomJS
+  },
 
   {
     name: 'empty head',
