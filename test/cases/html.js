@@ -5,7 +5,7 @@ var isPhantomJS =
     : false;
 
 module.exports = [
-  // high-level tags
+  // html tags
   {
     name: 'empty html',
     data: '<html></html>',
@@ -47,17 +47,30 @@ module.exports = [
     skip: isPhantomJS
   },
 
+  // head and body tags
+  {
+    name: 'unclosed head',
+    data: '<head>'
+  },
   {
     name: 'empty head',
     data: '<head></head>'
   },
   {
     name: 'head with title',
-    data: '<head><title>Page</title></head>'
+    data: '<head><title>Text</title></head>'
   },
   {
     name: 'empty head and body',
     data: '<head></head><body></body>'
+  },
+  {
+    name: 'unclosed head and body',
+    data: '<head><body>'
+  },
+  {
+    name: 'unclosed body',
+    data: '<body>'
   },
   {
     name: 'empty body',
@@ -72,7 +85,7 @@ module.exports = [
     data: '<body><p>text</p></body>'
   },
 
-  // low-level tags
+  // common tags
   {
     name: 'empty div',
     data: '<div></div>'
@@ -199,11 +212,31 @@ module.exports = [
     data: 'text'
   },
   {
+    name: 'unclosed tag',
+    data: '<div>'
+  },
+  {
+    name: 'unclosed tags',
+    data: '<p><span>'
+  },
+  {
     name: 'closing tag',
     data: '</div>'
   },
   {
     name: 'empty string',
     data: ''
+  },
+  {
+    name: 'space',
+    data: ' '
+  },
+  {
+    name: 'custom tag',
+    data: '<custom>'
+  },
+  {
+    name: 'custom tags',
+    data: '<foo><bar>'
   }
 ];
