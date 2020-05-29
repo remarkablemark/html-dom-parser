@@ -20,6 +20,12 @@ const html = [
     data: minify(read('./complex.html'), {
       collapseWhitespace: true
     })
+  },
+  {
+    name: 'html with script',
+    data: minify(read('./with-script.html'), {
+      collapseWhitespace: true
+    })
   }
 ];
 
