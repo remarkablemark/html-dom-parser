@@ -195,6 +195,26 @@ module.exports = [
     data: '<script type="application/json">{"foo":"bar"}</script>'
   },
 
+  // noscript tag
+  {
+    name: 'empty noscript',
+    data: '<noscript></noscript>'
+  },
+  {
+    name: 'noscript with text',
+    data: '<noscript>JS is not enabled</noscript>'
+  },
+  {
+    name: 'noscript with p',
+    data: '<noscript><p>JS is disabled</p></noscript>',
+    get skip() {
+      // client parser renders noscript incorrectly in jsdom
+      // template renders noscript children as text instead of nodes
+      var isJSDOM = typeof window === 'object' && window.name === 'nodejs';
+      return isJSDOM;
+    }
+  },
+
   // style tag
   {
     name: 'empty style',
