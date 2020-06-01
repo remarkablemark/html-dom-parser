@@ -247,6 +247,10 @@ module.exports = [
     name: 'comment',
     data: '<!-- comment -->'
   },
+  {
+    name: 'conditional comment',
+    data: '<!--[if lt IE 9]>Below IE 9<![endif]-->'
+  },
 
   // text
   {
