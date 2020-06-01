@@ -183,11 +183,23 @@ module.exports = [
 
   // script tag
   {
+    name: 'empty script',
+    data: '<script></script>'
+  },
+  {
     name: 'script',
     data: '<script>console.log(1 < 2);</script>'
   },
+  {
+    name: 'script with json',
+    data: '<script type="application/json">{"foo":"bar"}</script>'
+  },
 
   // style tag
+  {
+    name: 'empty style',
+    data: '<style></style>'
+  },
   {
     name: 'style',
     data: '<style>body > .foo { color: #f00; }</style>'
