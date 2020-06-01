@@ -231,6 +231,12 @@ module.exports = [
     data: '<audio controls="controls" preload="none" width="640">'
   },
 
+  // html entities
+  {
+    name: 'non-breaking space',
+    data: '&nbsp;'
+  },
+
   // directive
   {
     name: 'directive',
