@@ -234,7 +234,17 @@ module.exports = [
     data: '<foo><bar>'
   },
 
-  // special
+  // invalid
+  {
+    name: 'self-closing div',
+    data: '<div/>'
+  },
+  {
+    name: 'self-closing div and p',
+    data: '<div/><p/>'
+  },
+
+  // misc
   {
     name: 'unclosed tag',
     data: '<div>'
