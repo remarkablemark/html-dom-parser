@@ -193,7 +193,7 @@ module.exports = [
     data: '<style>body > .foo { color: #f00; }</style>'
   },
 
-  // special
+  // directive
   {
     name: 'directive',
     data: '<!doctype html>'
@@ -203,14 +203,38 @@ module.exports = [
     data: '<!DOCTYPE html><html></html>',
     skip: isPhantomJS
   },
+
+  // comment
   {
     name: 'comment',
     data: '<!-- comment -->'
+  },
+
+  // text
+  {
+    name: 'empty string',
+    data: ''
   },
   {
     name: 'text',
     data: 'text'
   },
+  {
+    name: 'space',
+    data: ' '
+  },
+
+  // custom tag
+  {
+    name: 'custom tag',
+    data: '<custom>'
+  },
+  {
+    name: 'custom tags',
+    data: '<foo><bar>'
+  },
+
+  // special
   {
     name: 'unclosed tag',
     data: '<div>'
@@ -222,21 +246,5 @@ module.exports = [
   {
     name: 'closing tag',
     data: '</div>'
-  },
-  {
-    name: 'empty string',
-    data: ''
-  },
-  {
-    name: 'space',
-    data: ' '
-  },
-  {
-    name: 'custom tag',
-    data: '<custom>'
-  },
-  {
-    name: 'custom tags',
-    data: '<foo><bar>'
   }
 ];
