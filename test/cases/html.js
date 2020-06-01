@@ -225,6 +225,12 @@ module.exports = [
     data: '<style>body > .foo { color: #f00; }</style>'
   },
 
+  // html5 tags
+  {
+    name: 'audio',
+    data: '<audio controls="controls" preload="none" width="640">'
+  },
+
   // directive
   {
     name: 'directive',
