@@ -7,7 +7,7 @@ var values = [
   false,
   {},
   [],
-  function() {},
+  function () {},
   new Date()
 ];
 
@@ -22,9 +22,9 @@ function throwsError(parser, assert) {
     assert = require('assert');
   }
 
-  values.forEach(function(value) {
-    it('throws error for argument: ' + value, function() {
-      assert.throws(function() {
+  values.forEach(function (value) {
+    it('throws error for argument: ' + value, function () {
+      assert.throws(function () {
         parser(value);
       }, TypeError);
     });
