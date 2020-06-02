@@ -68,6 +68,7 @@
     "prettier": "^2.0.5",
     "sinon": "^9.0.2",
     "standard-version": "^6",
+    "typescript": "^3.9.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
