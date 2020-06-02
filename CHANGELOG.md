@@ -1,8 +1,23 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.2.3](https://github.com/remarkablemark/html-dom-parser/compare/v0.2.2...v0.2.3) (2019-11-04)
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/remarkablemark/html-dom-parser/compare/v0.2.3...v0.3.0) (2020-06-02)
+
+
+### Features
+
+* **lib:** throw error if browser does not support parsing methods ([de327af](https://github.com/remarkablemark/html-dom-parser/commit/de327af))
+
+
+### Performance Improvements
+
+* **lib:** return `[]` if empty string is passed to server parser ([9850d05](https://github.com/remarkablemark/html-dom-parser/commit/9850d05))
+
+
+
+## [0.2.3](https://github.com/remarkablemark/html-dom-parser/compare/v0.2.2...v0.2.3) (2019-11-04)
 
 
 ### Bug Fixes
