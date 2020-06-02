@@ -19,6 +19,6 @@ script:
   - npm run test:server:coverage
   - npm run build
 after_success:
-  - npm run coveralls
+  - npx nyc report --reporter=text-lcov | npx coveralls
 notifications:
   email: false
