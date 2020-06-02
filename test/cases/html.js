@@ -183,17 +183,61 @@ module.exports = [
 
   // script tag
   {
+    name: 'empty script',
+    data: '<script></script>'
+  },
+  {
     name: 'script',
     data: '<script>console.log(1 < 2);</script>'
   },
+  {
+    name: 'script with json',
+    data: '<script type="application/json">{"foo":"bar"}</script>'
+  },
+
+  // noscript tag
+  {
+    name: 'empty noscript',
+    data: '<noscript></noscript>'
+  },
+  {
+    name: 'noscript with text',
+    data: '<noscript>JS is not enabled</noscript>'
+  },
+  {
+    name: 'noscript with p',
+    data: '<noscript><p>JS is disabled</p></noscript>',
+    get skip() {
+      // client parser renders noscript incorrectly in jsdom
+      // template renders noscript children as text instead of nodes
+      var isJSDOM = typeof window === 'object' && window.name === 'nodejs';
+      return isJSDOM;
+    }
+  },
 
   // style tag
+  {
+    name: 'empty style',
+    data: '<style></style>'
+  },
   {
     name: 'style',
     data: '<style>body > .foo { color: #f00; }</style>'
   },
 
-  // special
+  // html5 tags
+  {
+    name: 'audio',
+    data: '<audio controls="controls" preload="none" width="640">'
+  },
+
+  // html entities
+  {
+    name: 'non-breaking space',
+    data: '&nbsp;'
+  },
+
+  // directive
   {
     name: 'directive',
     data: '<!doctype html>'
@@ -203,14 +247,52 @@ module.exports = [
     data: '<!DOCTYPE html><html></html>',
     skip: isPhantomJS
   },
+
+  // comment
   {
     name: 'comment',
     data: '<!-- comment -->'
   },
   {
+    name: 'conditional comment',
+    data: '<!--[if lt IE 9]>Below IE 9<![endif]-->'
+  },
+
+  // text
+  {
+    name: 'empty string',
+    data: ''
+  },
+  {
     name: 'text',
     data: 'text'
   },
+  {
+    name: 'space',
+    data: ' '
+  },
+
+  // custom tag
+  {
+    name: 'custom tag',
+    data: '<custom>'
+  },
+  {
+    name: 'custom tags',
+    data: '<foo><bar>'
+  },
+
+  // invalid
+  {
+    name: 'self-closing div',
+    data: '<div/>'
+  },
+  {
+    name: 'self-closing div and p',
+    data: '<div/><p/>'
+  },
+
+  // misc
   {
     name: 'unclosed tag',
     data: '<div>'
@@ -222,21 +304,5 @@ module.exports = [
   {
     name: 'closing tag',
     data: '</div>'
-  },
-  {
-    name: 'empty string',
-    data: ''
-  },
-  {
-    name: 'space',
-    data: ' '
-  },
-  {
-    name: 'custom tag',
-    data: '<custom>'
-  },
-  {
-    name: 'custom tags',
-    data: '<foo><bar>'
   }
 ];
