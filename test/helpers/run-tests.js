@@ -24,10 +24,10 @@ module.exports = function runTests(
     throw new TypeError('Missing or invalid actual parser');
   }
 
-  testCases.forEach(function(testCase) {
+  testCases.forEach(function (testCase) {
     var _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
-    _it('parses ' + testCase.name, function() {
+    _it('parses ' + testCase.name, function () {
       // enable decodeEntities for both parsers because
       // entities are decoded by client parser in jsdom
       assert.deepEqual(

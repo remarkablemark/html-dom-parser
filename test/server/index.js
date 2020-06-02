@@ -21,7 +21,7 @@ const dom = [
 ];
 
 function clearRequireCache() {
-  Object.keys(require.cache).forEach(function(key) {
+  Object.keys(require.cache).forEach(function (key) {
     delete require.cache[key];
   });
 }
@@ -29,10 +29,10 @@ function clearRequireCache() {
 describe('server parser', () => {
   // before
   parserEndSpy = sinon.spy();
-  ParserSpy = sinon.spy(function() {
+  ParserSpy = sinon.spy(function () {
     this.end = parserEndSpy;
   });
-  DomHandlerSpy = sinon.spy(function() {
+  DomHandlerSpy = sinon.spy(function () {
     this.dom = dom;
   });
 
