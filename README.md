@@ -137,7 +137,7 @@ $ npm run lint:fix
 Test TypeScript declaration file for style and correctness:
 
 ```sh
-$ npm run dtslint
+$ npm run lint:dts
 ```
 
 ## Release

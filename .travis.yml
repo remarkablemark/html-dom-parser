@@ -14,7 +14,7 @@ before_script:
   - export DISPLAY=:99.0
 script:
   - npm run lint
-  - npm run dtslint
+  - npm run lint:dts
   - npm test
   - npm run test:server:coverage
   - npm run build
