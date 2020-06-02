@@ -50,7 +50,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.7",
     "dtslint": "^1.0.2",
-    "eslint": "^6.6.0",
+    "eslint": "^7.1.0",
     "eslint-plugin-prettier": "^3.1.1",
     "html-minifier": "^4.0.0",
     "husky": "^4.2.5",

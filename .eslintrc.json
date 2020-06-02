@@ -11,6 +11,8 @@
   },
   "plugins": ["prettier"],
   "rules": {
+    "no-debugger": "error",
+    "no-console": "error",
     "prettier/prettier": "error"
   }
 }
