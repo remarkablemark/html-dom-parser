@@ -69,7 +69,7 @@
     "rollup": "^2.12.1",
     "rollup-plugin-uglify": "^6.0.4",
     "sinon": "^9.0.2",
-    "standard-version": "^5",
+    "standard-version": "^8",
     "typescript": "^3.9.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
