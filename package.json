@@ -14,9 +14,8 @@
     "release": "standard-version --no-verify",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
-    "test:client:build": "webpack node_modules/htmlparser2/lib/index.js -o dist/htmlparser2.js --mode production --output-library htmlparser2 --output-library-target umd",
-    "test:client:setup": "test -f dist/htmlparser2.js || npm run test:client:build",
-    "test:client:watch": "npm run test:client:setup && karma start",
+    "test:client:build": "webpack --config webpack.test.config.js",
+    "test:client:watch": "npm run test:client:build && karma start",
     "test:server": "mocha test/server",
     "test:server:coverage": "nyc npm run test:server",
     "test:server:coverage:report": "nyc report --reporter=html"
@@ -71,8 +70,8 @@
     "sinon": "^9.0.2",
     "standard-version": "^5",
     "typescript": "^4.1.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   },
   "files": [
     "/dist",
