@@ -13,7 +13,7 @@ module.exports = config => {
       'test/helpers/*.js'
     ],
     exclude: ['lib/html-to-dom-server.js'],
-    browsers: ['PhantomJS', 'Chrome'],
+    browsers: ['Chrome'],
     preprocessors: {
       'dist/**/*.js': ['commonjs'],
       'lib/**/*.js': ['commonjs'],

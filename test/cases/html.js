@@ -1,50 +1,36 @@
-// skip test cases where PhantomJS does not support `DOMParser.parseFromString`
-var isPhantomJS =
-  typeof navigator === 'object' && navigator.userAgent
-    ? /PhantomJS/i.test(navigator.userAgent)
-    : false;
-
 module.exports = [
   // html tags
   {
     name: 'empty html',
-    data: '<html></html>',
-    skip: isPhantomJS
+    data: '<html></html>'
   },
   {
     name: 'html with attribute',
-    data: '<html lang="en"></html>',
-    skip: isPhantomJS
+    data: '<html lang="en"></html>'
   },
   {
     name: 'html with empty head and body',
-    data: '<html><head></head><body></body></html>',
-    skip: isPhantomJS
+    data: '<html><head></head><body></body></html>'
   },
   {
     name: 'html with empty head',
-    data: '<html><head></head></html>',
-    skip: isPhantomJS
+    data: '<html><head></head></html>'
   },
   {
     name: 'html with empty body',
-    data: '<html><body></body></html>',
-    skip: isPhantomJS
+    data: '<html><body></body></html>'
   },
   {
     name: 'unclosed html and head tags',
-    data: '<html><head>',
-    skip: isPhantomJS
+    data: '<html><head>'
   },
   {
     name: 'unclosed html and body tags',
-    data: '<html><body>',
-    skip: isPhantomJS
+    data: '<html><body>'
   },
   {
     name: 'unclosed html, head, and body tags',
-    data: '<html><head><body>',
-    skip: isPhantomJS
+    data: '<html><head><body>'
   },
 
   // head and body tags
@@ -244,8 +230,7 @@ module.exports = [
   },
   {
     name: 'directive with html',
-    data: '<!DOCTYPE html><html></html>',
-    skip: isPhantomJS
+    data: '<!DOCTYPE html><html></html>'
   },
 
   // comment
