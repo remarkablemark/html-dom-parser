@@ -10,7 +10,7 @@ const htmlCases = require('./html');
  * @return {String}          - The file text.
  */
 function read(filepath) {
-  return fs.readFileSync(path.join(__dirname, filepath), 'utf8');
+  return fs.readFileSync(path.resolve(__dirname, filepath), 'utf8');
 }
 
 const html = [
