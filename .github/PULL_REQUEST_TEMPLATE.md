@@ -22,6 +22,7 @@ To check an item, place an "x" in the box like so: `- [x] Tests`
 -->
 
 - [ ] Tests
+- [ ] Types
 - [ ] Documentation
 
 <!--
