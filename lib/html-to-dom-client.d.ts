@@ -1,11 +1,11 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
 import { DomElement } from 'domhandler';
 
 /**
- * Parses HTML and reformats DOM nodes output.
+ * Parses HTML string to DOM nodes in browser.
  *
- * @param - Raw string of HTML to parse.
- * @returns Parsed DomElements.
+ * @param  - HTML markup.
+ * @return - DOM elements.
  */
-export default function parseDOM(html: string): DomElement[];
+export default function HTMLDOMParser(html: string): DomElement[];
