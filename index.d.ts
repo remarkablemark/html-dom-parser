@@ -1,4 +1,3 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
-import htmlToDomServer from './lib/html-to-dom-server';
-export default htmlToDomServer;
+export { default } from './lib/html-to-dom-server';

@@ -1,4 +1,4 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
 /**
  * SVG elements, unlike HTML elements, are case-sensitive.

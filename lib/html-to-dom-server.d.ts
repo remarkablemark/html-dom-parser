@@ -1,16 +1,18 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
 import { DomHandlerOptions, DomElement } from 'domhandler';
 
 /**
- * Parses HTML string to DOM nodes (server).
+ * Parses HTML string to DOM nodes in Node.js.
  *
- * @remarks
  * This is the same method as `require('htmlparser2').parseDOM`
  * https://github.com/fb55/htmlparser2/blob/v3.9.1/lib/index.js#L39-L43
  *
- * @param - Raw string of HTML to parse.
- * @param - Options to pass to domhandler (See https://github.com/fb55/DomHandler#readme).
- * @returns Parsed DomElements.
+ * @param  - HTML markup.
+ * @param  - Parser options (https://github.com/fb55/domhandler/tree/v2.4.2#readme).
+ * @return - DOM elements.
  */
-export default function parseDOM(html: string, options?: DomHandlerOptions): DomElement[];
+export default function HTMLDOMParser(
+  html: string,
+  options?: DomHandlerOptions
+): DomElement[];
