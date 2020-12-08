@@ -1,9 +1,9 @@
-// TypeScript Version: 3.3
+// TypeScript Version: 4.1
 
 /**
  * Parses HTML string to DOM nodes.
  *
- * @param - Raw string of HTML to parse.
- * @returns NodeList or empty array.
+ * @param  - HTML markup.
+ * @return - NodeList.
  */
-export default function parseDOM(html: string): NodeList | [];
+export default function domparser(html: string): NodeList;
