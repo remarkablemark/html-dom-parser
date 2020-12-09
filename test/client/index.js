@@ -8,14 +8,16 @@ describe('client parser', function () {
   helpers.throwsError(clientParser, assert);
   helpers.runTests(htmlCases, clientParser, serverParser, assert);
 
-  it.skip('performance', function () {
-    var html = '<div>test</div>';
-    var start = performance.now();
-    var times = 1000;
-    while (--times) {
-      clientParser(html);
-    }
-    var end = performance.now();
-    console.log('performance: ' + (end - start) + ' milliseconds'); // eslint-disable-line no-console
+  describe('performance', function () {
+    it('executes 1000 times in less than 50ms', function () {
+      var times = 1000;
+      var start = performance.now();
+      while (--times) {
+        clientParser('<div>test</div>');
+      }
+      var end = performance.now();
+      var elapsed = end - start;
+      assert.isBelow(elapsed, 50);
+    });
   });
 });
