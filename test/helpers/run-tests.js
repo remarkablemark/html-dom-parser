@@ -1,17 +1,12 @@
 /**
  * Runs tests.
  *
- * @param {Object}   testCases      - The test cases.
- * @param {Function} expectedParser - The expected parser.
- * @param {Function} actualParser   - The actual parser.
- * @param {Function} [assert]       - The assertion module.
+ * @param {Object}   testCases      - Test cases.
+ * @param {Function} expectedParser - Expected parser.
+ * @param {Function} actualParser   - Actual parser.
+ * @param {Function} [assert]       - Assertion module.
  */
-module.exports = function runTests(
-  testCases,
-  expectedParser,
-  actualParser,
-  assert
-) {
+function runTests(testCases, expectedParser, actualParser, assert) {
   if (typeof assert !== 'function') {
     assert = require('assert');
   }
@@ -24,16 +19,20 @@ module.exports = function runTests(
     throw new TypeError('Missing or invalid actual parser');
   }
 
+  // enable `decodeEntities` for both parsers
+  // because entities are decoded on the browser
+  var parserOptions = { decodeEntities: true };
+
   testCases.forEach(function (testCase) {
     var _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
     _it('parses ' + testCase.name, function () {
-      // enable decodeEntities for both parsers because
-      // entities are decoded by client parser in jsdom
       assert.deepEqual(
-        expectedParser(testCase.data, { decodeEntities: true }),
-        actualParser(testCase.data, { decodeEntities: true })
+        actualParser(testCase.data, parserOptions),
+        expectedParser(testCase.data, parserOptions)
       );
     });
   });
-};
+}
+
+module.exports = runTests;
