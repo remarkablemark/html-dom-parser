@@ -69,6 +69,14 @@ module.exports = config => {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
+    // Client options
+    client: {
+      mocha: {
+        // change Karma's `debug.html` to the Mocha web reporter
+        reporter: 'html'
+      }
+    },
+
     // Mocha reporter options
     // https://www.npmjs.com/package/karma-mocha-reporter
     mochaReporter: {
