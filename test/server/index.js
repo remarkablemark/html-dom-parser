@@ -2,69 +2,63 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const mock = require('mock-require');
 
-let parser;
-let ParserSpy;
-let parserEndSpy;
-let DomHandlerSpy;
-
-const html = '<html>';
-const dom = [
-  {
-    type: 'tag',
-    name: 'html',
-    attribs: {},
-    children: [],
-    next: null,
-    prev: null,
-    parent: null
-  }
-];
-
-function clearRequireCache() {
-  Object.keys(require.cache).forEach(function (key) {
+function resetModules() {
+  Object.keys(require.cache).forEach(key => {
     delete require.cache[key];
   });
 }
 
+const parserEnd = sinon.spy();
+const Parser = sinon.spy(function () {
+  this.end = parserEnd;
+});
+
+const DomHandler = sinon.spy(function () {
+  this.dom = [
+    {
+      type: 'tag',
+      name: 'html',
+      attribs: {},
+      children: [],
+      next: null,
+      prev: null,
+      parent: null
+    }
+  ];
+});
+
+const html = '<html>';
+
 describe('server parser', () => {
   // before
-  parserEndSpy = sinon.spy();
-  ParserSpy = sinon.spy(function () {
-    this.end = parserEndSpy;
-  });
-  DomHandlerSpy = sinon.spy(function () {
-    this.dom = dom;
-  });
-
-  // tests
-  mock('htmlparser2/lib/Parser', ParserSpy);
-  mock('domhandler', DomHandlerSpy);
-  parser = require('../..');
+  mock('htmlparser2/lib/Parser', Parser);
+  mock('domhandler', DomHandler);
+  const parse = require('../..');
 
   it('calls `domhandler` and `htmlparser2/lib/Parser`', () => {
-    parser(html);
-    expect(DomHandlerSpy.called).to.equal(true);
-    expect(ParserSpy.called).to.equal(true);
-    expect(parserEndSpy.called).to.equal(true);
+    parse(html);
+    expect(DomHandler.called).to.equal(true);
+    expect(Parser.called).to.equal(true);
+    expect(parserEnd.called).to.equal(true);
   });
 
   it('passes options to `domhandler` and arguments to `htmlparser2/lib/Parser`', () => {
     const options = { decodeEntities: true };
-    parser(html, options);
-    expect(DomHandlerSpy.calledWith(options)).to.equal(true);
-    expect(ParserSpy.calledWith(DomHandlerSpy, options));
+    parse(html, options);
+    expect(DomHandler.calledWith(options)).to.equal(true);
+    expect(Parser.calledWith(DomHandler, options));
   });
 
   it('passes html to `htmlparser2/lib/Parser` end', () => {
-    parser(html);
-    expect(parserEndSpy.calledWith(html)).to.equal(true);
+    parse(html);
+    expect(parserEnd.calledWith(html)).to.equal(true);
   });
 
   it('returns `domhandler` dom', () => {
-    expect(parser(html)).to.equal(DomHandlerSpy.lastCall.returnValue.dom);
+    expect(parse(html)).to.equal(DomHandler.lastCall.returnValue.dom);
   });
 
   // after
   mock.stopAll();
-  clearRequireCache();
+  resetModules();
 });
