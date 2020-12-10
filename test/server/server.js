@@ -20,25 +20,25 @@ function testCaseSensitiveTags(parser) {
 
 describe('server parser', () => {
   // before
-  const parser = require('../..');
+  const serverParser = require('../..');
 
   // tests
-  throwsError(parser);
-  runTests(cases.html, parser, htmlparser.parseDOM);
-  runTests(cases.svg, parser, htmlparser.parseDOM);
+  throwsError(assert, serverParser);
+  runTests(assert, serverParser, htmlparser.parseDOM, cases.html);
+  runTests(assert, serverParser, htmlparser.parseDOM, cases.svg);
 });
 
 describe('client parser in jsdom', () => {
   // before
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
-  const parser = require('../../lib/html-to-dom-client');
+  const clientParser = require('../../lib/html-to-dom-client');
 
   // tests
-  throwsError(parser);
-  runTests(cases.html, parser, htmlparser.parseDOM);
-  runTests(cases.svg, parser, htmlparser.parseDOM);
-  testCaseSensitiveTags(parser);
+  throwsError(assert, clientParser);
+  runTests(assert, clientParser, htmlparser.parseDOM, cases.html);
+  runTests(assert, clientParser, htmlparser.parseDOM, cases.svg);
+  testCaseSensitiveTags(clientParser);
 
   // after
   jsdomify.destroy();

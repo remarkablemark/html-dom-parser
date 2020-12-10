@@ -5,8 +5,8 @@ var clientParser = require('../../lib/html-to-dom-client');
 var helpers = require('../helpers');
 
 describe('client parser', function () {
-  helpers.throwsError(clientParser, assert);
-  helpers.runTests(htmlCases, clientParser, serverParser, assert);
+  helpers.throwsError(assert, clientParser);
+  helpers.runTests(assert, clientParser, serverParser, htmlCases);
 
   describe('performance', function () {
     it('executes 1000 times in less than 50ms', function () {

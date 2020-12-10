@@ -14,18 +14,14 @@ var values = [
 /**
  * Calls parser with invalid arguments.
  *
- * @param {Function} parser   - The parser.
- * @param {Function} [assert] - The assertion module.
+ * @param {Function} assert         - Assert.
+ * @param {Function} expectedParser - Expected parser.
  */
-function throwsError(parser, assert) {
-  if (typeof assert !== 'function') {
-    assert = require('assert');
-  }
-
+function throwsError(assert, expectedParser) {
   values.forEach(function (value) {
     it('throws error for argument: ' + value, function () {
       assert.throws(function () {
-        parser(value);
+        expectedParser(value);
       }, TypeError);
     });
   });
