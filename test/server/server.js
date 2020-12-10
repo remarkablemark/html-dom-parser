@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
 const cases = require('../cases');
-const { runTests, throwsError } = require('../helpers');
+const { runTests, throwErrors } = require('../helpers');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../../lib/constants');
 
 /**
@@ -20,25 +20,25 @@ function testCaseSensitiveTags(parser) {
 
 describe('server parser', () => {
   // before
-  const parser = require('../..');
+  const serverParser = require('../..');
 
   // tests
-  throwsError(parser);
-  runTests(cases.html, parser, htmlparser.parseDOM);
-  runTests(cases.svg, parser, htmlparser.parseDOM);
+  throwErrors(assert, serverParser);
+  runTests(assert, serverParser, htmlparser.parseDOM, cases.html);
+  runTests(assert, serverParser, htmlparser.parseDOM, cases.svg);
 });
 
 describe('client parser in jsdom', () => {
   // before
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
-  const parser = require('../../lib/html-to-dom-client');
+  const clientParser = require('../../lib/html-to-dom-client');
 
   // tests
-  throwsError(parser);
-  runTests(cases.html, parser, htmlparser.parseDOM);
-  runTests(cases.svg, parser, htmlparser.parseDOM);
-  testCaseSensitiveTags(parser);
+  throwErrors(assert, clientParser);
+  runTests(assert, clientParser, htmlparser.parseDOM, cases.html);
+  runTests(assert, clientParser, htmlparser.parseDOM, cases.svg);
+  testCaseSensitiveTags(clientParser);
 
   // after
   jsdomify.destroy();

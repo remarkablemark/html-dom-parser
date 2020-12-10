@@ -1,4 +1,4 @@
 module.exports = {
   runTests: require('./run-tests'),
-  throwsError: require('./throws-error')
+  throwErrors: require('./throw-errors')
 };

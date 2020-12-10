@@ -1,24 +1,12 @@
 /**
  * Runs tests.
  *
+ * @param {Function} assert         - Assert.
  * @param {Object}   testCases      - Test cases.
- * @param {Function} expectedParser - Expected parser.
  * @param {Function} actualParser   - Actual parser.
- * @param {Function} [assert]       - Assertion module.
+ * @param {Function} expectedParser - Expected parser.
  */
-function runTests(testCases, expectedParser, actualParser, assert) {
-  if (typeof assert !== 'function') {
-    assert = require('assert');
-  }
-
-  if (typeof expectedParser !== 'function') {
-    throw new TypeError('Missing or invalid expected parser');
-  }
-
-  if (typeof actualParser !== 'function') {
-    throw new TypeError('Missing or invalid actual parser');
-  }
-
+function runTests(assert, actualParser, expectedParser, testCases) {
   // enable `decodeEntities` for both parsers
   // because entities are decoded on the browser
   var parserOptions = { decodeEntities: true };
