@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
 const cases = require('../cases');
-const { runTests, throwsError } = require('../helpers');
+const { runTests, throwErrors } = require('../helpers');
 const { CASE_SENSITIVE_TAG_NAMES } = require('../../lib/constants');
 
 /**
@@ -23,7 +23,7 @@ describe('server parser', () => {
   const serverParser = require('../..');
 
   // tests
-  throwsError(assert, serverParser);
+  throwErrors(assert, serverParser);
   runTests(assert, serverParser, htmlparser.parseDOM, cases.html);
   runTests(assert, serverParser, htmlparser.parseDOM, cases.svg);
 });
@@ -35,7 +35,7 @@ describe('client parser in jsdom', () => {
   const clientParser = require('../../lib/html-to-dom-client');
 
   // tests
-  throwsError(assert, clientParser);
+  throwErrors(assert, clientParser);
   runTests(assert, clientParser, htmlparser.parseDOM, cases.html);
   runTests(assert, clientParser, htmlparser.parseDOM, cases.svg);
   testCaseSensitiveTags(clientParser);

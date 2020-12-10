@@ -17,7 +17,7 @@ var values = [
  * @param {Function} assert         - Assert.
  * @param {Function} expectedParser - Expected parser.
  */
-function throwsError(assert, expectedParser) {
+function throwErrors(assert, expectedParser) {
   values.forEach(function (value) {
     it('throws error for argument: ' + value, function () {
       assert.throws(function () {
@@ -27,4 +27,4 @@ function throwsError(assert, expectedParser) {
   });
 }
 
-module.exports = throwsError;
+module.exports = throwErrors;
