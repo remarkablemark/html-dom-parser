@@ -144,6 +144,7 @@ $ git push --follow-tags && npm publish
 
 - [Contributors](https://github.com/remarkablemark/html-dom-parser/graphs/contributors)
 - [htmlparser2](https://github.com/fb55/htmlparser2)
+- [domhandler](https://github.com/fb55/domhandler)
 
 ## License
 
