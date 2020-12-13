@@ -19,7 +19,10 @@ var values = [
  */
 function throwErrors(assert, expectedParser) {
   values.forEach(function (value) {
-    it('throws error for argument: ' + value, function () {
+    var type =
+      value instanceof Object ? value.constructor.name : JSON.stringify(value);
+
+    it('throws error for argument: ' + type, function () {
       assert.throws(function () {
         expectedParser(value);
       }, TypeError);
