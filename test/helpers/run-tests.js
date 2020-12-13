@@ -1,3 +1,6 @@
+var isKarma =
+  typeof window === 'object' && typeof window.__karma__ === 'object';
+
 /**
  * Runs tests.
  *
@@ -17,6 +20,13 @@ function runTests(assert, actualParser, expectedParser, testCases) {
     _it('parses ' + testCase.name, function () {
       var actualOutput = actualParser(testCase.data, parserOptions);
       var expectedOutput = expectedParser(testCase.data, parserOptions);
+
+      // use `JSON.decycle` since `assert.deepEqual` fails
+      // when instance types are different in the browser
+      if (isKarma) {
+        actualOutput = JSON.decycle(actualOutput);
+        expectedOutput = JSON.decycle(expectedOutput);
+      }
 
       assert.deepEqual(actualOutput, expectedOutput);
     });

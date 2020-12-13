@@ -1,6 +1,6 @@
 // TypeScript Version: 4.1
 
-import { DomElement } from 'domhandler';
+import { DataNode, Element } from 'domhandler';
 
 /**
  * Formats DOM attributes to a hash map.
@@ -22,9 +22,9 @@ export function formatAttributes(
  */
 export function formatDOM(
   nodes: NodeList,
-  parentNode?: DomElement,
+  parentNode?: DataNode | Element,
   directive?: string
-): DomElement[];
+): Array<DataNode | Element>;
 
 /**
  * Detects if browser is Internet Explorer.
