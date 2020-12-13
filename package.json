@@ -34,9 +34,8 @@
     "pojo"
   ],
   "dependencies": {
-    "@types/domhandler": "2.4.1",
-    "domhandler": "2.4.2",
-    "htmlparser2": "3.10.1"
+    "domhandler": "3.0.0",
+    "htmlparser2": "4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

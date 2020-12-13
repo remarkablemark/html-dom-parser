@@ -1,6 +1,6 @@
 // TypeScript Version: 4.1
 
-import { DomElement } from 'domhandler';
+import { DataNode, Element } from 'domhandler';
 
 /**
  * Parses HTML string to DOM nodes in browser.
@@ -8,4 +8,4 @@ import { DomElement } from 'domhandler';
  * @param  html - HTML markup.
  * @return      - DOM elements.
  */
-export default function HTMLDOMParser(html: string): DomElement[];
+export default function HTMLDOMParser(html: string): Array<DataNode | Element>;

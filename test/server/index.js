@@ -31,8 +31,8 @@ const html = '<html>';
 
 describe('server parser', () => {
   // before
-  mock('htmlparser2/lib/Parser', Parser);
-  mock('domhandler', DomHandler);
+  mock('htmlparser2/lib/Parser', { Parser });
+  mock('domhandler', { DomHandler });
   const parse = require('../..');
 
   it('calls `DomHandler` and `Parser`', () => {
@@ -45,7 +45,7 @@ describe('server parser', () => {
   it('passes options to `DomHandler` and `Parser`', () => {
     const options = { decodeEntities: true };
     parse(html, options);
-    expect(DomHandler.calledWith(options)).to.equal(true);
+    expect(DomHandler.calledWith(undefined, options)).to.equal(true);
     expect(Parser.calledWith(DomHandler, options));
   });
 
