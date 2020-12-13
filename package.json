@@ -16,9 +16,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "webpack --config webpack.test.config.js",
     "test:client:watch": "npm run test:client:build && karma start",
-    "test:server": "mocha test/server",
-    "test:server:coverage": "nyc npm run test:server",
-    "test:server:coverage:report": "nyc report --reporter=html"
+    "test:server": "nyc mocha test/server"
   },
   "repository": {
     "type": "git",
