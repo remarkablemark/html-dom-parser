@@ -3,7 +3,7 @@
 /**
  * Parses HTML string to DOM nodes.
  *
- * @param  - HTML markup.
- * @return - NodeList.
+ * @param  html - HTML markup.
+ * @return      - NodeList.
  */
 export default function domparser(html: string): NodeList;
