@@ -35,26 +35,26 @@ describe('server parser', () => {
   mock('domhandler', DomHandler);
   const parse = require('../..');
 
-  it('calls `domhandler` and `htmlparser2/lib/Parser`', () => {
+  it('calls `DomHandler` and `Parser`', () => {
     parse(html);
     expect(DomHandler.called).to.equal(true);
     expect(Parser.called).to.equal(true);
     expect(parserEnd.called).to.equal(true);
   });
 
-  it('passes options to `domhandler` and arguments to `htmlparser2/lib/Parser`', () => {
+  it('passes options to `DomHandler` and `Parser`', () => {
     const options = { decodeEntities: true };
     parse(html, options);
     expect(DomHandler.calledWith(options)).to.equal(true);
     expect(Parser.calledWith(DomHandler, options));
   });
 
-  it('passes html to `htmlparser2/lib/Parser` end', () => {
+  it('passes html to `Parser` end', () => {
     parse(html);
     expect(parserEnd.calledWith(html)).to.equal(true);
   });
 
-  it('returns `domhandler` dom', () => {
+  it('returns `DomHandler` dom', () => {
     expect(parse(html)).to.equal(DomHandler.lastCall.returnValue.dom);
   });
 
