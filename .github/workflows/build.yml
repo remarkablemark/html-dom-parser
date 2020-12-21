@@ -8,11 +8,14 @@ jobs:
         node-version: [14]
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      - run: npx commitlint --from=HEAD~1
       - run: npm run lint
       - run: npm run lint:dts
       - name: Run headless test
