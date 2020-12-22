@@ -55,6 +55,18 @@ module.exports = [
     data: '<head><body>'
   },
   {
+    name: 'unclosed title',
+    data: '<title>'
+  },
+  {
+    name: 'empty title',
+    data: '<title></title>'
+  },
+  {
+    name: 'title with text',
+    data: '<title>text</title>'
+  },
+  {
     name: 'unclosed body',
     data: '<body>'
   },
@@ -221,6 +233,14 @@ module.exports = [
   {
     name: 'non-breaking space',
     data: '&nbsp;'
+  },
+  {
+    name: 'en dash',
+    data: '&ndash;'
+  },
+  {
+    name: 'em dash',
+    data: '&mdash;'
   },
 
   // directive
