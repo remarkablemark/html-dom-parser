@@ -10,19 +10,19 @@ import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
  */
 export function formatAttributes(
   attributes: NamedNodeMap
-): { [name: string]: string };
+): Record<string, string>;
 
 /**
- * Formats the browser DOM nodes to mimic the output of `htmlparser2.parseDOM()`.
+ * Transforms DOM nodes to `domhandler` nodes.
  *
- * @param  nodes      - DOM nodes.
- * @param  parentNode - Formatted parent node.
- * @param  directive  - Directive.
- * @return            - DOM elements.
+ * @param  nodes     - DOM nodes.
+ * @param  parent    - Parent node.
+ * @param  directive - Directive.
+ * @return           - Nodes.
  */
 export function formatDOM(
   nodes: NodeList,
-  parentNode?: Element,
+  parent?: Element | null,
   directive?: string
 ): Array<Comment | Element | ProcessingInstruction | Text>;
 
