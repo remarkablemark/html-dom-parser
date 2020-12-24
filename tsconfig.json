@@ -9,14 +9,18 @@
     "baseUrl": ".",
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": { "html-dom-parser": ["."], "html-dom-parser/lib/*": ["./lib/*"] }
+    "paths": {
+      "html-dom-parser": ["."],
+      "html-dom-parser/lib/*": ["./lib/*"]
+    }
   },
   "files": [
     "index.d.ts",
-    "lib/domparser.d.ts",
-    "lib/html-to-dom-client.d.ts",
-    "lib/html-to-dom-server.d.ts",
-    "lib/utilities.d.ts",
+    "lib/client/constants.d.ts",
+    "lib/client/domparser.d.ts",
+    "lib/client/html-to-dom.d.ts",
+    "lib/client/utilities.d.ts",
+    "lib/server/html-to-dom.d.ts",
     "test/types/index.test.ts"
   ]
 }

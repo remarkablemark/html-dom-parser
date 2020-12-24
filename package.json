@@ -77,7 +77,7 @@
     "/lib"
   ],
   "browser": {
-    "./index.js": "./lib/html-to-dom-client.js"
+    "./index.js": "./lib/client/html-to-dom.js"
   },
   "license": "MIT"
 }

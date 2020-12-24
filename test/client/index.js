@@ -1,7 +1,7 @@
 var assert = window.chai.assert;
 var htmlCases = require('../cases/html');
 var serverParser = require('../../dist/htmlparser2').parseDOM;
-var clientParser = require('../../lib/html-to-dom-client');
+var clientParser = require('../../lib/client/html-to-dom');
 var helpers = require('../helpers');
 
 describe('client parser', function () {

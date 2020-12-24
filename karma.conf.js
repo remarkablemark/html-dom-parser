@@ -12,7 +12,7 @@ module.exports = config => {
     // list of files / patterns to load in the browser
     files: [
       'dist/htmlparser2.js',
-      'lib/*.js',
+      'lib/**/*.js',
       'node_modules/domhandler/lib/node.js',
       'test/cases/html.js',
       'test/client/*.js',
@@ -20,7 +20,7 @@ module.exports = config => {
     ],
 
     // list of files / patterns to exclude
-    exclude: ['lib/html-to-dom-server.js'],
+    exclude: ['lib/server/**/*.js'],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
