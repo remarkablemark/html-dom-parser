@@ -4,4 +4,4 @@
  *
  * @see {@link https://github.com/substack/node-browserify#browser-field}
  */
-module.exports = require('./lib/html-to-dom-server');
+module.exports = require('./lib/server/html-to-dom');
