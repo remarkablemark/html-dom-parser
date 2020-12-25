@@ -67,6 +67,10 @@ module.exports = [
     data: '<title>text</title>'
   },
   {
+    name: 'title with text as tags',
+    data: '<title><b>text</b></title>'
+  },
+  {
     name: 'unclosed body',
     data: '<body>'
   },
