@@ -7,6 +7,7 @@ var helpers = require('../helpers');
 describe('client parser', function () {
   helpers.throwErrors(assert, clientParser);
   helpers.runTests(assert, clientParser, serverParser, htmlCases);
+  helpers.testCaseSensitiveTags(assert, clientParser);
 
   describe('performance', function () {
     it('executes 1000 times in less than 50ms', function () {
