@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v0.5.0...v1.0.0) (2020-12-25)
+
+
+### Build System
+
+* **package:** upgrade `domhandler` to v4 and `htmlparser2` to v6 ([ec5673e](https://github.com/remarkablemark/html-dom-parser/commit/ec5673ef38050f808ce49e2e4ee165d30492b190))
+
+
+### Performance Improvements
+
+* **client:** deprecate Internet Explorer 9 (IE9) ([d42ea4e](https://github.com/remarkablemark/html-dom-parser/commit/d42ea4ed5df9f44abf16528e36b3cfbb4c7fdd08))
+* **utilities:** continue if nodeType is not element, text, comment ([793ff0c](https://github.com/remarkablemark/html-dom-parser/commit/793ff0c7a84ea05ff061e24984595f6e143362e6))
+
+
+### BREAKING CHANGES
+
+* **package:** upgrade `domhandler` to v4 and `htmlparser2` to v6
+
+ domhandler   3.3.0  →  4.0.0
+ htmlparser2  4.1.0  →  6.0.0
+
+domhandler:
+
+* https://github.com/fb55/domhandler/releases/tag/v4.0.0
+
+htmlparser2:
+
+* https://github.com/fb55/htmlparser2/releases/tag/v5.0.0
+* https://github.com/fb55/htmlparser2/releases/tag/v5.0.1
+* https://github.com/fb55/htmlparser2/releases/tag/v6.0.0
+
+`decodeEntities` option now defaults to true. `<title>` is
+parsed correctly. Remove root parent node to keep parser
+backwards compatible.
+
+
+
 # [0.5.0](https://github.com/remarkablemark/html-dom-parser/compare/v0.4.0...v0.5.0) (2020-12-13)
 
 
