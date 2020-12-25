@@ -29,7 +29,6 @@ export function formatDOM(
 /**
  * Detects if browser is Internet Explorer.
  *
- * @param  version - IE version to detect.
- * @return         - Whether IE or the version is detected.
+ * @return - Whether IE is detected.
  */
-export function isIE(version?: number): boolean;
+export function isIE(): boolean;
