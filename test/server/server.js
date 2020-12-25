@@ -1,22 +1,7 @@
 const { assert } = require('chai');
 const htmlparser = require('htmlparser2');
 const cases = require('../cases');
-const { runTests, throwErrors } = require('../helpers');
-const { CASE_SENSITIVE_TAG_NAMES } = require('../../lib/client/constants');
-
-/**
- * Tests case-sensitive tags (SVG) to make sure their case is preserved.
- *
- * @param {Function} parser - The parser.
- */
-function testCaseSensitiveTags(parser) {
-  it('preserves case of case-sensitive SVG tags', () => {
-    CASE_SENSITIVE_TAG_NAMES.forEach(tag => {
-      const parsed = parser(`<${tag}></${tag}>`);
-      assert.equal(parsed[0].name, tag);
-    });
-  });
-}
+const { runTests, testCaseSensitiveTags, throwErrors } = require('../helpers');
 
 describe('server parser', () => {
   // before
@@ -26,6 +11,8 @@ describe('server parser', () => {
   throwErrors(assert, serverParser);
   runTests(assert, serverParser, htmlparser.parseDOM, cases.html);
   runTests(assert, serverParser, htmlparser.parseDOM, cases.svg);
+  // TODO: case-sensitive (SVG) tags are not preserved in server parser
+  // testCaseSensitiveTags(assert, serverParser);
 });
 
 describe('client parser in jsdom', () => {
@@ -38,7 +25,7 @@ describe('client parser in jsdom', () => {
   throwErrors(assert, clientParser);
   runTests(assert, clientParser, htmlparser.parseDOM, cases.html);
   runTests(assert, clientParser, htmlparser.parseDOM, cases.svg);
-  testCaseSensitiveTags(clientParser);
+  testCaseSensitiveTags(assert, clientParser);
 
   // after
   jsdomify.destroy();
