@@ -14,35 +14,46 @@ HTML to DOM parser that works on both the server (Node.js) and the client (brows
 HTMLDOMParser(string[, options])
 ```
 
-It converts an HTML string to a JavaScript object that describes the DOM tree.
+The parser converts an HTML string to a JavaScript object that describes the DOM tree.
 
-#### Example:
+#### Example
 
 ```js
-var parse = require('html-dom-parser');
-parse('<div>text</div>');
+const parse = require('html-dom-parser');
+parse('<p>Hello, World!</p>');
 ```
 
 Output:
 
-```
-[ { type: 'tag',
-    name: 'div',
-    attribs: {},
-    children:
-     [ { data: 'text',
-         type: 'text',
-         next: null,
-         prev: null,
-         parent: [Circular] } ],
-    next: null,
+```js
+[
+  Element {
+    type: 'tag',
+    parent: null,
     prev: null,
-    parent: null } ]
+    next: null,
+    startIndex: null,
+    endIndex: null,
+    children: [
+      Text {
+        type: 'text',
+        parent: [Circular],
+        prev: null,
+        next: null,
+        startIndex: null,
+        endIndex: null,
+        data: 'Hello, World!'
+      }
+    ],
+    name: 'p',
+    attribs: {}
+  }
+]
 ```
 
 [Repl.it](https://repl.it/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
 
-## Installation
+## Install
 
 [NPM](https://www.npmjs.com/package/html-dom-parser):
 
@@ -59,7 +70,7 @@ $ yarn add html-dom-parser
 [CDN](https://unpkg.com/html-dom-parser/):
 
 ```html
-<script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.js"></script>
+<script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.min.js"></script>
 <script>
   window.HTMLDOMParser(/* string */);
 </script>
@@ -67,40 +78,75 @@ $ yarn add html-dom-parser
 
 ## Usage
 
-Import the module:
+Import or require the module:
 
 ```js
-// CommonJS
-var parse = require('html-dom-parser');
-
 // ES Modules
 import parse from 'html-dom-parser';
+
+// CommonJS
+const parse = require('html-dom-parser');
 ```
 
-Parse markup:
+Parse empty string:
 
 ```js
-parse('<p class="primary" style="color: skyblue;">Hello world</p>');
+parse('');
 ```
 
 Output:
 
-```
-[ { type: 'tag',
-    name: 'p',
-    attribs: { class: 'primary', style: 'color: skyblue;' },
-    children:
-     [ { data: 'Hello world',
-         type: 'text',
-         next: null,
-         prev: null,
-         parent: [Circular] } ],
-    next: null,
-    prev: null,
-    parent: null } ]
+```js
+[];
 ```
 
-The _server parser_ is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2)'s `parseDOM`; the _client parser_ mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API.
+Parse string:
+
+```js
+parse('Hello, World!');
+```
+
+```js
+[
+  Text {
+    type: 'text',
+    parent: null,
+    prev: null,
+    next: null,
+    startIndex: null,
+    endIndex: null,
+    data: 'Hello, World!'
+  }
+]
+```
+
+Parse element with attributes:
+
+```js
+parse('<p class="foo" style="color: #bada55">Hello, <em>world</em>!</p>');
+```
+
+Output:
+
+```js
+[
+  Element {
+    type: 'tag',
+    parent: null,
+    prev: null,
+    next: null,
+    startIndex: null,
+    endIndex: null,
+    children: [ [Text], [Element], [Text] ],
+    name: 'p',
+    attribs: { class: 'foo', style: 'color: #bada55' }
+  }
+]
+```
+
+The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2) `parseDOM` but with the root parent node excluded.
+
+The client parser mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to parse the HTML string.
 
 ## Testing
 
@@ -120,9 +166,7 @@ Lint files:
 
 ```sh
 $ npm run lint
-
-# fix lint errors
-$ npm run lint:fix
+# npm run lint:fix
 ```
 
 Test TypeScript declaration file for style and correctness:
