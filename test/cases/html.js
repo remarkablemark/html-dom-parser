@@ -158,13 +158,11 @@ module.exports = [
   },
   {
     name: 'span with multiple attributes',
-    data:
-      '<span id="button" class="big" style="border: 1px solid #000; -moz-appearance: button;" aria-label="Back" />'
+    data: '<span id="button" class="big" style="border: 1px solid #000; -moz-appearance: button;" aria-label="Back" />'
   },
   {
     name: 'hr with multiple attributes',
-    data:
-      '<hr id="foo" class="bar baz" style="background: #fff; text-align: center;" data-foo="bar">'
+    data: '<hr id="foo" class="bar baz" style="background: #fff; text-align: center;" data-foo="bar">'
   },
 
   // adjacent tags
