@@ -1,32 +1,52 @@
 name: build
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14]
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npx commitlint --from=HEAD~1
-      - run: npm run lint
-      - run: npm run lint:dts
-      - name: Run headless test
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint commit messages
+        run: npx commitlint --from=HEAD~1
+
+      - name: Lint JavaScript
+        run: npm run lint
+
+      - name: Test TypeScript declaration files
+        run: npm run lint:dts
+
+      - name: Run server test
+        run: npm run test:server
+
+      - name: Run client test
         uses: GabrielBB/xvfb-action@v1
         with:
-          run: npm test
-      - run: npm run build
+          run: npm run test:client
+
+      - name: Build bundle
+        run: npm run build
+
       - name: Generate coverage report
         run: |
           mkdir -p coverage
           npx nyc report --reporter=text-lcov > coverage/lcov.info
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
