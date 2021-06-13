@@ -1,4 +1,4 @@
-// TypeScript Version: 4.1
+// TypeScript Version: 4.3
 
 import { DataNode, Element } from 'domhandler';
 

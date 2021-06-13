@@ -1,4 +1,4 @@
-// TypeScript Version: 4.1
+// TypeScript Version: 4.3
 
 type Nodes = Array<Comment | Element | ProcessingInstruction | Text>;
 
