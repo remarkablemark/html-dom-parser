@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
 /**
- * https://v4.webpack.js.org/configuration/
+ * https://webpack.js.org/configuration/
  */
 module.exports = {
   mode: 'development',
