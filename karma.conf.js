@@ -13,6 +13,8 @@ module.exports = config => {
     files: [
       'dist/htmlparser2.js',
       'lib/**/*.js',
+      'node_modules/domelementtype/**/*.js',
+      'node_modules/domelementtype/**/*.json',
       'node_modules/domhandler/lib/node.js',
       'test/cases/html.js',
       'test/client/*.js',
@@ -27,6 +29,8 @@ module.exports = config => {
     preprocessors: {
       'dist/**/*.js': ['commonjs'],
       'lib/**/*.js': ['commonjs'],
+      'node_modules/domelementtype/**/*.js': ['commonjs'],
+      'node_modules/domelementtype/**/*.json': ['commonjs'],
       'node_modules/domhandler/lib/node.js': ['commonjs'],
       'test/**/*.js': ['commonjs']
     },
