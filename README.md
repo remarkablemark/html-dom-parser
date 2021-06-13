@@ -58,13 +58,13 @@ Output:
 [NPM](https://www.npmjs.com/package/html-dom-parser):
 
 ```sh
-$ npm install html-dom-parser --save
+npm install html-dom-parser --save
 ```
 
 [Yarn](https://yarnpkg.com/package/html-dom-parser):
 
 ```sh
-$ yarn add html-dom-parser
+yarn add html-dom-parser
 ```
 
 [CDN](https://unpkg.com/html-dom-parser/):
@@ -153,26 +153,26 @@ The client parser mimics the server parser by using the [DOM](https://developer.
 Run server and client tests:
 
 ```sh
-$ npm test
+npm test
 ```
 
 Generate HTML coverage report for server tests:
 
 ```sh
-$ npx nyc report --reporter=html
+npx nyc report --reporter=html
 ```
 
 Lint files:
 
 ```sh
-$ npm run lint
-# npm run lint:fix
+npm run lint
+npm run lint:fix
 ```
 
 Test TypeScript declaration file for style and correctness:
 
 ```sh
-$ npm run lint:dts
+npm run lint:dts
 ```
 
 ## Release
@@ -180,8 +180,8 @@ $ npm run lint:dts
 Only collaborators with credentials can release and publish:
 
 ```sh
-$ npm run release
-$ git push --follow-tags && npm publish
+npm run release
+git push --follow-tags && npm publish
 ```
 
 ## Special Thanks
