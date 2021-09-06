@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint -- --fix",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable && run-s lint lint:dts test clean build",
+    "prepublishOnly": "pinst --disable && run-s lint lint:dts test:server clean build",
     "release": "standard-version --no-verify",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
