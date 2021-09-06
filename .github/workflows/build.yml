@@ -14,8 +14,18 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
 
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json', './package.json') }}
+        id: cache
+
       - name: Install dependencies
-        run: npm install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install --prefer-offline
 
       - name: Lint commit messages
         run: npx commitlint --from=HEAD~1
