@@ -52,7 +52,5 @@ jobs:
           mkdir -p coverage
           npx nyc report --reporter=text-lcov > coverage/lcov.info
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Codecov
+        uses: codecov/codecov-action@v2
