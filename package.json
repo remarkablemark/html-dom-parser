@@ -36,7 +36,7 @@
     "pojo"
   ],
   "dependencies": {
-    "domhandler": "4.2.0",
+    "domhandler": "4.2.2",
     "htmlparser2": "6.1.0"
   },
   "devDependencies": {
