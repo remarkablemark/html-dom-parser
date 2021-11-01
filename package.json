@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "domhandler": "4.2.2",
-    "htmlparser2": "6.1.0"
+    "htmlparser2": "7.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "14.1.0",
