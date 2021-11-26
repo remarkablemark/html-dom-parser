@@ -14,6 +14,7 @@
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable && run-s lint lint:dts test:server clean build",
     "release": "standard-version --no-verify",
+    "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "webpack --config webpack.test.config.js",
