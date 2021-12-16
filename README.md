@@ -176,12 +176,7 @@ npm run lint:dts
 
 ## Release
 
-Only collaborators with credentials can release and publish:
-
-```sh
-npm run release
-git push --follow-tags && npm publish
-```
+Release and publish are automated by [Release Please](https://github.com/googleapis/release-please).
 
 ## Special Thanks
 
