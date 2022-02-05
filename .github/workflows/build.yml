@@ -42,6 +42,12 @@ jobs:
       - name: Run server test
         run: npm run test:server
 
+      - name: Run ES modules tests
+        run: npm run test:module
+
+      - name: Run server test
+        run: npm run test:server
+
       - name: Run client test
         uses: GabrielBB/xvfb-action@v1
         with:

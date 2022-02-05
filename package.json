@@ -4,6 +4,11 @@
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.js"
+  },
   "scripts": {
     "build": "rollup --config",
     "clean": "rm -rf dist",
@@ -18,6 +23,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "webpack --config webpack.test.config.js",
     "test:client:watch": "npm run test:client:build && karma start",
+    "test:module": "node --experimental-modules test/module/index.mjs",
     "test:server": "nyc mocha test/server"
   },
   "repository": {
@@ -76,6 +82,8 @@
   "files": [
     "/dist",
     "/index.d.ts",
+    "/index.js",
+    "/index.mjs",
     "/lib"
   ],
   "browser": {
