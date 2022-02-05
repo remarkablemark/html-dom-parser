@@ -23,6 +23,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "webpack --config webpack.test.config.js",
     "test:client:watch": "npm run test:client:build && karma start",
+    "test:module": "node --experimental-modules test/module/index.mjs",
     "test:server": "nyc mocha test/server"
   },
   "repository": {
