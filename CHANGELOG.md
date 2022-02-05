@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.0.4...v1.1.0) (2022-02-05)
+
+
+### Features
+
+* add ES Module support ([b8436b1](https://www.github.com/remarkablemark/html-dom-parser/commit/b8436b19147e0146f50982a225e787fd0a53d97d))
+
 ## [1.0.4](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.0.3...v1.0.4) (2021-12-06)
 
 ### Build System
