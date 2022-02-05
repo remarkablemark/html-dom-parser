@@ -4,6 +4,11 @@
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.js"
+  },
   "scripts": {
     "build": "rollup --config",
     "clean": "rm -rf dist",
@@ -76,6 +81,8 @@
   "files": [
     "/dist",
     "/index.d.ts",
+    "/index.js",
+    "/index.mjs",
     "/lib"
   ],
   "browser": {
