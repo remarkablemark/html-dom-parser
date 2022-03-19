@@ -1,4 +1,4 @@
-// TypeScript Version: 4.3
+// TypeScript Version: 4.7
 
 /**
  * Parses HTML string to DOM nodes.
