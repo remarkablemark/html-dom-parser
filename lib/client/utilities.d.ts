@@ -1,4 +1,4 @@
-// TypeScript Version: 4.3
+// TypeScript Version: 4.7
 
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 
