@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.1.0...v1.1.1) (2022-03-20)
+
+
+### Build System
+
+* **package:** upgrade domhandler from 4.3.0 to 4.3.1 ([c2e8a82](https://www.github.com/remarkablemark/html-dom-parser/commit/c2e8a82035957bd991a969ef12f3dcd114679a2a))
+
 ## [1.1.0](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.0.4...v1.1.0) (2022-02-05)
 
 
