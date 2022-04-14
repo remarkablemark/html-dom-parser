@@ -90,5 +90,8 @@
   "browser": {
     "./index.js": "./lib/client/html-to-dom.js"
   },
+  "react-native": {
+    "./index.js": "./lib/server/html-to-dom.js"
+  },
   "license": "MIT"
 }
