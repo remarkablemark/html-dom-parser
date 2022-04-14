@@ -22,7 +22,10 @@ module.exports = config => {
     ],
 
     // list of files / patterns to exclude
-    exclude: ['lib/server/html-to-dom.js'],
+    exclude: [
+      'lib/server/html-to-dom.js',
+      'node_modules/domelementtype/lib/esm/*.js'
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
