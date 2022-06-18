@@ -25,10 +25,3 @@ export function formatDOM(
   parent?: Element | null,
   directive?: string
 ): Array<Comment | Element | ProcessingInstruction | Text>;
-
-/**
- * Detects if browser is Internet Explorer.
- *
- * @return - Whether IE is detected.
- */
-export function isIE(): boolean;
