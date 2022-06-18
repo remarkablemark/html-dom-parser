@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v1.2.0...v2.0.0) (2022-06-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **client:** remove Internet Explorer (IE11) support
+
+### Features
+
+* **client:** remove Internet Explorer (IE11) support ([b34cbe1](https://github.com/remarkablemark/html-dom-parser/commit/b34cbe1310c0e223ae05bca00945c70faca374ab)), closes [#225](https://github.com/remarkablemark/html-dom-parser/issues/225)
+
 ## [1.2.0](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.1.1...v1.2.0) (2022-04-14)
 
 
