@@ -95,8 +95,9 @@ parse('');
 
 Output:
 
+<!-- prettier-ignore -->
 ```js
-[];
+[]
 ```
 
 Parse string:
