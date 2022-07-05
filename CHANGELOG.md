@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v2.0.0...v3.0.0) (2022-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* htmlparser2  7.2.0  →  8.0.1
+
+### Build System
+
+* upgrade domhandler to 5.0.3 and htmlparser2 to 8.0.1 ([e80a69c](https://github.com/remarkablemark/html-dom-parser/commit/e80a69c83e07b0ae2f48a78dbd6adb7d0a71b0f3))
+
 ## [2.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v1.2.0...v2.0.0) (2022-06-18)
 
 
