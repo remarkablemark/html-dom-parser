@@ -3,10 +3,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 
 /**
- * Build rollup config for development (default) or production (minify = true).
+ * Build rollup config for development, test, or production.
  *
- * @param {Boolean} [minify=false]
- * @return {Object}
+ * @param {boolean} [minify=false]
  */
 const getConfig = (minify = false) => ({
   input: 'index.js',
@@ -19,4 +18,19 @@ const getConfig = (minify = false) => ({
   plugins: [commonjs(), resolve({ browser: true }), minify && terser()]
 });
 
-export default [getConfig(), getConfig(true)];
+const configs = [getConfig(), getConfig(true)];
+
+if (process.env.NODE_ENV === 'test') {
+  configs.push({
+    input: 'node_modules/htmlparser2',
+    output: {
+      file: 'dist/htmlparser2.js',
+      format: 'umd',
+      name: 'htmlparser2',
+      sourcemap: true
+    },
+    plugins: [commonjs(), resolve({ browser: true })]
+  });
+}
+
+export default configs;

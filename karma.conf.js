@@ -11,30 +11,22 @@ module.exports = config => {
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/htmlparser2.js',
-      'lib/**/*.js',
-      'node_modules/domelementtype/**/*.js',
-      'node_modules/domelementtype/**/*.json',
-      'node_modules/domhandler/lib/node.js',
+      'dist/*.js',
+      'lib/client/constants.js',
+      'lib/server/utilities.js',
       'test/cases/html.js',
       'test/client/*.js',
       'test/helpers/*.js'
     ],
 
     // list of files / patterns to exclude
-    exclude: [
-      'lib/server/html-to-dom.js',
-      'node_modules/domelementtype/lib/esm/*.js'
-    ],
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'dist/**/*.js': ['commonjs'],
+      'dist/*.js': ['commonjs'],
       'lib/**/*.js': ['commonjs'],
-      'node_modules/domelementtype/**/*.js': ['commonjs'],
-      'node_modules/domelementtype/**/*.json': ['commonjs'],
-      'node_modules/domhandler/lib/node.js': ['commonjs'],
       'test/**/*.js': ['commonjs']
     },
 
