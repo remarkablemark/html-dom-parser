@@ -174,6 +174,12 @@ Test TypeScript declaration file for style and correctness:
 npm run lint:dts
 ```
 
+## Migration
+
+### v2.0.0
+
+[domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so certain [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
+
 ## Release
 
 Release and publish are automated by [Release Please](https://github.com/googleapis/release-please).
