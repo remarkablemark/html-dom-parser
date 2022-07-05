@@ -31,7 +31,7 @@ const html = '<html>';
 
 describe('server parser', () => {
   // before
-  mock('htmlparser2/lib/Parser', { Parser });
+  mock('htmlparser2', { Parser });
   mock('domhandler', { DomHandler });
   const parse = require('../..');
 
