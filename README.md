@@ -176,9 +176,9 @@ npm run lint:dts
 
 ## Migration
 
-### v2.0.0
+### v3.0.0
 
-[domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so certain [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
+[domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
 ## Release
 
