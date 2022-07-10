@@ -86,6 +86,18 @@ module.exports = [
     name: 'body with paragraph',
     data: '<body><p>text</p></body>'
   },
+  {
+    name: 'head and body with newline',
+    data: '<head></head><body\n>text</body>'
+  },
+  {
+    name: 'head and body with whitespace and newlines',
+    data: '<head><title>hello</title></head><body \n\n >text</body>'
+  },
+  {
+    name: 'body with whitespace and newline',
+    data: '<body \n >text</body>'
+  },
 
   // common tags
   {
