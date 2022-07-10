@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.0...v3.0.1) (2022-07-10)
+
+
+### Bug Fixes
+
+* **client:** ensure head and body with newline are parsed correctly ([b26b645](https://github.com/remarkablemark/html-dom-parser/commit/b26b645c9de708a6b85b61b66bbdb8e75eebb121)), closes [#317](https://github.com/remarkablemark/html-dom-parser/issues/317)
+
 ## [3.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v2.0.0...v3.0.0) (2022-07-05)
 
 
