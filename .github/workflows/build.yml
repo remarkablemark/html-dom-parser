@@ -7,18 +7,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           # http://karma-runner.github.io/6.3/intro/installation.html
           node-version: 14
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             node_modules
@@ -29,9 +27,6 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install --prefer-offline
-
-      - name: Lint commit messages
-        run: npx commitlint --from=HEAD~1
 
       - name: Lint JavaScript
         run: npm run lint
