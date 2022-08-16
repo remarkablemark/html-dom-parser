@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.1...v3.1.0) (2022-08-16)
+
+
+### Features
+
+* add esm for client ([0c4c2b6](https://github.com/remarkablemark/html-dom-parser/commit/0c4c2b6d86c75cb3dc924afc6fd8501c5d30a876))
+
 ## [3.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.0...v3.0.1) (2022-07-10)
 
 
