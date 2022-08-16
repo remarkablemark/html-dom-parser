@@ -86,7 +86,8 @@
     "/lib"
   ],
   "browser": {
-    "./index.js": "./lib/client/html-to-dom.js"
+    "./index.js": "./lib/client/html-to-dom.js",
+    "./index.mjs": "./lib/client/html-to-dom.mjs"
   },
   "react-native": {
     "./index.js": "./lib/server/html-to-dom.js"
