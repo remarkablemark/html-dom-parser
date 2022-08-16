@@ -4,4 +4,7 @@
  *
  * @see {@link https://github.com/substack/node-browserify#browser-field}
  */
-module.exports = require('./lib/server/html-to-dom');
+var HTMLDOMParser = require('./lib/server/html-to-dom');
+
+module.exports = HTMLDOMParser;
+module.exports.default = HTMLDOMParser;
