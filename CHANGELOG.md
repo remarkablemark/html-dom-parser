@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.0...v3.1.1) (2022-08-20)
+
+
+### Bug Fixes
+
+* **client:** correct ECMAScript export in client html-to-dom.mjs ([7de506c](https://github.com/remarkablemark/html-dom-parser/commit/7de506cb7dfb6e48e4886659283f118265464e92)), closes [#334](https://github.com/remarkablemark/html-dom-parser/issues/334)
+
 ## [3.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.1...v3.1.0) (2022-08-16)
 
 
