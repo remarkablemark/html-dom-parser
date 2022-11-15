@@ -57,4 +57,4 @@ jobs:
           npx nyc report --reporter=text-lcov > coverage/lcov.info
 
       - name: Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
