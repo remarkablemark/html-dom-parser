@@ -10,7 +10,7 @@
     "require": "./index.js"
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config --failAfterWarnings",
     "clean": "rm -rf dist",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:dts": "dtslint .",
