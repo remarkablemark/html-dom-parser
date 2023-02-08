@@ -1,9 +1,9 @@
-<!--
-Is this a bug report?
-
-* Yes: Continue filling out the template.
-* No: Delete the template and write in free form. (Apply a label to the issue if applicable.)
--->
+---
+name: Bug Report
+about: Report a bug
+labels: bug
+assignees: remarkablemark
+---
 
 ## Expected Behavior
 
@@ -23,7 +23,7 @@ Is this a bug report?
 Creating a bug demo will help speed up the process of resolving the issue:
 
 * JSFiddle: https://jsfiddle.net/remarkablemark/ff9yg1yz/
-* Repl.it: https://repl.it/@remarkablemark/html-dom-parser
+* Replit: https://replit.com/@remarkablemark/html-dom-parser
 -->
 
 ## Environment
@@ -31,3 +31,8 @@ Creating a bug demo will help speed up the process of resolving the issue:
 - Version:
 - Platform:
 - Browser:
+- OS:
+
+## Keywords
+
+<!-- Include keywords that might help others with the same problem find this issue. -->
