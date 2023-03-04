@@ -227,6 +227,16 @@ module.exports = [
     }
   },
 
+  // template tag
+  {
+    name: 'empty template',
+    data: '<template></template>'
+  },
+  {
+    name: 'template with content',
+    data: '<template><article><p>Test</p></article></template>'
+  },
+
   // style tag
   {
     name: 'empty style',
