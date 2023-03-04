@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.3...v3.1.4) (2023-03-04)
+
+
+### Bug Fixes
+
+* **client:** get template content childNodes in utilities formatDOM ([c2c0bed](https://github.com/remarkablemark/html-dom-parser/commit/c2c0bedbc2f3ae8a3bdb4cdad05df007a2d6e870)), closes [#414](https://github.com/remarkablemark/html-dom-parser/issues/414)
+
 ## [3.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.2...v3.1.3) (2023-01-17)
 
 
