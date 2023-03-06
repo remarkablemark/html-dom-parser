@@ -117,6 +117,10 @@ module.exports = [
     data: '<meta charset="utf-8">'
   },
   {
+    name: 'meta with closing tag',
+    data: '<meta name="author" content="John Doe Mason" />'
+  },
+  {
     name: 'textarea with value',
     data: '<textarea>value</textarea>'
   },
