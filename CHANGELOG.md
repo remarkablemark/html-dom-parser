@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.4...v3.1.5) (2023-03-06)
+
+
+### Bug Fixes
+
+* **client:** check for "template" in utilities formatDOM ([748cf27](https://github.com/remarkablemark/html-dom-parser/commit/748cf2763565554874e337f8af7b8e6d147a9d94)), closes [#417](https://github.com/remarkablemark/html-dom-parser/issues/417)
+
 ## [3.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.3...v3.1.4) (2023-03-04)
 
 
