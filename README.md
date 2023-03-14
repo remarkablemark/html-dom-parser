@@ -145,9 +145,45 @@ Output:
 ]
 ```
 
-The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2) `parseDOM` but with the root parent node excluded.
+The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2) `parseDOM` but with the root parent node excluded. The next section shows the available options you can use with the server parse.
 
 The client parser mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to parse the HTML string.
+
+## Options (server only)
+
+Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the following options:
+
+```js
+/**
+ * These are the default options being used if you omit the optional options object.
+ * htmlparser2 will use the same options object for its domhandler so the options
+ * should be combined into a single object like so:
+ */
+const options = {
+    /**
+     * Options for the domhandler class.
+     * https://github.com/fb55/domhandler/blob/master/src/index.ts#L16
+     */
+    withStartIndices: false,
+    withEndIndices: false,
+    xmlMode: false,
+    /**
+     * Options for the htmlparser2 class.
+     * https://github.com/fb55/htmlparser2/blob/master/src/Parser.ts#L104
+     */ 
+    xmlMode: false, // Will overwrite what is used for the domhandler, otherwise inherited.
+    decodeEntities: true,
+    lowerCaseTags: true, // !xmlMode by default
+    lowerCaseAttributeNames: true, // !xmlMode by default
+    recognizeCDATA: false, // xmlMode by default
+    recognizeSelfClosing: false, // xmlMode by default
+    Tokenizer: Tokenizer
+};
+```
+
+If you are parsing HTML with SVG code you can set `lowerCaseTags` to `true` without having to enable `xmlMode`. Keep in mind this will return all tag names in camel-case and not the HTML standard of lowercase.
+
+**Note**: If you are parsing code client-side (in-browser), you can not control the parsing options. Client-side parsing automatically handles returning some HTML tags in camel-case, such as specific SVG elements, but returns all other tags lowercased according to the HTML standard.
 
 ## Testing
 
