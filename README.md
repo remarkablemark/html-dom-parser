@@ -149,9 +149,9 @@ The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlpars
 
 The client parser mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to parse the HTML string.
 
-## Options
+## Options (server only)
 
-Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the parser parses your code with the following options:
+Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the following options:
 
 ```js
 /**
@@ -182,6 +182,8 @@ const options = {
 ```
 
 If you are parsing HTML with SVG code you can set `lowerCaseTags` to `true` without having to enable `xmlMode`. Keep in mind this will return all tag names in camel-case and not the HTML standard of lowercase.
+
+**Note**: If you are parsing code client-side (in-browser), you can not control the parsing options. Client-side parsing automatically handles returning some HTML tags in camel-case, such as specific SVG elements, but returns all other tags lowercased according to the HTML standard.
 
 ## Testing
 
