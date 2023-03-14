@@ -154,7 +154,11 @@ The client parser mimics the server parser by using the [DOM](https://developer.
 Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the parser parses your code with the following options:
 
 ```js
-// These are the default options being used if you omit the optional options object.
+/**
+ * These are the default options being used if you omit the optional options object.
+ * htmlparser2 will use the same options object for its domhandler so the options
+ * should be combined into a single object like so:
+ */
 const options = {
     /**
      * Options for the domhandler class.
@@ -167,7 +171,7 @@ const options = {
      * Options for the htmlparser2 class.
      * https://github.com/fb55/htmlparser2/blob/master/src/Parser.ts#L104
      */ 
-    xmlMode: false, // Will overwrite what is used for the domhandler.
+    xmlMode: false, // Will overwrite what is used for the domhandler, otherwise inherited.
     decodeEntities: true,
     lowerCaseTags: true, // !xmlMode by default
     lowerCaseAttributeNames: true, // !xmlMode by default
