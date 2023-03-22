@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.6](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.5...v3.1.6) (2023-03-22)
+
+
+### Bug Fixes
+
+* **client:** correct spelling of feGaussianBlur ([9e28250](https://github.com/remarkablemark/html-dom-parser/commit/9e282504b0bef656b19249c324b748aa2190cb42)), closes [#429](https://github.com/remarkablemark/html-dom-parser/issues/429)
+
 ## [3.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.4...v3.1.5) (2023-03-06)
 
 
