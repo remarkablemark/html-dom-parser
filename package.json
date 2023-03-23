@@ -45,7 +45,7 @@
   ],
   "dependencies": {
     "domhandler": "5.0.3",
-    "htmlparser2": "8.0.1"
+    "htmlparser2": "8.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "17.5.0",
