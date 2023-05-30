@@ -218,10 +218,6 @@ npm run lint:dts
 
 [domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
-## Security contact information
-
-To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
-
 ## Release
 
 Release and publish are automated by [Release Please](https://github.com/googleapis/release-please).
