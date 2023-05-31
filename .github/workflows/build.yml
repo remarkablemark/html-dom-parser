@@ -12,20 +12,10 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          # http://karma-runner.github.io/6.3/intro/installation.html
-          node-version: 14
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json', './package.json') }}
-        id: cache
+          cache: npm
+          node-version-file: .nvmrc
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install --prefer-offline
 
       - name: Lint JavaScript
