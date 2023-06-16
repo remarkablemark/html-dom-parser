@@ -27,7 +27,7 @@ jobs:
       - name: Run server test
         run: npm run test:server
 
-      - name: Run ES modules tests
+      - name: Run module tests
         run: npm run test:module
 
       - name: Run server test
