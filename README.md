@@ -183,7 +183,7 @@ const options = {
 
 If you are parsing HTML with SVG code you can set `lowerCaseTags` to `true` without having to enable `xmlMode`. Keep in mind this will return all tag names in camel-case and not the HTML standard of lowercase.
 
-**Note**: If you are parsing code client-side (in-browser), you can not control the parsing options. Client-side parsing automatically handles returning some HTML tags in camel-case, such as specific SVG elements, but returns all other tags lowercased according to the HTML standard.
+> **Note**: If you are parsing code client-side (in-browser), you can not control the parsing options. Client-side parsing automatically handles returning some HTML tags in camel-case, such as specific SVG elements, but returns all other tags lowercased according to the HTML standard.
 
 ## Testing
 
@@ -213,6 +213,10 @@ npm run lint:dts
 ```
 
 ## Migration
+
+### v4.0.0
+
+[htmlparser2](https://github.com/fb55/htmlparser2) has been upgraded to v9.
 
 ### v3.0.0
 
