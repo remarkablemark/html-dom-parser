@@ -25,7 +25,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",
-    "test:module": "node --experimental-modules test/module/index.mjs",
+    "test:module": "node --test test/module",
     "test:server": "nyc mocha test/server"
   },
   "repository": {
