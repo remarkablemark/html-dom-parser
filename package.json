@@ -78,7 +78,7 @@
     "rollup-plugin-terser": "7.0.2",
     "sinon": "15.2.0",
     "size-limit": "8.2.6",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "files": [
     "/dist",
