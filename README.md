@@ -23,7 +23,9 @@ const parse = require('html-dom-parser');
 parse('<p>Hello, World!</p>');
 ```
 
-Output:
+<details>
+<summary>Output</summary>
+<p>
 
 ```js
 [
@@ -50,6 +52,9 @@ Output:
   }
 ]
 ```
+
+</p>
+</details>
 
 [Replit](https://replit.com/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
 
@@ -78,13 +83,15 @@ yarn add html-dom-parser
 
 ## Usage
 
-Import or require the module:
+Import the module with ES Modules:
 
 ```js
-// ES Modules
 import parse from 'html-dom-parser';
+```
 
-// CommonJS
+Or require the module with CommonJS:
+
+```js
 const parse = require('html-dom-parser');
 ```
 
@@ -107,6 +114,10 @@ Parse string:
 parse('Hello, World!');
 ```
 
+<details>
+<summary>Output</summary>
+<p>
+
 ```js
 [
   Text {
@@ -121,13 +132,18 @@ parse('Hello, World!');
 ]
 ```
 
+</p>
+</details>
+
 Parse element with attributes:
 
 ```js
 parse('<p class="foo" style="color: #bada55">Hello, <em>world</em>!</p>');
 ```
 
-Output:
+<details>
+<summary>Output</summary>
+<p>
 
 ```js
 [
@@ -144,6 +160,9 @@ Output:
   }
 ]
 ```
+
+</p>
+</details>
 
 The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2) `parseDOM` but with the root parent node excluded. The next section shows the available options you can use with the server parse.
 
