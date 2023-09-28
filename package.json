@@ -54,7 +54,7 @@
     "@rollup/plugin-node-resolve": "15.2.1",
     "@size-limit/preset-big-lib": "9.0.0",
     "@types/estree": "1.0.2",
-    "chai": "4.3.9",
+    "chai": "4.3.10",
     "dtslint": "4.2.1",
     "eslint": "8.50.0",
     "eslint-plugin-prettier": "5.0.0",
