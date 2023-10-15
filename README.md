@@ -233,13 +233,21 @@ npm run lint:dts
 
 ## Migration
 
-### v4.0.0
+### v4
 
-[htmlparser2](https://github.com/fb55/htmlparser2) has been upgraded to v9.
+Upgraded [htmlparser2](https://github.com/fb55/htmlparser2) to v9.
 
-### v3.0.0
+### v3
 
-[domhandler](https://github.com/fb55/domhandler) has been upgraded to v5 so some [parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
+Upgraded [domhandler](https://github.com/fb55/domhandler) to v5. [Parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
+
+### v2
+
+Removed Internet Explorer (IE11) support.
+
+### v1
+
+Upgraded `domhandler` to v4 and `htmlparser2` to v6.
 
 ## Release
 
