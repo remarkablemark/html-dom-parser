@@ -1,12 +1,10 @@
-// TypeScript Version: 4.7
-
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 
 /**
  * Formats DOM attributes to a hash map.
  *
- * @param  attributes - List of attributes.
- * @return            - Map of attribute name to value.
+ * @param attributes - List of attributes.
+ * @returns - Map of attribute name to value.
  */
 export function formatAttributes(
   attributes: NamedNodeMap
