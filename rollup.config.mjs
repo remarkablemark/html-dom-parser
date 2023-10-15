@@ -2,11 +2,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 
-/**
- * Build rollup config for development, test, or production.
- *
- * @param {boolean} [minify=false]
- */
 const getConfig = (minify = false) => ({
   input: 'index.js',
   output: {
