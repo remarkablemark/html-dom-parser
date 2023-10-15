@@ -1,11 +1,9 @@
-// TypeScript Version: 4.7
-
-type Nodes = Array<Comment | Element | ProcessingInstruction | Text>;
+type Nodes = (Comment | Element | ProcessingInstruction | Text)[];
 
 /**
  * Sets root parent to null.
  *
- * @param nodes
- * @return
+ * @param nodes - Nodes.
+ * @returns - Nodes.
  */
 export function unsetRootParent(nodes: Nodes): Nodes;
