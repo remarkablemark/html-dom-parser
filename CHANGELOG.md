@@ -2,108 +2,101 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [4.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.7...v4.0.0) (2023-05-31)
+## [4.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v4.0.0...v4.0.1) (2023-10-15)
 
+### Miscellaneous Chores
+
+- **index:** set TypeScript Version to 5.2 in index.d.ts ([#525](https://github.com/remarkablemark/html-dom-parser/issues/525)) ([8219338](https://github.com/remarkablemark/html-dom-parser/commit/82193387c3fa05f30d5d6f1d88739d92a4a7156c))
+
+## [4.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.7...v4.0.0) (2023-05-31)
 
 ### ⚠ BREAKING CHANGES
 
-* **deps:** bump htmlparser2 from 8.0.2 to 9.0.0
+- **deps:** bump htmlparser2 from 8.0.2 to 9.0.0
 
 ### Build System
 
-* **deps:** bump htmlparser2 from 8.0.2 to 9.0.0 ([467bbaa](https://github.com/remarkablemark/html-dom-parser/commit/467bbaa4d7373635b35a4e7a92ca6b56aec74b09)), closes [#459](https://github.com/remarkablemark/html-dom-parser/issues/459)
+- **deps:** bump htmlparser2 from 8.0.2 to 9.0.0 ([467bbaa](https://github.com/remarkablemark/html-dom-parser/commit/467bbaa4d7373635b35a4e7a92ca6b56aec74b09)), closes [#459](https://github.com/remarkablemark/html-dom-parser/issues/459)
 
 ## [3.1.7](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.6...v3.1.7) (2023-03-25)
 
-
 ### Build System
 
-* **deps:** bump htmlparser2 from 8.0.1 to 8.0.2 ([4fbe117](https://github.com/remarkablemark/html-dom-parser/commit/4fbe1171f1f7dfb87f05b7f9c410eaea0c6e8405)), closes [#433](https://github.com/remarkablemark/html-dom-parser/issues/433)
+- **deps:** bump htmlparser2 from 8.0.1 to 8.0.2 ([4fbe117](https://github.com/remarkablemark/html-dom-parser/commit/4fbe1171f1f7dfb87f05b7f9c410eaea0c6e8405)), closes [#433](https://github.com/remarkablemark/html-dom-parser/issues/433)
 
 ## [3.1.6](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.5...v3.1.6) (2023-03-22)
 
-
 ### Bug Fixes
 
-* **client:** correct spelling of feGaussianBlur ([9e28250](https://github.com/remarkablemark/html-dom-parser/commit/9e282504b0bef656b19249c324b748aa2190cb42)), closes [#429](https://github.com/remarkablemark/html-dom-parser/issues/429)
+- **client:** correct spelling of feGaussianBlur ([9e28250](https://github.com/remarkablemark/html-dom-parser/commit/9e282504b0bef656b19249c324b748aa2190cb42)), closes [#429](https://github.com/remarkablemark/html-dom-parser/issues/429)
 
 ## [3.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.4...v3.1.5) (2023-03-06)
 
-
 ### Bug Fixes
 
-* **client:** check for "template" in utilities formatDOM ([748cf27](https://github.com/remarkablemark/html-dom-parser/commit/748cf2763565554874e337f8af7b8e6d147a9d94)), closes [#417](https://github.com/remarkablemark/html-dom-parser/issues/417)
+- **client:** check for "template" in utilities formatDOM ([748cf27](https://github.com/remarkablemark/html-dom-parser/commit/748cf2763565554874e337f8af7b8e6d147a9d94)), closes [#417](https://github.com/remarkablemark/html-dom-parser/issues/417)
 
 ## [3.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.3...v3.1.4) (2023-03-04)
 
-
 ### Bug Fixes
 
-* **client:** get template content childNodes in utilities formatDOM ([c2c0bed](https://github.com/remarkablemark/html-dom-parser/commit/c2c0bedbc2f3ae8a3bdb4cdad05df007a2d6e870)), closes [#414](https://github.com/remarkablemark/html-dom-parser/issues/414)
+- **client:** get template content childNodes in utilities formatDOM ([c2c0bed](https://github.com/remarkablemark/html-dom-parser/commit/c2c0bedbc2f3ae8a3bdb4cdad05df007a2d6e870)), closes [#414](https://github.com/remarkablemark/html-dom-parser/issues/414)
 
 ## [3.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.2...v3.1.3) (2023-01-17)
 
-
 ### Bug Fixes
 
-* **package:** specify types in package.json and exports field ([21fb028](https://github.com/remarkablemark/html-dom-parser/commit/21fb02813597c786e29a3d47de89efca1451ee62))
+- **package:** specify types in package.json and exports field ([21fb028](https://github.com/remarkablemark/html-dom-parser/commit/21fb02813597c786e29a3d47de89efca1451ee62))
 
 ## [3.1.2](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.1...v3.1.2) (2022-08-23)
 
-
 ### Bug Fixes
 
-* **client:** fix import in html-to-dom.mjs ([78a7607](https://github.com/remarkablemark/html-dom-parser/commit/78a7607f8b4c421297cc0569d9f4e49647a0eb63)), closes [#337](https://github.com/remarkablemark/html-dom-parser/issues/337)
+- **client:** fix import in html-to-dom.mjs ([78a7607](https://github.com/remarkablemark/html-dom-parser/commit/78a7607f8b4c421297cc0569d9f4e49647a0eb63)), closes [#337](https://github.com/remarkablemark/html-dom-parser/issues/337)
 
 ## [3.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v3.1.0...v3.1.1) (2022-08-20)
 
-
 ### Bug Fixes
 
-* **client:** correct ECMAScript export in client html-to-dom.mjs ([7de506c](https://github.com/remarkablemark/html-dom-parser/commit/7de506cb7dfb6e48e4886659283f118265464e92)), closes [#334](https://github.com/remarkablemark/html-dom-parser/issues/334)
+- **client:** correct ECMAScript export in client html-to-dom.mjs ([7de506c](https://github.com/remarkablemark/html-dom-parser/commit/7de506cb7dfb6e48e4886659283f118265464e92)), closes [#334](https://github.com/remarkablemark/html-dom-parser/issues/334)
 
 ## [3.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.1...v3.1.0) (2022-08-16)
 
-
 ### Features
 
-* add esm for client ([0c4c2b6](https://github.com/remarkablemark/html-dom-parser/commit/0c4c2b6d86c75cb3dc924afc6fd8501c5d30a876))
+- add esm for client ([0c4c2b6](https://github.com/remarkablemark/html-dom-parser/commit/0c4c2b6d86c75cb3dc924afc6fd8501c5d30a876))
 
 ## [3.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v3.0.0...v3.0.1) (2022-07-10)
 
-
 ### Bug Fixes
 
-* **client:** ensure head and body with newline are parsed correctly ([b26b645](https://github.com/remarkablemark/html-dom-parser/commit/b26b645c9de708a6b85b61b66bbdb8e75eebb121)), closes [#317](https://github.com/remarkablemark/html-dom-parser/issues/317)
+- **client:** ensure head and body with newline are parsed correctly ([b26b645](https://github.com/remarkablemark/html-dom-parser/commit/b26b645c9de708a6b85b61b66bbdb8e75eebb121)), closes [#317](https://github.com/remarkablemark/html-dom-parser/issues/317)
 
 ## [3.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v2.0.0...v3.0.0) (2022-07-05)
 
-
 ### ⚠ BREAKING CHANGES
 
-* htmlparser2  7.2.0  →  8.0.1
+- htmlparser2 7.2.0 → 8.0.1
 
 ### Build System
 
-* upgrade domhandler to 5.0.3 and htmlparser2 to 8.0.1 ([e80a69c](https://github.com/remarkablemark/html-dom-parser/commit/e80a69c83e07b0ae2f48a78dbd6adb7d0a71b0f3))
+- upgrade domhandler to 5.0.3 and htmlparser2 to 8.0.1 ([e80a69c](https://github.com/remarkablemark/html-dom-parser/commit/e80a69c83e07b0ae2f48a78dbd6adb7d0a71b0f3))
 
 ## [2.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v1.2.0...v2.0.0) (2022-06-18)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **client:** remove Internet Explorer (IE11) support
+- **client:** remove Internet Explorer (IE11) support
 
 ### Features
 
-* **client:** remove Internet Explorer (IE11) support ([b34cbe1](https://github.com/remarkablemark/html-dom-parser/commit/b34cbe1310c0e223ae05bca00945c70faca374ab)), closes [#225](https://github.com/remarkablemark/html-dom-parser/issues/225)
+- **client:** remove Internet Explorer (IE11) support ([b34cbe1](https://github.com/remarkablemark/html-dom-parser/commit/b34cbe1310c0e223ae05bca00945c70faca374ab)), closes [#225](https://github.com/remarkablemark/html-dom-parser/issues/225)
 
 ## [1.2.0](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.1.1...v1.2.0) (2022-04-14)
 
-
 ### Features
 
-* add compatibility for react-native ([4a4a974](https://www.github.com/remarkablemark/html-dom-parser/commit/4a4a974c01ad0beaf0591fe169d68afe66ea6e2a))
+- add compatibility for react-native ([4a4a974](https://www.github.com/remarkablemark/html-dom-parser/commit/4a4a974c01ad0beaf0591fe169d68afe66ea6e2a))
 
 ## [1.1.1](https://www.github.com/remarkablemark/html-dom-parser/compare/v1.1.0...v1.1.1) (2022-03-20)
 
