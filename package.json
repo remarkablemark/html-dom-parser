@@ -31,12 +31,12 @@
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable && run-s lint lint:tsc test:server clean build",
     "size-limit": "size-limit",
-    "test": "run-s build:cjs test:server test:client",
+    "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",
     "test:esm": "npm run build:cjs && node --test test/esm",
-    "test:server": "nyc mocha"
+    "test:server": "npm run build:cjs && nyc mocha"
   },
   "repository": {
     "type": "git",
