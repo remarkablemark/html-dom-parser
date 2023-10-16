@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v4.0.1...v5.0.0) (2023-10-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* CommonJS imports require the `.default` key.
+
+### Code Refactoring
+
+* migrate to TypeScript ([5915b08](https://github.com/remarkablemark/html-dom-parser/commit/5915b084ce7f3cf59e486da998c203f87a45bda1))
+
 ## [4.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v4.0.0...v4.0.1) (2023-10-15)
 
 ### Miscellaneous Chores
