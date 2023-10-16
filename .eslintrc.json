@@ -1,28 +1,22 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
     "mocha": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["prettier"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "no-debugger": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-var-requires": "off",
     "no-console": "error",
+    "no-debugger": "error",
     "prettier/prettier": "error"
-  },
-  "overrides": [
-    {
-      "files": ["lib/**/*.d.ts"],
-      "rules": {
-        "no-unused-vars": "off"
-      }
-    }
-  ]
+  }
 }
