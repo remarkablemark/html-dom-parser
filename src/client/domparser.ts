@@ -11,6 +11,7 @@ const BODY_TAG_REGEX = /<body[^]*>/i;
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromDocument = (html: string, tagName?: string): Document => {
+  /* istanbul ignore next */
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
   );
@@ -18,6 +19,7 @@ let parseFromDocument = (html: string, tagName?: string): Document => {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromString = (html: string, tagName?: string): Document => {
+  /* istanbul ignore next */
   throw new Error(
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
