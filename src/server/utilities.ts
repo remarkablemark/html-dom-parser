@@ -3,7 +3,7 @@ import type {
   Comment,
   Element,
   ProcessingInstruction,
-  Text
+  Text,
 } from 'domhandler';
 
 type Node = Element | Text | Comment | ProcessingInstruction;

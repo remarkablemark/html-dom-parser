@@ -9,21 +9,21 @@ const HEAD_TAG_REGEX = /<head[^]*>/i;
 const BODY_TAG_REGEX = /<body[^]*>/i;
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromDocument = (html: string, tagName?: string): Document => {
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
   );
 };
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromString = (html: string, tagName?: string): Document => {
   throw new Error(
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
 };
 
-let DOMParser = typeof window === 'object' && window.DOMParser;
+const DOMParser = typeof window === 'object' && window.DOMParser;
 
 /**
  * DOMParser (performance: slow).
@@ -91,7 +91,7 @@ if (typeof document === 'object' && document.implementation) {
 const template =
   typeof document === 'object' && document.createElement('template');
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromTemplate: (html: string) => NodeList;
 
 if (template && template.content) {
