@@ -1,10 +1,10 @@
 const { expect } = require('chai');
-const utilities = require('../../lib/client/utilities');
+const { formatDOM } = require('../../src/client/utilities');
 
-describe('client utilities', function () {
-  describe('formatDOM', function () {
-    it('continues loop when nodeType is undefined', function () {
-      expect(utilities.formatDOM([{ nodeType: undefined }])).to.deep.equal([]);
+describe('client utilities', () => {
+  describe('formatDOM', () => {
+    it('continues loop when nodeType is undefined', () => {
+      expect(formatDOM([{ nodeType: undefined }])).to.deep.equal([]);
     });
   });
 });

@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const mock = require('mock-require');
 
 function resetModules() {
-  Object.keys(require.cache).forEach(key => {
+  Object.keys(require.cache).forEach((key) => {
     delete require.cache[key];
   });
 }
@@ -22,8 +22,8 @@ const DomHandler = sinon.spy(function () {
       children: [],
       next: null,
       prev: null,
-      parent: null
-    }
+      parent: null,
+    },
   ];
 });
 
@@ -33,7 +33,7 @@ describe('server parser', () => {
   // before
   mock('htmlparser2', { Parser });
   mock('domhandler', { DomHandler });
-  const parse = require('../..');
+  const parse = require('../../src').default;
 
   it('calls `DomHandler` and `Parser`', () => {
     parse(html);

@@ -21,14 +21,14 @@ jobs:
       - name: Lint JavaScript
         run: npm run lint
 
-      - name: Test TypeScript declaration files
-        run: npm run lint:dts
+      - name: Type check
+        run: npm run lint:tsc
 
       - name: Run server test
         run: npm run test:server
 
       - name: Run module tests
-        run: npm run test:module
+        run: npm run test:esm
 
       - name: Run server test
         run: npm run test:server

@@ -1,4 +1,4 @@
-import parse from 'html-dom-parser';
+import parse from '../../lib';
 
 // $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
 parse('<div>text</div>');

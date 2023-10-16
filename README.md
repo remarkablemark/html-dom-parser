@@ -19,7 +19,8 @@ The parser converts an HTML string to a JavaScript object that describes the DOM
 #### Example
 
 ```js
-const parse = require('html-dom-parser');
+import parse from 'html-dom-parser';
+
 parse('<p>Hello, World!</p>');
 ```
 
@@ -83,16 +84,16 @@ yarn add html-dom-parser
 
 ## Usage
 
-Import the module with ES Modules:
+Import with ES Modules:
 
 ```js
 import parse from 'html-dom-parser';
 ```
 
-Or require the module with CommonJS:
+Require with CommonJS:
 
 ```js
-const parse = require('html-dom-parser');
+const parse = require('html-dom-parser').default;
 ```
 
 Parse empty string:
@@ -179,24 +180,24 @@ Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/
  * should be combined into a single object like so:
  */
 const options = {
-    /**
-     * Options for the domhandler class.
-     * https://github.com/fb55/domhandler/blob/master/src/index.ts#L16
-     */
-    withStartIndices: false,
-    withEndIndices: false,
-    xmlMode: false,
-    /**
-     * Options for the htmlparser2 class.
-     * https://github.com/fb55/htmlparser2/blob/master/src/Parser.ts#L104
-     */ 
-    xmlMode: false, // Will overwrite what is used for the domhandler, otherwise inherited.
-    decodeEntities: true,
-    lowerCaseTags: true, // !xmlMode by default
-    lowerCaseAttributeNames: true, // !xmlMode by default
-    recognizeCDATA: false, // xmlMode by default
-    recognizeSelfClosing: false, // xmlMode by default
-    Tokenizer: Tokenizer
+  /**
+   * Options for the domhandler class.
+   * https://github.com/fb55/domhandler/blob/master/src/index.ts#L16
+   */
+  withStartIndices: false,
+  withEndIndices: false,
+  xmlMode: false,
+  /**
+   * Options for the htmlparser2 class.
+   * https://github.com/fb55/htmlparser2/blob/master/src/Parser.ts#L104
+   */
+  xmlMode: false, // Will overwrite what is used for the domhandler, otherwise inherited.
+  decodeEntities: true,
+  lowerCaseTags: true, // !xmlMode by default
+  lowerCaseAttributeNames: true, // !xmlMode by default
+  recognizeCDATA: false, // xmlMode by default
+  recognizeSelfClosing: false, // xmlMode by default
+  Tokenizer: Tokenizer,
 };
 ```
 
@@ -204,34 +205,15 @@ If you are parsing HTML with SVG code you can set `lowerCaseTags` to `true` with
 
 > **Note**: If you are parsing code client-side (in-browser), you can not control the parsing options. Client-side parsing automatically handles returning some HTML tags in camel-case, such as specific SVG elements, but returns all other tags lowercased according to the HTML standard.
 
-## Testing
-
-Run server and client tests:
-
-```sh
-npm test
-```
-
-Generate HTML coverage report for server tests:
-
-```sh
-npx nyc report --reporter=html
-```
-
-Lint files:
-
-```sh
-npm run lint
-npm run lint:fix
-```
-
-Test TypeScript declaration file for style and correctness:
-
-```sh
-npm run lint:dts
-```
-
 ## Migration
+
+### v5
+
+Migrated to TypeScript. CommonJS imports require the `.default` key:
+
+```js
+const parse = require('html-dom-parser').default;
+```
 
 ### v4
 

@@ -5,7 +5,7 @@ const { runTests, testCaseSensitiveTags, throwErrors } = require('../helpers');
 
 describe('server parser', () => {
   // before
-  const serverParser = require('../..');
+  const serverParser = require('../../src').default;
 
   // tests
   throwErrors(assert, serverParser);
@@ -19,7 +19,7 @@ describe('client parser in jsdom', () => {
   // before
   const jsdomify = require('jsdomify').default;
   jsdomify.create();
-  const clientParser = require('../../lib/client/html-to-dom');
+  const clientParser = require('../../src/client/html-to-dom').default;
 
   // tests
   throwErrors(assert, clientParser);

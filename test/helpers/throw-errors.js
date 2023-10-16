@@ -1,4 +1,4 @@
-var values = [
+const values = [
   undefined,
   null,
   0,
@@ -7,8 +7,8 @@ var values = [
   false,
   {},
   [],
-  function () {},
-  new Date()
+  () => {},
+  new Date(),
 ];
 
 /**
@@ -17,17 +17,15 @@ var values = [
  * @param {Function} assert         - Assert.
  * @param {Function} expectedParser - Expected parser.
  */
-function throwErrors(assert, expectedParser) {
-  values.forEach(function (value) {
-    var type =
+module.exports = function throwErrors(assert, expectedParser) {
+  values.forEach((value) => {
+    const type =
       value instanceof Object ? value.constructor.name : JSON.stringify(value);
 
-    it('throws error for argument: ' + type, function () {
+    it(`throws error for argument: ${type}`, () => {
       assert.throws(function () {
         expectedParser(value);
       }, TypeError);
     });
   });
-}
-
-module.exports = throwErrors;
+};

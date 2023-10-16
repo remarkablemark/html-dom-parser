@@ -18,19 +18,19 @@ const html = [
   {
     name: 'complex html',
     data: minify(read('./complex.html'), {
-      collapseWhitespace: true
-    })
-  }
+      collapseWhitespace: true,
+    }),
+  },
 ];
 
 const svg = [
   {
     name: 'complex svg',
-    data: read('./complex.svg')
-  }
+    data: read('./complex.svg'),
+  },
 ];
 
 module.exports = {
   html,
-  svg
+  svg,
 };

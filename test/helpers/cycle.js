@@ -107,7 +107,7 @@ if (typeof JSON.decycle !== 'function') {
           Object.keys(value).forEach(function (name) {
             nu[name] = derez(
               value[name],
-              path + '[' + JSON.stringify(name) + ']'
+              path + '[' + JSON.stringify(name) + ']',
             );
           });
         }
