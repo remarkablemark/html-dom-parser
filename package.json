@@ -31,7 +31,7 @@
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable && run-s lint lint:tsc test:server clean build",
     "size-limit": "size-limit",
-    "test": "run-s test:server test:client",
+    "test": "run-s build test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",

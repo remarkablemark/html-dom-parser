@@ -1,5 +1,6 @@
 # Build directory
 dist/
+lib/
 
 # Logs
 logs
