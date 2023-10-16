@@ -1,6 +1,6 @@
-var unsetRootParent = require('../../lib/server/utilities').unsetRootParent;
+const { unsetRootParent } = require('../../lib/server/utilities');
 
-var isKarma =
+const isKarma =
   typeof window === 'object' && typeof window.__karma__ === 'object';
 
 /**
@@ -11,13 +11,18 @@ var isKarma =
  * @param {Function} actualParser   - Actual parser.
  * @param {Function} expectedParser - Expected parser.
  */
-function runTests(assert, actualParser, expectedParser, testCases) {
+module.exports = function runTests(
+  assert,
+  actualParser,
+  expectedParser,
+  testCases,
+) {
   testCases.forEach(function (testCase) {
-    var _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
+    const _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
     _it('parses ' + testCase.name, function () {
-      var actualOutput = actualParser(testCase.data);
-      var expectedOutput = unsetRootParent(expectedParser(testCase.data));
+      let actualOutput = actualParser(testCase.data);
+      let expectedOutput = unsetRootParent(expectedParser(testCase.data));
 
       // use `JSON.decycle` since `assert.deepEqual` fails
       // when instance types are different in the browser
@@ -29,6 +34,4 @@ function runTests(assert, actualParser, expectedParser, testCases) {
       assert.deepEqual(actualOutput, expectedOutput);
     });
   });
-}
-
-module.exports = runTests;
+};

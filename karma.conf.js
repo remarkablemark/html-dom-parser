@@ -1,6 +1,7 @@
-// Karma configuration
-// https://karma-runner.github.io/5.2/config/configuration-file.html
-module.exports = config => {
+/**
+ * @see https://karma-runner.github.io/6.4/config/configuration-file.html
+ */
+module.exports = (config) => {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -16,7 +17,7 @@ module.exports = config => {
       'lib/server/utilities.js',
       'test/cases/html.js',
       'test/client/*.js',
-      'test/helpers/*.js'
+      'test/helpers/*.js',
     ],
 
     // list of files / patterns to exclude
@@ -27,7 +28,7 @@ module.exports = config => {
     preprocessors: {
       'dist/*.js': ['commonjs'],
       'lib/**/*.js': ['commonjs'],
-      'test/**/*.js': ['commonjs']
+      'test/**/*.js': ['commonjs'],
     },
 
     // test results reporter to use
@@ -74,14 +75,14 @@ module.exports = config => {
     client: {
       mocha: {
         // change Karma's `debug.html` to the Mocha web reporter
-        reporter: 'html'
-      }
+        reporter: 'html',
+      },
     },
 
     // Mocha reporter options
     // https://www.npmjs.com/package/karma-mocha-reporter
     mochaReporter: {
-      showDiff: true
-    }
+      showDiff: true,
+    },
   });
 };

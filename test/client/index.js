@@ -1,24 +1,24 @@
-var htmlCases = require('../cases/html');
-var serverParser = require('../../dist/htmlparser2').parseDOM;
-var clientParser = require('../../dist/html-dom-parser');
-var helpers = require('../helpers');
+const htmlCases = require('../cases/html');
+const serverParser = require('../../dist/htmlparser2').parseDOM;
+const clientParser = require('../../dist/html-dom-parser');
+const helpers = require('../helpers');
 
-var assert = window.assert;
+const assert = window.assert;
 
-describe('client parser', function () {
+describe('client parser', () => {
   helpers.throwErrors(assert, clientParser);
   helpers.runTests(assert, clientParser, serverParser, htmlCases);
   helpers.testCaseSensitiveTags(assert, clientParser);
 
-  describe('performance', function () {
-    it('executes 1000 times in less than 50ms', function () {
-      var times = 1000;
-      var start = performance.now();
+  describe('performance', () => {
+    it('executes 1000 times in less than 50ms', () => {
+      let times = 1000;
+      const start = performance.now();
       while (--times) {
         clientParser('<div>test</div>');
       }
-      var end = performance.now();
-      var elapsed = end - start;
+      const end = performance.now();
+      const elapsed = end - start;
       assert.isBelow(elapsed, 50);
     });
   });

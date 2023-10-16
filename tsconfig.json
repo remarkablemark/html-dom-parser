@@ -1,26 +1,15 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "module": "commonjs",
-    "lib": ["es6", "dom"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "baseUrl": ".",
-    "noEmit": true,
+    "lib": ["es5", "dom"],
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "html-dom-parser": ["."],
-      "html-dom-parser/lib/*": ["./lib/*"]
-    }
+    "strict": true,
+    "outDir": "lib"
   },
-  "files": [
-    "index.d.ts",
-    "lib/client/constants.d.ts",
-    "lib/client/domparser.d.ts",
-    "lib/client/html-to-dom.d.ts",
-    "lib/client/utilities.d.ts",
-    "lib/server/html-to-dom.d.ts",
-    "test/types/index.test.ts"
-  ]
+  "include": ["src"]
 }

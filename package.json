@@ -3,28 +3,40 @@
   "version": "4.0.1",
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
-  "main": "index.js",
-  "module": "index.mjs",
+  "main": "lib/index.js",
+  "module": "esm/index.mjs",
   "exports": {
-    "import": "./index.mjs",
-    "require": "./index.js"
+    ".": {
+      "import": "./esm/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./lib/client/*": {
+      "import": "./esm/client/*.mjs",
+      "require": "./lib/client/*.js"
+    },
+    "./lib/server/*": {
+      "import": "./esm/server/*.mjs",
+      "require": "./lib/server/*.js"
+    }
   },
   "scripts": {
-    "build": "rollup --config --failAfterWarnings",
-    "clean": "rm -rf dist",
+    "build": "run-p build:*",
+    "build:cjs": "tsc",
+    "build:umd": "rollup --config --failAfterWarnings",
+    "clean": "rm -rf .nyc_output coverage dist lib",
     "lint": "eslint . --ignore-path .gitignore",
-    "lint:dts": "dtslint .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:tsc": "tsc --noEmit",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable && run-s lint lint:dts test:server clean build",
+    "prepublishOnly": "pinst --disable && run-s lint lint:tsc test:server clean build",
     "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",
-    "test:module": "node --test test/module",
-    "test:server": "nyc mocha test/server"
+    "test:esm": "npm run build:cjs && node --test test/esm",
+    "test:server": "nyc mocha -r ts-node/register test/server --ignore esm"
   },
   "repository": {
     "type": "git",
@@ -48,10 +60,11 @@
   "devDependencies": {
     "@commitlint/cli": "17.8.0",
     "@commitlint/config-conventional": "17.8.0",
-    "@definitelytyped/dtslint": "0.0.182",
+    "@rollup/plugin-alias": "5.0.1",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "11.1.5",
     "@size-limit/preset-big-lib": "9.0.0",
     "@types/estree": "1.0.2",
     "@typescript-eslint/parser": "5.62.0",
@@ -81,17 +94,15 @@
   },
   "files": [
     "/dist",
-    "/index.d.ts",
-    "/index.js",
-    "/index.mjs",
+    "/esm",
     "/lib"
   ],
   "browser": {
-    "./index.js": "./lib/client/html-to-dom.js",
-    "./index.mjs": "./lib/client/html-to-dom.mjs"
+    "./lib/index.js": "./lib/client/html-to-dom.js",
+    "./esm/index.mjs": "./esm/client/html-to-dom.mjs"
   },
   "react-native": {
-    "./index.js": "./lib/server/html-to-dom.js"
+    "./lib/index.js": "./lib/server/html-to-dom.js"
   },
   "license": "MIT"
 }
