@@ -7,14 +7,17 @@
   "module": "esm/index.mjs",
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./esm/index.mjs",
       "require": "./lib/index.js"
     },
     "./lib/client/*": {
+      "types": "./lib/client/*.d.ts",
       "import": "./esm/client/*.mjs",
       "require": "./lib/client/*.js"
     },
     "./lib/server/*": {
+      "types": "./lib/server/*.d.ts",
       "import": "./esm/server/*.mjs",
       "require": "./lib/server/*.js"
     }
