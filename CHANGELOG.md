@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.2](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.1...v5.0.2) (2023-10-19)
+
+
+### Bug Fixes
+
+* **package:** add "/src" to files to fix source map warning ([7082c50](https://github.com/remarkablemark/html-dom-parser/commit/7082c50c56f825dcab896f6847c60b0dcdd9b211))
+
 ## [5.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.0...v5.0.1) (2023-10-17)
 
 
