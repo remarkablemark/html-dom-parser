@@ -99,7 +99,8 @@
   "files": [
     "/dist",
     "/esm",
-    "/lib"
+    "/lib",
+    "/src"
   ],
   "browser": {
     "./lib/index.js": "./lib/client/html-to-dom.js",
