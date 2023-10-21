@@ -3,8 +3,9 @@
   "version": "5.0.2",
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
-  "main": "lib/index.js",
-  "module": "esm/index.mjs",
+  "main": "./lib/index.js",
+  "module": "./esm/index.mjs",
+  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
