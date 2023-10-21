@@ -21,7 +21,7 @@ export default function HTMLDOMParser(html: string, options?: ParserOptions) {
     throw new TypeError('First argument must be a string.');
   }
 
-  if (html === '') {
+  if (!html) {
     return [];
   }
 
