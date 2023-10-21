@@ -1,5 +1,7 @@
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
+
 import { CASE_SENSITIVE_TAG_NAMES_MAP } from './constants';
+import type { DOMNode } from '../types';
 
 /**
  * Gets case-sensitive tag name.
@@ -59,10 +61,10 @@ function formatTagName(tagName: string): string {
  */
 export function formatDOM(
   nodes: NodeList,
-  parent: Element | null = null,
+  parent: DOMNode | null = null,
   directive?: string,
-): (Comment | Element | ProcessingInstruction | Text)[] {
-  const result = [];
+): DOMNode[] {
+  const domNodes = [];
   let current;
   let index = 0;
   const nodesLength = nodes.length;
@@ -105,17 +107,17 @@ export function formatDOM(
     }
 
     // set previous node next
-    const prev = result[index - 1] || null;
+    const prev = domNodes[index - 1] || null;
     if (prev) {
       prev.next = current;
     }
 
     // set properties for current node
-    current.parent = parent;
+    current.parent = parent as Element;
     current.prev = prev;
     current.next = null;
 
-    result.push(current);
+    domNodes.push(current);
   }
 
   if (directive) {
@@ -123,14 +125,15 @@ export function formatDOM(
       directive.substring(0, directive.indexOf(' ')).toLowerCase(),
       directive,
     );
-    current.next = result[0] || null;
-    current.parent = parent;
-    result.unshift(current);
 
-    if (result[1]) {
-      result[1].prev = result[0];
+    current.next = domNodes[0] || null;
+    current.parent = parent as Element;
+    domNodes.unshift(current);
+
+    if (domNodes[1]) {
+      domNodes[1].prev = domNodes[0];
     }
   }
 
-  return result;
+  return domNodes;
 }

@@ -1,12 +1,6 @@
-import type {
-  ChildNode,
-  Comment,
-  Element,
-  ProcessingInstruction,
-  Text,
-} from 'domhandler';
+import type { ChildNode } from 'domhandler';
 
-type Node = Element | Text | Comment | ProcessingInstruction;
+import type { DOMNode } from '../types';
 
 /**
  * Sets root parent to null.
@@ -14,7 +8,7 @@ type Node = Element | Text | Comment | ProcessingInstruction;
  * @param nodes - Nodes.
  * @returns - Nodes.
  */
-export function unsetRootParent(nodes: ChildNode[]): Node[] {
+export function unsetRootParent(nodes: ChildNode[]): DOMNode[] {
   let index = 0;
   const nodesLength = nodes.length;
 
@@ -23,5 +17,5 @@ export function unsetRootParent(nodes: ChildNode[]): Node[] {
     node.parent = null;
   }
 
-  return nodes as Node[];
+  return nodes as DOMNode[];
 }
