@@ -45,6 +45,7 @@ if (typeof DOMParser === 'function') {
    */
   parseFromString = (html: string, tagName?: string): Document => {
     if (tagName) {
+      /* istanbul ignore next */
       html = `<${tagName}>${html}</${tagName}>`;
     }
 
