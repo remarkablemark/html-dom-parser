@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.2...v5.0.3) (2023-10-22)
+
+
+### Miscellaneous Chores
+
+* export types from index.ts ([8ed55e2](https://github.com/remarkablemark/html-dom-parser/commit/8ed55e23df5c50e19c6df5d0e4856f52ee890a0c))
+
 ## [5.0.2](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.1...v5.0.2) (2023-10-19)
 
 
