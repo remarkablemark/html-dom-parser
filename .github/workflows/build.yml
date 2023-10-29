@@ -16,7 +16,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Install dependencies
-        run: npm install --prefer-offline
+        run: npm ci --prefer-offline
 
       - name: Lint JavaScript
         run: npm run lint
