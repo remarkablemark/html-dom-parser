@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
-      - name: Lint JavaScript
+      - name: Run ESLint
         run: npm run lint
 
       - name: Type check
@@ -27,20 +27,6 @@ jobs:
       - name: Run server test
         run: npm run test:server
 
-      - name: Run module tests
-        run: npm run test:esm
-
-      - name: Run server test
-        run: npm run test:server
-
-      - name: Run client test
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: npm run test:client
-
-      - name: Build bundle
-        run: npm run build
-
       - name: Generate coverage report
         run: |
           mkdir -p coverage
@@ -48,3 +34,14 @@ jobs:
 
       - name: Codecov
         uses: codecov/codecov-action@v3
+
+      - name: Run module tests
+        run: npm run test:esm
+
+      - name: Run client test
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: npm run test:client
+
+      - name: Build artifacts
+        run: npm run build
