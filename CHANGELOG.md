@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.3...v5.0.4) (2023-10-31)
+
+
+### Bug Fixes
+
+* **esm:** support vite bundler ([c9e510f](https://github.com/remarkablemark/html-dom-parser/commit/c9e510f7c4e7c0dded3d80a540a313c5c8e3000e))
+
 ## [5.0.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.2...v5.0.3) (2023-10-22)
 
 
