@@ -93,7 +93,7 @@
     "nyc": "15.1.0",
     "pinst": "3.0.0",
     "prettier": "3.0.3",
-    "rollup": "4.3.0",
+    "rollup": "4.4.0",
     "size-limit": "10.0.2",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
