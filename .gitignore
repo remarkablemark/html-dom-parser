@@ -1,5 +1,6 @@
 # Build directory
 dist/
+esm/types.ts
 lib/
 
 # Logs
