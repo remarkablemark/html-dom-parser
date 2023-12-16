@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.4...v5.0.5) (2023-12-16)
+
+
+### Bug Fixes
+
+* **esm:** fix ESM types by adding .mts declaration files ([96a1cfc](https://github.com/remarkablemark/html-dom-parser/commit/96a1cfcd899f4b4c6030e75d13438fc3c05b3be2))
+
 ## [5.0.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.3...v5.0.4) (2023-10-31)
 
 
