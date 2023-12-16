@@ -5,27 +5,24 @@
   "author": "Mark <mark@remarkablemark.org>",
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
-  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
       "import": "./esm/index.mjs",
       "require": "./lib/index.js"
     },
     "./lib/client/*": {
-      "types": "./lib/client/*.d.ts",
       "import": "./esm/client/*.mjs",
       "require": "./lib/client/*.js"
     },
     "./lib/server/*": {
-      "types": "./lib/server/*.d.ts",
       "import": "./esm/server/*.mjs",
       "require": "./lib/server/*.js"
     }
   },
   "scripts": {
-    "build": "run-p build:*",
+    "build": "run-s build:*",
     "build:cjs": "tsc",
+    "build:esm": "awk '!/sourceMappingURL/' lib/types.d.ts > esm/types.ts",
     "build:umd": "rollup --config --failAfterWarnings",
     "clean": "rm -rf .nyc_output coverage dist lib",
     "lint": "eslint . --ignore-path .gitignore",
