@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.5...v5.0.6) (2023-12-19)
+
+
+### Bug Fixes
+
+* re-export types correctly for verbatimModuleSyntax ([#612](https://github.com/remarkablemark/html-dom-parser/issues/612)) ([782b675](https://github.com/remarkablemark/html-dom-parser/commit/782b6750223b8b5a556c714ca04e0e682a490248))
+
 ## [5.0.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.4...v5.0.5) (2023-12-16)
 
 
