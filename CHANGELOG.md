@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.7](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.6...v5.0.7) (2024-01-13)
+
+
+### Build System
+
+* **deps:** bump htmlparser2 from 9.0.0 to 9.1.0 ([#631](https://github.com/remarkablemark/html-dom-parser/issues/631)) ([6816800](https://github.com/remarkablemark/html-dom-parser/commit/681680074c59cb1ab61758b06dc794476d8a7fe0))
+
 ## [5.0.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.5...v5.0.6) (2023-12-19)
 
 
