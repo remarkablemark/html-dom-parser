@@ -59,7 +59,7 @@
     "htmlparser2": "9.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "18.4.4",
+    "@commitlint/cli": "18.5.0",
     "@commitlint/config-conventional": "18.4.4",
     "@rollup/plugin-alias": "5.1.0",
     "@rollup/plugin-commonjs": "25.0.7",
