@@ -33,7 +33,9 @@ jobs:
           npx nyc report --reporter=text-lcov > coverage/lcov.info
 
       - name: Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run module tests
         run: npm run test:esm
