@@ -3,20 +3,21 @@
   "version": "5.0.7",
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
-  "main": "./lib/index.js",
-  "module": "./esm/index.mjs",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./esm/index.js",
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./lib/index.js"
+      "import": "./esm/index.js",
+      "require": "./lib/index.cjs"
     },
     "./lib/client/*": {
-      "import": "./esm/client/*.mjs",
-      "require": "./lib/client/*.js"
+      "import": "./esm/client/*.js",
+      "require": "./lib/client/*.cjs"
     },
     "./lib/server/*": {
-      "import": "./esm/server/*.mjs",
-      "require": "./lib/server/*.js"
+      "import": "./esm/server/*.js",
+      "require": "./lib/server/*.cjs"
     }
   },
   "scripts": {

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   // html tags
   {
     name: 'empty html',

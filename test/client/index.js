@@ -1,7 +1,7 @@
-const htmlCases = require('../cases/html');
-const serverParser = require('../../dist/htmlparser2').parseDOM;
-const clientParser = require('../../dist/html-dom-parser');
-const helpers = require('../helpers');
+import htmlCases from '../cases/html.js';
+import { parseDOM as serverParser } from '../../dist/htmlparser2.cjs';
+import clientParser from '../../dist/html-dom-parser.cjs';
+import helpers from '../helpers.js';
 
 const assert = window.assert;
 

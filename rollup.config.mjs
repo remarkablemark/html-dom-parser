@@ -8,7 +8,7 @@ const getConfig = (minify = false) => ({
   input: 'src/index.ts',
 
   output: {
-    file: `dist/html-dom-parser${minify ? '.min' : ''}.js`,
+    file: `dist/html-dom-parser${minify ? '.min' : ''}.cjs`,
     format: 'umd',
     name: 'HTMLDOMParser',
     sourcemap: true,
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'test') {
   configs.push({
     input: 'node_modules/htmlparser2',
     output: {
-      file: 'dist/htmlparser2.js',
+      file: 'dist/htmlparser2.cjs',
       format: 'umd',
       name: 'htmlparser2',
       sourcemap: true,
