@@ -17,7 +17,7 @@ const values = [
  * @param {Function} assert         - Assert.
  * @param {Function} expectedParser - Expected parser.
  */
-module.exports = function throwErrors(assert, expectedParser) {
+export function throwErrors(assert, expectedParser) {
   values.forEach((value) => {
     const type =
       value instanceof Object ? value.constructor.name : JSON.stringify(value);

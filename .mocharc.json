@@ -1,7 +1,9 @@
 {
   "extensions": ["js", "ts"],
   "spec": ["test/server/*.test.ts"],
-  "require": "ts-node/register",
+  "node-option": [
+    "loader=ts-node/esm"
+  ],
   "recursive": true,
   "ignore": "esm"
 }

@@ -76,7 +76,7 @@ yarn add html-dom-parser
 [CDN](https://unpkg.com/html-dom-parser/):
 
 ```html
-<script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.min.js"></script>
+<script src="https://unpkg.com/html-dom-parser@latest/dist/html-dom-parser.min.cjs"></script>
 <script>
   window.HTMLDOMParser(/* string */);
 </script>

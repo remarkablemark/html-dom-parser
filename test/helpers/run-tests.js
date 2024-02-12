@@ -1,4 +1,4 @@
-const { unsetRootParent } = require('../../lib/server/utilities');
+import { unsetRootParent } from '../../lib/server/utilities.js';
 
 const isKarma =
   typeof window === 'object' && typeof window.__karma__ === 'object';
@@ -11,7 +11,7 @@ const isKarma =
  * @param {Function} actualParser   - Actual parser.
  * @param {Function} expectedParser - Expected parser.
  */
-module.exports = function runTests(
+export function runTests(
   assert,
   actualParser,
   expectedParser,

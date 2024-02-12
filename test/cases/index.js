@@ -1,7 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const { minify } = require('html-minifier');
-const htmlCases = require('./html');
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+import { minify } from 'html-minifier';
+import htmlCases from './html.js';
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 /**
  * Reads file (helper for `readFileSync`).
@@ -30,7 +33,7 @@ const svg = [
   },
 ];
 
-module.exports = {
+export default {
   html,
-  svg,
-};
+  svg
+}
