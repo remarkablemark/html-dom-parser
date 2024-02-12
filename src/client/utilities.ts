@@ -1,7 +1,7 @@
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 
-import { CASE_SENSITIVE_TAG_NAMES_MAP } from './constants';
-import type { DOMNode } from '../types';
+import { CASE_SENSITIVE_TAG_NAMES_MAP } from './constants.js';
+import type { DOMNode } from '../types.js';
 
 /**
  * Gets case-sensitive tag name.

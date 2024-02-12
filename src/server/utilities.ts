@@ -1,6 +1,6 @@
 import type { ChildNode } from 'domhandler';
 
-import type { DOMNode } from '../types';
+import type { DOMNode } from '../types.js';
 
 /**
  * Sets root parent to null.

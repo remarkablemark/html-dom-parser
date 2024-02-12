@@ -1,4 +1,4 @@
-import parse from '../../lib';
+import parse from '../../lib/index.js';
 
 // $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
 parse('<div>text</div>');

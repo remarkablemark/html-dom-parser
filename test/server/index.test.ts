@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Element } from 'domhandler';
 
-import parse from '../../src';
+import parse from '../../src/index.js';
 
 describe('server parser', () => {
   it('exports default function', () => {

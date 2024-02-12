@@ -1,5 +1,5 @@
-import domparser from './domparser';
-import { formatDOM } from './utilities';
+import domparser from './domparser.js';
+import { formatDOM } from './utilities.js';
 
 const DIRECTIVE_REGEX = /<(![a-zA-Z\s]+)>/; // e.g., <!doctype html>
 
