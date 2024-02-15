@@ -3,11 +3,11 @@ import * as htmlparser from 'htmlparser2';
 // @ts-ignore
 import jsdomify from 'jsdomify';
 
-import serverParser from '../../src';
+import serverParser from '../../src/index.js';
 // @ts-ignore
-import cases from '../cases';
+import cases from '../cases/index.js';
 // @ts-ignore
-import { runTests, testCaseSensitiveTags, throwErrors } from '../helpers';
+import { runTests, testCaseSensitiveTags, throwErrors } from '../helpers/index.js';
 
 describe('server parser', () => {
   throwErrors(assert, serverParser);

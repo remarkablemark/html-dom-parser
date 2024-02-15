@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { formatDOM } from '../../src/client/utilities';
+import { formatDOM } from '../../src/client/utilities.js';
 
 describe('client utilities', () => {
   describe('formatDOM', () => {

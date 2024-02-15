@@ -2,7 +2,7 @@ import { Parser } from 'htmlparser2';
 import { DomHandler } from 'domhandler';
 import type { ParserOptions } from 'htmlparser2';
 
-import { unsetRootParent } from './utilities';
+import { unsetRootParent } from './utilities.js';
 
 /**
  * Parses HTML string to DOM nodes in Node.js.
