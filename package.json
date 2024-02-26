@@ -77,7 +77,7 @@
     "html-minifier": "4.0.0",
     "husky": "9.0.11",
     "jsdomify": "3.1.1",
-    "karma": "6.4.2",
+    "karma": "6.4.3",
     "karma-chai": "0.1.0",
     "karma-chrome-launcher": "3.2.0",
     "karma-commonjs": "1.0.0",
