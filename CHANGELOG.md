@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.9](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.8...v5.0.9) (2024-07-18)
+
+
+### Bug Fixes
+
+* exports field includes package.json ([c373a92](https://github.com/remarkablemark/html-dom-parser/commit/c373a92567272712300270ed721e298e46c4f929))
+
 ## [5.0.8](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.7...v5.0.8) (2024-02-12)
 
 
