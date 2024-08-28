@@ -5,5 +5,4 @@
  * @see https://github.com/substack/node-browserify#browser-field
  */
 export { default } from './server/html-to-dom';
-
 export * from './types';

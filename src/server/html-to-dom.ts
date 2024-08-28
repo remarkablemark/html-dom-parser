@@ -1,6 +1,6 @@
-import { Parser } from 'htmlparser2';
 import { DomHandler } from 'domhandler';
 import type { ParserOptions } from 'htmlparser2';
+import { Parser } from 'htmlparser2';
 
 import { unsetRootParent } from './utilities';
 
