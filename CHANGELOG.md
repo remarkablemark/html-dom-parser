@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.10](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.9...v5.0.10) (2024-08-28)
+
+
+### Continuous Integration
+
+* **github:** publish package to npm registry with provenance ([e023fe8](https://github.com/remarkablemark/html-dom-parser/commit/e023fe8535c73c5b01837a114d6336c409e2ab17))
+
 ## [5.0.9](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.8...v5.0.9) (2024-07-18)
 
 
