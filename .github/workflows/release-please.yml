@@ -1,4 +1,4 @@
-name: release
+name: release-please
 on:
   push:
     branches:
@@ -12,14 +12,17 @@ jobs:
 
     steps:
       - name: Release Please
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
+        id: release
         with:
           release-type: node
-        id: release
 
   publish:
-    needs: release-please
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
 
     steps:
@@ -29,12 +32,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
+          node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline
 
       - name: Publish
-        run: npm publish
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
