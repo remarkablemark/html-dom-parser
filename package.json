@@ -95,7 +95,7 @@
     "nyc": "17.0.0",
     "prettier": "3.3.3",
     "rollup": "4.21.2",
-    "size-limit": "11.1.4",
+    "size-limit": "11.1.5",
     "ts-node": "10.9.2",
     "typescript": "5.5.4"
   },
