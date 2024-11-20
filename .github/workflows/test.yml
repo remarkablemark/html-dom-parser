@@ -1,0 +1,46 @@
+name: test
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run lint:tsc
+
+      - name: Run server test
+        run: npm run test:server
+
+      - name: Generate coverage report
+        run: |
+          mkdir -p coverage
+          npx nyc report --reporter=text-lcov > coverage/lcov.info
+
+      - name: Codecov
+        uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Run module tests
+        run: npm run test:esm
+
+      - name: Run client test
+        uses: GabrielBB/xvfb-action@v1
+        with:
+          run: npm run test:client
