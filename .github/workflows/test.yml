@@ -26,10 +26,10 @@ jobs:
           mkdir -p coverage
           npx nyc report --reporter=text-lcov > coverage/lcov.info
 
-      - name: Codecov
+      - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run module tests
         run: npm run test:esm
