@@ -110,12 +110,28 @@ if (template && template.content) {
 }
 
 /**
+ * Escapes special characters before parsing.
+ *
+ * @param html - The HTML string.
+ * @returns - HTML string with escaped special characters.
+ */
+function escapeSpecialCharacters(html: string): string {
+  return html.replace(/[\r\n]/g, (match) => {
+    if (match === '\r') return '\\r';
+    return match;
+  });
+}
+
+/**
  * Parses HTML string to DOM nodes.
  *
  * @param html - HTML markup.
  * @returns - DOM nodes.
  */
 export default function domparser(html: string): NodeList {
+  // Escape special characters before parsing
+  html = escapeSpecialCharacters(html);
+
   const match = html.match(FIRST_TAG_REGEX);
   const firstTagName = match && match[1] ? match[1].toLowerCase() : '';
 

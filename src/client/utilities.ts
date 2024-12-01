@@ -52,6 +52,16 @@ function formatTagName(tagName: string): string {
 }
 
 /**
+ * Reverts escaped special characters back to actual characters.
+ *
+ * @param text - The text with escaped characters.
+ * @returns - Text with escaped characters reverted.
+ */
+function revertEscapedCharacters(text: string): string {
+  return text.replace(/\\r/g, '\r').replace(/\\n/g, '\n');
+}
+
+/**
  * Transforms DOM nodes to `domhandler` nodes.
  *
  * @param nodes - DOM nodes.
@@ -95,7 +105,7 @@ export function formatDOM(
       }
 
       case 3:
-        current = new Text(node.nodeValue!);
+        current = new Text(revertEscapedCharacters(node.nodeValue!));
         break;
 
       case 8:
