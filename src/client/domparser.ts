@@ -116,7 +116,7 @@ if (template && template.content) {
  * @returns - HTML string with escaped special characters.
  */
 function escapeSpecialCharacters(html: string): string {
-  return html.replace(/[\r\n]/g, (match) => {
+  return html.replace(/[\r]/g, (match) => {
     if (match === '\r') return '\\r';
     return match;
   });
