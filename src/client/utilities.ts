@@ -58,7 +58,7 @@ function formatTagName(tagName: string): string {
  * @returns - Text with escaped characters reverted.
  */
 function revertEscapedCharacters(text: string): string {
-  return text.replace(/\\r/g, '\r').replace(/\\n/g, '\n');
+  return text.replace(/\\r/g, '\r');
 }
 
 /**
