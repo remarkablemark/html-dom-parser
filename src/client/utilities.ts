@@ -52,12 +52,22 @@ function formatTagName(tagName: string): string {
 }
 
 /**
+ * Escapes special characters before parsing.
+ *
+ * @param html - The HTML string.
+ * @returns - HTML string with escaped special characters.
+ */
+export function escapeSpecialCharacters(html: string): string {
+  return html.replace(/\r/g, '\\r');
+}
+
+/**
  * Reverts escaped special characters back to actual characters.
  *
  * @param text - The text with escaped characters.
  * @returns - Text with escaped characters reverted.
  */
-function revertEscapedCharacters(text: string): string {
+export function revertEscapedCharacters(text: string): string {
   return text.replace(/\\r/g, '\r');
 }
 

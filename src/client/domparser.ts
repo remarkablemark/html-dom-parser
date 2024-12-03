@@ -1,3 +1,5 @@
+import { escapeSpecialCharacters } from './utilities';
+
 // constants
 const HTML = 'html';
 const HEAD = 'head';
@@ -107,19 +109,6 @@ if (template && template.content) {
     template.innerHTML = html;
     return template.content.childNodes;
   };
-}
-
-/**
- * Escapes special characters before parsing.
- *
- * @param html - The HTML string.
- * @returns - HTML string with escaped special characters.
- */
-function escapeSpecialCharacters(html: string): string {
-  return html.replace(/[\r]/g, (match) => {
-    if (match === '\r') return '\\r';
-    return match;
-  });
 }
 
 /**
