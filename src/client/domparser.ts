@@ -1,3 +1,5 @@
+import { escapeSpecialCharacters } from './utilities';
+
 // constants
 const HTML = 'html';
 const HEAD = 'head';
@@ -116,6 +118,9 @@ if (template && template.content) {
  * @returns - DOM nodes.
  */
 export default function domparser(html: string): NodeList {
+  // Escape special characters before parsing
+  html = escapeSpecialCharacters(html);
+
   const match = html.match(FIRST_TAG_REGEX);
   const firstTagName = match && match[1] ? match[1].toLowerCase() : '';
 

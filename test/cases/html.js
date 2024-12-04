@@ -305,6 +305,28 @@ module.exports = [
     data: ' ',
   },
 
+  // text with special characters
+  {
+    name: 'text with carriage return',
+    data: 'Hello\rWorld',
+  },
+  {
+    name: 'text with multiple carriage returns',
+    data: 'Hello\rDear\rWorld',
+  },
+  {
+    name: 'text with mixed newlines and carriage returns',
+    data: 'Hello\rWorld\nNew\rLine',
+  },
+  {
+    name: 'text with carriage return in tag',
+    data: '<div>Hello\rWorld</div>',
+  },
+  {
+    name: 'nested tags with carriage returns',
+    data: '<div>Hello\r<span>Beautiful\r</span>World</div>',
+  },
+
   // custom tag
   {
     name: 'custom tag',
