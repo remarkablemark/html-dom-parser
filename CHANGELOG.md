@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.11](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.10...v5.0.11) (2024-12-04)
+
+
+### Bug Fixes
+
+* enable client parser to retain carriage return characters ([#902](https://github.com/remarkablemark/html-dom-parser/issues/902)) ([fe2e993](https://github.com/remarkablemark/html-dom-parser/commit/fe2e993d69c45e44696224985e558efca79db181))
+
 ## [5.0.10](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.9...v5.0.10) (2024-08-28)
 
 
