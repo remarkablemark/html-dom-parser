@@ -2,86 +2,81 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [5.0.10](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.9...v5.0.10) (2024-08-28)
+## [5.0.11](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.10...v5.0.11) (2024-12-04)
 
+### Bug Fixes
+
+- enable client parser to retain carriage return characters ([#902](https://github.com/remarkablemark/html-dom-parser/issues/902)) ([fe2e993](https://github.com/remarkablemark/html-dom-parser/commit/fe2e993d69c45e44696224985e558efca79db181)), closes [#420](https://github.com/remarkablemark/html-dom-parser/issues/420)
+
+## [5.0.10](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.9...v5.0.10) (2024-08-28)
 
 ### Continuous Integration
 
-* **github:** publish package to npm registry with provenance ([e023fe8](https://github.com/remarkablemark/html-dom-parser/commit/e023fe8535c73c5b01837a114d6336c409e2ab17))
+- **github:** publish package to npm registry with provenance ([e023fe8](https://github.com/remarkablemark/html-dom-parser/commit/e023fe8535c73c5b01837a114d6336c409e2ab17))
 
 ## [5.0.9](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.8...v5.0.9) (2024-07-18)
 
-
 ### Bug Fixes
 
-* exports field includes package.json ([c373a92](https://github.com/remarkablemark/html-dom-parser/commit/c373a92567272712300270ed721e298e46c4f929))
+- exports field includes package.json ([c373a92](https://github.com/remarkablemark/html-dom-parser/commit/c373a92567272712300270ed721e298e46c4f929))
 
 ## [5.0.8](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.7...v5.0.8) (2024-02-12)
 
-
 ### Bug Fixes
 
-* **esm:** fix exported types ([b6918ae](https://github.com/remarkablemark/html-dom-parser/commit/b6918ae7090308e8812847588f410c96fb6075da))
+- **esm:** fix exported types ([b6918ae](https://github.com/remarkablemark/html-dom-parser/commit/b6918ae7090308e8812847588f410c96fb6075da))
 
 ## [5.0.7](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.6...v5.0.7) (2024-01-13)
 
-
 ### Build System
 
-* **deps:** bump htmlparser2 from 9.0.0 to 9.1.0 ([#631](https://github.com/remarkablemark/html-dom-parser/issues/631)) ([6816800](https://github.com/remarkablemark/html-dom-parser/commit/681680074c59cb1ab61758b06dc794476d8a7fe0))
+- **deps:** bump htmlparser2 from 9.0.0 to 9.1.0 ([#631](https://github.com/remarkablemark/html-dom-parser/issues/631)) ([6816800](https://github.com/remarkablemark/html-dom-parser/commit/681680074c59cb1ab61758b06dc794476d8a7fe0))
 
 ## [5.0.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.5...v5.0.6) (2023-12-19)
 
-
 ### Bug Fixes
 
-* re-export types correctly for verbatimModuleSyntax ([#612](https://github.com/remarkablemark/html-dom-parser/issues/612)) ([782b675](https://github.com/remarkablemark/html-dom-parser/commit/782b6750223b8b5a556c714ca04e0e682a490248))
+- re-export types correctly for verbatimModuleSyntax ([#612](https://github.com/remarkablemark/html-dom-parser/issues/612)) ([782b675](https://github.com/remarkablemark/html-dom-parser/commit/782b6750223b8b5a556c714ca04e0e682a490248))
 
 ## [5.0.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.4...v5.0.5) (2023-12-16)
 
-
 ### Bug Fixes
 
-* **esm:** fix ESM types by adding .mts declaration files ([96a1cfc](https://github.com/remarkablemark/html-dom-parser/commit/96a1cfcd899f4b4c6030e75d13438fc3c05b3be2))
+- **esm:** fix ESM types by adding .mts declaration files ([96a1cfc](https://github.com/remarkablemark/html-dom-parser/commit/96a1cfcd899f4b4c6030e75d13438fc3c05b3be2))
 
 ## [5.0.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.3...v5.0.4) (2023-10-31)
 
-
 ### Bug Fixes
 
-* **esm:** support vite bundler ([c9e510f](https://github.com/remarkablemark/html-dom-parser/commit/c9e510f7c4e7c0dded3d80a540a313c5c8e3000e))
+- **esm:** support vite bundler ([c9e510f](https://github.com/remarkablemark/html-dom-parser/commit/c9e510f7c4e7c0dded3d80a540a313c5c8e3000e))
 
 ## [5.0.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.2...v5.0.3) (2023-10-22)
 
-
 ### Miscellaneous Chores
 
-* export types from index.ts ([8ed55e2](https://github.com/remarkablemark/html-dom-parser/commit/8ed55e23df5c50e19c6df5d0e4856f52ee890a0c))
+- export types from index.ts ([8ed55e2](https://github.com/remarkablemark/html-dom-parser/commit/8ed55e23df5c50e19c6df5d0e4856f52ee890a0c))
 
 ## [5.0.2](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.1...v5.0.2) (2023-10-19)
 
-
 ### Bug Fixes
 
-* **package:** add "/src" to files to fix source map warning ([7082c50](https://github.com/remarkablemark/html-dom-parser/commit/7082c50c56f825dcab896f6847c60b0dcdd9b211))
+- **package:** add "/src" to files to fix source map warning ([7082c50](https://github.com/remarkablemark/html-dom-parser/commit/7082c50c56f825dcab896f6847c60b0dcdd9b211))
 
 ## [5.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.0...v5.0.1) (2023-10-17)
 
-
 ### Bug Fixes
 
-* **package:** add types to exports in package.json ([df08df3](https://github.com/remarkablemark/html-dom-parser/commit/df08df3c8478dfbe12eeee9e3bc90c8959da454c))
+- **package:** add types to exports in package.json ([df08df3](https://github.com/remarkablemark/html-dom-parser/commit/df08df3c8478dfbe12eeee9e3bc90c8959da454c))
 
 ## [5.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v4.0.1...v5.0.0) (2023-10-16)
 
-
 ### ⚠ BREAKING CHANGES
 
-* CommonJS imports require the `.default` key.
+- CommonJS imports require the `.default` key.
 
 ### Code Refactoring
 
-* migrate to TypeScript ([5915b08](https://github.com/remarkablemark/html-dom-parser/commit/5915b084ce7f3cf59e486da998c203f87a45bda1))
+- migrate to TypeScript ([5915b08](https://github.com/remarkablemark/html-dom-parser/commit/5915b084ce7f3cf59e486da998c203f87a45bda1))
 
 ## [4.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v4.0.0...v4.0.1) (2023-10-15)
 
