@@ -34,3 +34,5 @@ module.exports = {
   html,
   svg,
 };
+
+module.exports.default = module.exports;

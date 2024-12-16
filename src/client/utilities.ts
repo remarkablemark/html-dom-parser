@@ -1,7 +1,13 @@
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 
 import type { DOMNode } from '../types';
-import { CASE_SENSITIVE_TAG_NAMES_MAP } from './constants';
+import {
+  CARRIAGE_RETURN,
+  CARRIAGE_RETURN_PLACEHOLDER,
+  CARRIAGE_RETURN_PLACEHOLDER_REGEX,
+  CARRIAGE_RETURN_REGEX,
+  CASE_SENSITIVE_TAG_NAMES_MAP,
+} from './constants';
 
 /**
  * Gets case-sensitive tag name.
@@ -58,7 +64,7 @@ function formatTagName(tagName: string): string {
  * @returns - HTML string with escaped special characters.
  */
 export function escapeSpecialCharacters(html: string): string {
-  return html.replace(/\r/g, '\\r');
+  return html.replace(CARRIAGE_RETURN_REGEX, CARRIAGE_RETURN_PLACEHOLDER);
 }
 
 /**
@@ -68,7 +74,7 @@ export function escapeSpecialCharacters(html: string): string {
  * @returns - Text with escaped characters reverted.
  */
 export function revertEscapedCharacters(text: string): string {
-  return text.replace(/\\r/g, '\r');
+  return text.replace(CARRIAGE_RETURN_PLACEHOLDER_REGEX, CARRIAGE_RETURN);
 }
 
 /**
