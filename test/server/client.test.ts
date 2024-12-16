@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 
+import { CARRIAGE_RETURN_PLACEHOLDER } from '../../src/client/constants';
 import { formatDOM } from '../../src/client/utilities';
 import { revertEscapedCharacters } from '../../src/client/utilities';
 import { escapeSpecialCharacters } from '../../src/client/utilities';
@@ -15,59 +16,67 @@ describe('client utilities', () => {
 
   describe('escapeSpecialCharacters', () => {
     it('escapes carriage return characters', () => {
-      const input = 'Hello\rWorld';
-      const expected = 'Hello\\rWorld';
-      expect(escapeSpecialCharacters(input)).to.equal(expected);
+      expect(escapeSpecialCharacters('Hello\rWorld')).to.equal(
+        `Hello${CARRIAGE_RETURN_PLACEHOLDER}World`,
+      );
     });
 
     it('does not modify strings without special characters', () => {
-      const input = 'Hello World';
-      expect(escapeSpecialCharacters(input)).to.equal(input);
+      const text = 'Hello World';
+      expect(escapeSpecialCharacters(text)).to.equal(text);
     });
 
     it('handles empty strings', () => {
-      expect(escapeSpecialCharacters('')).to.equal('');
+      const text = '';
+      expect(escapeSpecialCharacters(text)).to.equal(text);
     });
 
     it('handles multiple carriage returns', () => {
-      const input = 'Hello\rDear\rWorld';
-      const expected = 'Hello\\rDear\\rWorld';
-      expect(escapeSpecialCharacters(input)).to.equal(expected);
+      expect(escapeSpecialCharacters('Hello\rDear\rWorld')).to.equal(
+        `Hello${CARRIAGE_RETURN_PLACEHOLDER}Dear${CARRIAGE_RETURN_PLACEHOLDER}World`,
+      );
     });
 
     it('only escapes carriage returns', () => {
-      const input = 'Hello\rWorld\n'; // \n should not be affected
-      const expected = 'Hello\\rWorld\n';
-      expect(escapeSpecialCharacters(input)).to.equal(expected);
+      // `\n` and `\right` should not be affected
+      expect(escapeSpecialCharacters('Hello\rWorld\n\right')).to.equal(
+        `Hello${CARRIAGE_RETURN_PLACEHOLDER}World\n${CARRIAGE_RETURN_PLACEHOLDER}ight`,
+      );
     });
   });
 
   describe('revertEscapedCharacters', () => {
     it('reverts escaped carriage return characters', () => {
-      const input = 'Hello\\rWorld';
-      const expected = 'Hello\rWorld';
-      expect(revertEscapedCharacters(input)).to.equal(expected);
+      expect(
+        revertEscapedCharacters(`Hello${CARRIAGE_RETURN_PLACEHOLDER}World`),
+      ).to.equal('Hello\rWorld');
     });
 
     it('does not modify strings without escaped characters', () => {
-      const input = 'Hello World';
-      expect(revertEscapedCharacters(input)).to.equal(input);
+      const text = 'Hello World';
+      expect(revertEscapedCharacters(text)).to.equal(text);
     });
 
     it('handles empty strings', () => {
-      expect(revertEscapedCharacters('')).to.equal('');
+      const text = '';
+      expect(revertEscapedCharacters(text)).to.equal(text);
     });
 
     it('handles multiple escaped carriage returns', () => {
-      const input = 'Hello\\rDear\\rWorld';
-      const expected = 'Hello\rDear\rWorld';
-      expect(revertEscapedCharacters(input)).to.equal(expected);
+      expect(
+        revertEscapedCharacters(
+          `Hello${CARRIAGE_RETURN_PLACEHOLDER}Dear${CARRIAGE_RETURN_PLACEHOLDER}World`,
+        ),
+      ).to.equal('Hello\rDear\rWorld');
     });
 
     it('only reverts escaped carriage returns', () => {
-      const input = 'Hello\\rWorld\\n'; // \n should not be affected
-      const expected = 'Hello\rWorld\\n';
-      expect(revertEscapedCharacters(input)).to.equal(expected);
+      // `\n` and `\right` should not be affected
+      expect(
+        revertEscapedCharacters(
+          `Hello${CARRIAGE_RETURN_PLACEHOLDER}World\\n\\right`,
+        ),
+      ).to.equal('Hello\rWorld\\n\\right');
     });
   });
 });

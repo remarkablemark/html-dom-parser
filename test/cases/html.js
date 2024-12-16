@@ -327,6 +327,16 @@ module.exports = [
     data: '<div>Hello\r<span>Beautiful\r</span>World</div>',
   },
 
+  // LaTeX
+  {
+    name: 'LaTeX',
+    data: '<span class="math">\\left(\\right)\\rD\\rightarrow\\reals\\ni</span>',
+  },
+  {
+    name: 'LaTeX with carriage return',
+    data: '<span class="math">\\left(\\right)\\rD\\rightarrow\\reals\\ni</span>\r\n',
+  },
+
   // custom tag
   {
     name: 'custom tag',
