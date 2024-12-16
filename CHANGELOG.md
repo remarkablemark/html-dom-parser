@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.12](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.11...v5.0.12) (2024-12-16)
+
+
+### Bug Fixes
+
+* **client:** don't break LaTeX when replacing carriage returns ([d69bc66](https://github.com/remarkablemark/html-dom-parser/commit/d69bc662f4470cd8ebf551af873cd7badfa6ebca)), closes [#917](https://github.com/remarkablemark/html-dom-parser/issues/917)
+
 ## [5.0.11](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.10...v5.0.11) (2024-12-04)
 
 ### Bug Fixes
