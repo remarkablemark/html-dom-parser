@@ -4,9 +4,7 @@ import * as htmlparser from 'htmlparser2';
 import jsdomify from 'jsdomify';
 
 import serverParser from '../../src';
-// @ts-ignore
 import cases from '../cases';
-// @ts-ignore
 import { runTests, testCaseSensitiveTags, throwErrors } from '../helpers';
 
 describe('server parser', () => {
