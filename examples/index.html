@@ -6,12 +6,11 @@
   var textarea = document.querySelector('textarea');
 
   function renderOutput(event) {
+    const html = event.target.value;
     cache = [];
-    code.innerText = JSON.stringify(
-      window.HTMLDOMParser(event.target.value),
-      replacer,
-      2
-    );
+    const output = window.HTMLDOMParser(html);
+    console.log(output);
+    code.innerText = JSON.stringify(output, replacer, 2);
   }
 
   textarea.addEventListener('input', renderOutput);
