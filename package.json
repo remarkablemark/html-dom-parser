@@ -78,7 +78,7 @@
     "@typescript-eslint/parser": "8.29.0",
     "chai": "4.5.0",
     "eslint": "9.23.0",
-    "eslint-plugin-prettier": "5.2.5",
+    "eslint-plugin-prettier": "5.2.6",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "globals": "16.0.0",
     "html-minifier": "4.0.0",
