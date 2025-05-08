@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.13...v5.1.0) (2025-05-08)
+
+
+### Features
+
+* add `browser` and `default` conditions to `"."` ([aa0ca64](https://github.com/remarkablemark/html-dom-parser/commit/aa0ca64653d30449e0d539f1f88fbf15c80f0984))
+* use `default` over `import` condition ([13b08f6](https://github.com/remarkablemark/html-dom-parser/commit/13b08f63af874e0bf73b922a4b34be77a67f609b))
+
 ## [5.0.13](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.12...v5.0.13) (2024-12-25)
 
 

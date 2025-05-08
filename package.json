@@ -1,6 +1,6 @@
 {
   "name": "html-dom-parser",
-  "version": "5.0.13",
+  "version": "5.1.0",
   "description": "HTML to DOM parser.",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "./lib/index.js",
