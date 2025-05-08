@@ -7,16 +7,22 @@
   "module": "./esm/index.mjs",
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./lib/index.js"
+      "browser": {
+        "require": "./lib/client/html-to-dom.js",
+        "default": "./esm/client/html-to-dom.mjs"
+      },
+      "default": {
+        "require": "./lib/index.js",
+        "default": "./esm/index.mjs"
+      }
     },
     "./lib/client/*": {
-      "import": "./esm/client/*.mjs",
-      "require": "./lib/client/*.js"
+      "require": "./lib/client/*.js",
+      "default": "./esm/client/*.mjs"
     },
     "./lib/server/*": {
-      "import": "./esm/server/*.mjs",
-      "require": "./lib/server/*.js"
+      "require": "./lib/server/*.js",
+      "default": "./esm/server/*.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -28,9 +34,10 @@
     "clean": "rm -rf .nyc_output coverage dist lib",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
+    "lint:publint": "publint",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "prepublishOnly": "run-s lint lint:tsc test:server clean build",
+    "prepublishOnly": "run-s lint lint:tsc test:server clean build lint:publint",
     "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
@@ -95,6 +102,7 @@
     "npm-run-all": "4.1.5",
     "nyc": "17.1.0",
     "prettier": "3.5.3",
+    "publint": "0.3.12",
     "rollup": "4.40.2",
     "size-limit": "11.2.0",
     "ts-node": "10.9.2",
