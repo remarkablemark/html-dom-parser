@@ -7,16 +7,16 @@
   "module": "./esm/index.mjs",
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./lib/index.js"
+      "require": "./lib/index.js",
+      "default": "./esm/index.mjs"
     },
     "./lib/client/*": {
-      "import": "./esm/client/*.mjs",
-      "require": "./lib/client/*.js"
+      "require": "./lib/client/*.js",
+      "default": "./esm/client/*.mjs"
     },
     "./lib/server/*": {
-      "import": "./esm/server/*.mjs",
-      "require": "./lib/server/*.js"
+      "require": "./lib/server/*.js",
+      "default": "./esm/server/*.mjs"
     },
     "./package.json": "./package.json"
   },
