@@ -7,8 +7,14 @@
   "module": "./esm/index.mjs",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
-      "default": "./esm/index.mjs"
+      "browser": {
+        "require": "./lib/client/html-to-dom.js",
+        "default": "./esm/client/html-to-dom.mjs"
+      },
+      "default": {
+        "require": "./lib/index.js",
+        "default": "./esm/index.mjs"
+      }
     },
     "./lib/client/*": {
       "require": "./lib/client/*.js",
