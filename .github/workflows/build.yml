@@ -20,3 +20,6 @@ jobs:
 
       - name: Build artifacts
         run: npm run build
+
+      - name: Run Publint
+        run: npm run lint:publint
