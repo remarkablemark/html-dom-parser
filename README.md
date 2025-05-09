@@ -4,7 +4,7 @@
 
 [![NPM version](https://badgen.net/npm/v/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
 [![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/html-dom-parser)](https://bundlephobia.com/package/html-dom-parser)
-[![Build Status](https://github.com/remarkablemark/html-dom-parser/workflows/build/badge.svg?branch=master)](https://github.com/remarkablemark/html-dom-parser/actions?query=workflow%3Abuild)
+[![build](https://github.com/remarkablemark/html-dom-parser/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/html-dom-parser/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/html-dom-parser/branch/master/graph/badge.svg?token=6RRL0875TY)](https://codecov.io/gh/remarkablemark/html-dom-parser)
 [![NPM downloads](https://badgen.net/npm/dm/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
 
