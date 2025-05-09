@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.0...v5.1.1) (2025-05-09)
+
+
+### Documentation
+
+* **readme:** fix build status badge ([192c097](https://github.com/remarkablemark/html-dom-parser/commit/192c097325c04f303bcd21121e2701b2a333a3da))
+
 ## [5.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.13...v5.1.0) (2025-05-08)
 
 
