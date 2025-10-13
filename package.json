@@ -97,7 +97,7 @@
     "karma-commonjs": "1.0.0",
     "karma-mocha": "2.0.1",
     "karma-mocha-reporter": "2.2.5",
-    "lint-staged": "16.2.3",
+    "lint-staged": "16.2.4",
     "mocha": "11.7.4",
     "npm-run-all2": "8.0.4",
     "nyc": "17.1.0",
