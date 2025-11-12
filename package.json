@@ -83,7 +83,7 @@
     "@types/node": "24.10.1",
     "@typescript-eslint/eslint-plugin": "8.46.4",
     "@typescript-eslint/parser": "8.46.4",
-    "chai": "4.5.0",
+    "chai": "6.2.1",
     "eslint": "9.39.1",
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-simple-import-sort": "12.1.1",
