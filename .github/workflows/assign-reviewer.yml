@@ -1,6 +1,9 @@
 name: Assign Reviewer
 on: pull_request_target
 
+permissions:
+  pull-requests: write
+
 jobs:
   assign-reviewer:
     runs-on: ubuntu-latest
