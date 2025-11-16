@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.2](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.1...v5.1.2) (2025-11-16)
+
+
+### Documentation
+
+* **readme:** replace badgen.net with shields.io status badges ([8c28b69](https://github.com/remarkablemark/html-dom-parser/commit/8c28b69b784f01e1464d79e7c5a3ed6da50956fd))
+
 ## [5.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.0...v5.1.1) (2025-05-09)
 
 
