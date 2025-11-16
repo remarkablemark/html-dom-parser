@@ -2,11 +2,11 @@
 
 [![NPM](https://nodei.co/npm/html-dom-parser.png)](https://nodei.co/npm/html-dom-parser/)
 
-[![NPM version](https://badgen.net/npm/v/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
-[![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/html-dom-parser)](https://bundlephobia.com/package/html-dom-parser)
+[![NPM version](https://img.shields.io/npm/v/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
+[![NPM bundle size](https://img.shields.io/bundlephobia/minzip/html-dom-parser)](https://bundlephobia.com/package/html-dom-parser)
 [![build](https://github.com/remarkablemark/html-dom-parser/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/html-dom-parser/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/html-dom-parser/branch/master/graph/badge.svg?token=6RRL0875TY)](https://codecov.io/gh/remarkablemark/html-dom-parser)
-[![NPM downloads](https://badgen.net/npm/dm/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
+[![NPM downloads](https://img.shields.io/npm/dm/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
 
 HTML to DOM parser that works on both the server (Node.js) and the client (browser):
 
@@ -16,7 +16,7 @@ HTMLDOMParser(string[, options])
 
 The parser converts an HTML string to a JavaScript object that describes the DOM tree.
 
-#### Example
+For example:
 
 ```js
 import parse from 'html-dom-parser';
@@ -57,7 +57,7 @@ parse('<p>Hello, World!</p>');
 </p>
 </details>
 
-[Replit](https://replit.com/@remarkablemark/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
+[JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
 
 ## Install
 
