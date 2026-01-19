@@ -6,12 +6,6 @@ import typescript from '@rollup/plugin-typescript';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
-/**
- * 通用插件配置
- * @param {boolean} isBrowser 是否為瀏覽器環境
- * @param {boolean} minify 是否壓縮
- * @param {string} outputDir 輸出目錄，用於解決路徑衝突
- */
 const getPlugins = (isBrowser = false, minify = false, outputDir) =>
   [
     isBrowser &&
@@ -36,9 +30,6 @@ const getPlugins = (isBrowser = false, minify = false, outputDir) =>
     minify && terser(),
   ].filter(Boolean);
 
-/**
- * UMD 配置
- */
 const getUMDConfig = (minify = false) => {
   const output = `dist/html-dom-parser${minify ? '.min' : ''}.js`;
   return {
@@ -53,9 +44,6 @@ const getUMDConfig = (minify = false) => {
   };
 };
 
-/**
- * ESM 配置 (修復 CodeSandbox 報錯)
- */
 const esmConfigs = [
   {
     input: 'src/index.ts',
@@ -75,15 +63,22 @@ const esmConfigs = [
     },
     plugins: getPlugins(true, false, 'esm'),
   },
+  {
+    input: 'src/server/html-to-dom.ts',
+    output: {
+      file: 'esm/server/html-to-dom.mjs',
+      format: 'es',
+      sourcemap: true,
+    },
+    plugins: getPlugins(false, false, 'esm'),
+  },
 ];
 
 const configs = [
   getUMDConfig(),
   getUMDConfig(true),
   ...esmConfigs,
-  // 測試依賴：Karma 測試需要這個文件
   {
-    // 使用 require.resolve 自动寻找 htmlparser2 的主入口文件
     input: require.resolve('htmlparser2'),
     output: {
       file: 'dist/htmlparser2.js',
