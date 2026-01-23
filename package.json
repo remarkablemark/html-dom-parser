@@ -37,7 +37,7 @@
     "lint:package": "publint",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
-    "prepublishOnly": "run-s lint lint:tsc test:server clean build lint:package",
+    "prepublishOnly": "run-s lint lint:tsc clean build lint:package",
     "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
