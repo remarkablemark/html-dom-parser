@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.3...v5.1.4) (2026-01-23)
+
+
+### Miscellaneous Chores
+
+* release 5.1.4 ([198dea5](https://github.com/remarkablemark/html-dom-parser/commit/198dea5558b5029b5c91ff2477e5f7485b861ae3))
+
 ## [5.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.2...v5.1.3) (2026-01-23)
 
 ### Performance Improvements
