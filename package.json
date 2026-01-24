@@ -2,6 +2,7 @@
   "name": "html-dom-parser",
   "version": "5.1.2",
   "description": "HTML to DOM parser.",
+  "author": "Mark <mark@remarkablemark.org>",
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
   "exports": {
@@ -19,7 +20,6 @@
     "build": "run-s clean build:cjs build:rollup",
     "build:cjs": "tsc",
     "build:rollup": "rollup --config rollup.config.mjs --failAfterWarnings",
-    "build:esm": "echo 'ESM is now handled by rollup'",
     "clean": "rm -rf .nyc_output coverage dist lib esm",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
