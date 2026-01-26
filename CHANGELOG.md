@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.4...v5.1.5) (2026-01-26)
+
+
+### Bug Fixes
+
+* resolve ModuleNotFoundError in ESM environments by generating native bundles ([#1299](https://github.com/remarkablemark/html-dom-parser/issues/1299)) ([7172552](https://github.com/remarkablemark/html-dom-parser/commit/7172552689f416e9c1aec03910fe9d9bfb7e043e))
+
 ## [5.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.3...v5.1.4) (2026-01-23)
 
 
