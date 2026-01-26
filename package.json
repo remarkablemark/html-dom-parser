@@ -8,18 +8,28 @@
   "exports": {
     ".": {
       "browser": {
-        "import": "./esm/client/html-to-dom.mjs",
-        "require": "./lib/client/html-to-dom.js"
+        "require": "./lib/client/html-to-dom.js",
+        "default": "./esm/client/html-to-dom.mjs"
       },
-      "import": "./esm/index.mjs",
-      "require": "./lib/index.js"
+      "default": {
+        "require": "./lib/index.js",
+        "default": "./esm/index.mjs"
+      }
+    },
+    "./lib/client/*": {
+      "require": "./lib/client/*.js",
+      "default": "./esm/client/*.mjs"
+    },
+    "./lib/server/*": {
+      "require": "./lib/server/*.js",
+      "default": "./esm/server/*.mjs"
     },
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "run-s clean build:cjs build:rollup",
+    "build": "run-s build:*",
     "build:cjs": "tsc",
-    "build:rollup": "rollup --config rollup.config.mjs --failAfterWarnings",
+    "build:esm": "rollup --config --failAfterWarnings --environment ESM:true",
     "clean": "rm -rf .nyc_output coverage dist lib esm",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",

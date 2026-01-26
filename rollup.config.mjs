@@ -54,14 +54,18 @@ const esmConfigs = [
     },
     plugins: getPlugins(false, false, 'esm'),
   },
+  // Client build: use preserveModules for proper module structure
   {
     input: 'src/client/html-to-dom.ts',
     output: {
-      file: 'esm/client/html-to-dom.mjs',
+      dir: 'esm/client',
       format: 'es',
+      entryFileNames: '[name].mjs',
+      preserveModules: true,
+      preserveModulesRoot: 'src/client',
       sourcemap: true,
     },
-    plugins: getPlugins(true, false, 'esm'),
+    plugins: getPlugins(true, false, 'esm/client'),
   },
   {
     input: 'src/server/html-to-dom.ts',
