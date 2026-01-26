@@ -29,9 +29,9 @@
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc",
-    "build:esm": "awk '!/sourceMappingURL/' lib/types.d.ts > esm/types.ts",
+    "build:esm": "rollup --config --failAfterWarnings --environment ESM:true",
     "build:umd": "rollup --config --failAfterWarnings",
-    "clean": "rm -rf .nyc_output coverage dist lib",
+    "clean": "rm -rf .nyc_output coverage dist lib esm",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:package": "publint",
@@ -43,7 +43,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",
-    "test:esm": "npm run build:cjs && node --test test/esm",
+    "test:esm": "npm run build && node --test test/esm",
     "test:server": "npm run build:cjs && nyc mocha"
   },
   "repository": {
