@@ -1,42 +1,48 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+## [5.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.3...v5.1.4) (2026-01-23)
+
+
+### Miscellaneous Chores
+
+* release 5.1.4 ([198dea5](https://github.com/remarkablemark/html-dom-parser/commit/198dea5558b5029b5c91ff2477e5f7485b861ae3))
+
+## [5.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.2...v5.1.3) (2026-01-23)
+
+### Performance Improvements
+
+- **deps:** bump htmlparser2 from 10.0.0 to 10.1.0 ([#1307](https://github.com/remarkablemark/html-dom-parser/issues/1307)) ([bcaa908](https://github.com/remarkablemark/html-dom-parser/commit/bcaa9081ae7ad6568141cb46da98b27d0fb89c2f))
 
 ## [5.1.2](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.1...v5.1.2) (2025-11-16)
 
-
 ### Documentation
 
-* **readme:** replace badgen.net with shields.io status badges ([8c28b69](https://github.com/remarkablemark/html-dom-parser/commit/8c28b69b784f01e1464d79e7c5a3ed6da50956fd))
+- **readme:** replace badgen.net with shields.io status badges ([8c28b69](https://github.com/remarkablemark/html-dom-parser/commit/8c28b69b784f01e1464d79e7c5a3ed6da50956fd))
 
 ## [5.1.1](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.0...v5.1.1) (2025-05-09)
 
-
 ### Documentation
 
-* **readme:** fix build status badge ([192c097](https://github.com/remarkablemark/html-dom-parser/commit/192c097325c04f303bcd21121e2701b2a333a3da))
+- **readme:** fix build status badge ([192c097](https://github.com/remarkablemark/html-dom-parser/commit/192c097325c04f303bcd21121e2701b2a333a3da))
 
 ## [5.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.13...v5.1.0) (2025-05-08)
 
-
 ### Features
 
-* add `browser` and `default` conditions to `"."` ([aa0ca64](https://github.com/remarkablemark/html-dom-parser/commit/aa0ca64653d30449e0d539f1f88fbf15c80f0984))
-* use `default` over `import` condition ([13b08f6](https://github.com/remarkablemark/html-dom-parser/commit/13b08f63af874e0bf73b922a4b34be77a67f609b))
+- add `browser` and `default` conditions to `"."` ([aa0ca64](https://github.com/remarkablemark/html-dom-parser/commit/aa0ca64653d30449e0d539f1f88fbf15c80f0984))
+- use `default` over `import` condition ([13b08f6](https://github.com/remarkablemark/html-dom-parser/commit/13b08f63af874e0bf73b922a4b34be77a67f609b))
 
 ## [5.0.13](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.12...v5.0.13) (2024-12-25)
 
-
 ### Build System
 
-* **deps:** bump htmlparser2 from 9.1.0 to 10.0.0 ([#929](https://github.com/remarkablemark/html-dom-parser/issues/929)) ([2d15abe](https://github.com/remarkablemark/html-dom-parser/commit/2d15abe0d022e3fb513b901d3f42b9b56bcdeb57))
+- **deps:** bump htmlparser2 from 9.1.0 to 10.0.0 ([#929](https://github.com/remarkablemark/html-dom-parser/issues/929)) ([2d15abe](https://github.com/remarkablemark/html-dom-parser/commit/2d15abe0d022e3fb513b901d3f42b9b56bcdeb57))
 
 ## [5.0.12](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.11...v5.0.12) (2024-12-16)
 
-
 ### Bug Fixes
 
-* **client:** don't break LaTeX when replacing carriage returns ([d69bc66](https://github.com/remarkablemark/html-dom-parser/commit/d69bc662f4470cd8ebf551af873cd7badfa6ebca)), closes [#917](https://github.com/remarkablemark/html-dom-parser/issues/917)
+- **client:** don't break LaTeX when replacing carriage returns ([d69bc66](https://github.com/remarkablemark/html-dom-parser/commit/d69bc662f4470cd8ebf551af873cd7badfa6ebca)), closes [#917](https://github.com/remarkablemark/html-dom-parser/issues/917)
 
 ## [5.0.11](https://github.com/remarkablemark/html-dom-parser/compare/v5.0.10...v5.0.11) (2024-12-04)
 
