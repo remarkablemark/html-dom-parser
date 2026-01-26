@@ -30,6 +30,7 @@
     "build": "run-s build:*",
     "build:cjs": "tsc",
     "build:esm": "rollup --config --failAfterWarnings --environment ESM:true",
+    "build:umd": "rollup --config --failAfterWarnings",
     "clean": "rm -rf .nyc_output coverage dist lib esm",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
