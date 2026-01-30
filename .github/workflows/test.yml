@@ -21,12 +21,10 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Run server test
-        run: npm run test:server
+        run: npm run test:coverage
 
       - name: Generate coverage report
-        run: |
-          mkdir -p coverage
-          npx nyc report --reporter=text-lcov > coverage/lcov.info
+        run: npx nyc report --reporter=text-lcov > coverage/lcov.info
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5

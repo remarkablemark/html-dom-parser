@@ -49,6 +49,7 @@
     "test:client": "npm run test:client:watch -- --single-run",
     "test:client:build": "NODE_ENV=test npm run build",
     "test:client:watch": "npm run test:client:build && karma start",
+    "test:coverage": "npm run test:server && nyc report --reporter=html",
     "test:esm": "npm run build && node --test test/esm",
     "test:server": "npm run build:cjs && nyc mocha"
   },

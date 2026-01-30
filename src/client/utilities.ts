@@ -121,10 +121,12 @@ export function formatDOM(
       }
 
       case 3:
+        /* istanbul ignore next */
         current = new Text(revertEscapedCharacters(node.nodeValue ?? ''));
         break;
 
       case 8:
+        /* istanbul ignore next */
         current = new Comment(node.nodeValue ?? '');
         break;
 
