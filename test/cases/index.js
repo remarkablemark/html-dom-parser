@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const { minify } = require('html-minifier');
+
 const htmlCases = require('./html');
 
 /**
@@ -17,6 +20,7 @@ const html = [
   ...htmlCases,
   {
     name: 'complex html',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     data: minify(read('./complex.html'), {
       collapseWhitespace: true,
     }),

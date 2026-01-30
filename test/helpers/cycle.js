@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * @see {@link https://github.com/douglascrockford/JSON-js/blob/master/cycle.js}
  */
@@ -142,7 +144,7 @@ if (typeof JSON.retrocycle !== 'function') {
     // produces an array containing a single element which is the array itself.
 
     var px =
-      /^\$(?:\[(?:\d+|"(?:[^\\"\u0000-\u001f]|\\(?:[\\"/bfnrt]|u[0-9a-zA-Z]{4}))*")\])*$/; // eslint-disable-line no-control-regex
+      /^\$(?:\[(?:\d+|"(?:[^\\"\u0000-\u001f]|\\(?:[\\"/bfnrt]|u[0-9a-zA-Z]{4}))*")\])*$/;
 
     (function rez(value) {
       // The rez function walks recursively through the object looking for $ref

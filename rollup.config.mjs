@@ -8,7 +8,7 @@ import typescript from '@rollup/plugin-typescript';
 
 const require = createRequire(import.meta.url);
 
-const getPlugins = ({ browser = false, minify = false, outDir }) =>
+const getPlugins = ({ browser = false, minify = false, outDir = '' }) =>
   [
     browser &&
       alias({
@@ -20,6 +20,7 @@ const getPlugins = ({ browser = false, minify = false, outDir }) =>
         ],
       }),
     typescript({
+      tsconfig: 'tsconfig.build.json',
       compilerOptions: {
         module: 'esnext',
         outDir,

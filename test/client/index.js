@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const htmlCases = require('../cases/html');
 const serverParser = require('../../dist/htmlparser2').parseDOM;
 const clientParser = require('../../dist/html-dom-parser');

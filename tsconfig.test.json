@@ -1,7 +1,13 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "allowJs": true
   },
-  "include": ["eslint.config.mjs", "test"]
+  "include": [
+    "src",
+    "test",
+    "eslint.config.mjs",
+    "karma.conf.js",
+    "rollup.config.mjs"
+  ]
 }

@@ -3,7 +3,8 @@ const constants = require('../../lib/client/constants');
 /**
  * Tests case-sensitive tags (SVG) to make sure their case is preserved.
  *
- * @param {Function} parser - The parser.
+ * @param {{equal: () => void}} assert
+ * @param {() => object[]} parser
  */
 module.exports = function testCaseSensitiveTags(assert, parser) {
   it('preserves case of case-sensitive SVG tags', () => {

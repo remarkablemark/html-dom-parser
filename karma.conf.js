@@ -1,5 +1,7 @@
 /**
  * @see https://karma-runner.github.io/6.4/config/configuration-file.html
+ *
+ * @param {{LOG_INFO: string; set: () => void}} config
  */
 module.exports = (config) => {
   config.set({
