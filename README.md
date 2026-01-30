@@ -171,34 +171,62 @@ The client parser mimics the server parser by using the [DOM](https://developer.
 
 ## Options (server only)
 
-Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the following options:
+Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the options:
 
-```js
-/**
- * These are the default options being used if you omit the optional options object.
- * htmlparser2 will use the same options object for its domhandler so the options
- * should be combined into a single object like so:
- */
-const options = {
+```ts
+export interface ParserOptions {
   /**
-   * Options for the domhandler class.
-   * https://github.com/fb55/domhandler/blob/master/src/index.ts#L16
+   * Indicates whether special tags (`<script>`, `<style>`, and `<title>`) should get special treatment
+   * and if "empty" tags (eg. `<br>`) can have children.  If `false`, the content of special tags
+   * will be text only. For feeds and other XML content (documents that don't consist of HTML),
+   * set this to `true`.
+   *
+   * @default false
    */
-  withStartIndices: false,
-  withEndIndices: false,
-  xmlMode: false,
+  xmlMode?: boolean;
+
   /**
-   * Options for the htmlparser2 class.
-   * https://github.com/fb55/htmlparser2/blob/master/src/Parser.ts#L104
+   * Decode entities within the document.
+   *
+   * @default true
    */
-  xmlMode: false, // Will overwrite what is used for the domhandler, otherwise inherited.
-  decodeEntities: true,
-  lowerCaseTags: true, // !xmlMode by default
-  lowerCaseAttributeNames: true, // !xmlMode by default
-  recognizeCDATA: false, // xmlMode by default
-  recognizeSelfClosing: false, // xmlMode by default
-  Tokenizer: Tokenizer,
-};
+  decodeEntities?: boolean;
+
+  /**
+   * If set to true, all tags will be lowercased.
+   *
+   * @default !xmlMode
+   */
+  lowerCaseTags?: boolean;
+
+  /**
+   * If set to `true`, all attribute names will be lowercased. This has noticeable impact on speed.
+   *
+   * @default !xmlMode
+   */
+  lowerCaseAttributeNames?: boolean;
+
+  /**
+   * If set to true, CDATA sections will be recognized as text even if the xmlMode option is not enabled.
+   * NOTE: If xmlMode is set to `true` then CDATA sections will always be recognized as text.
+   *
+   * @default xmlMode
+   */
+  recognizeCDATA?: boolean;
+
+  /**
+   * If set to `true`, self-closing tags will trigger the onclosetag event even if xmlMode is not set to `true`.
+   * NOTE: If xmlMode is set to `true` then self-closing tags will always be recognized.
+   *
+   * @default xmlMode
+   */
+  recognizeSelfClosing?: boolean;
+
+  /**
+   * Allows the default tokenizer to be overwritten.
+   */
+  Tokenizer?: typeof Tokenizer;
+}
 ```
 
 If you're parsing SVG, you can set `lowerCaseTags` to `true` without having to enable `xmlMode`. This will return all tag names in camelCase and not the HTML standard of lowercase.
