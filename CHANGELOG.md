@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.7](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.6...v5.1.7) (2026-01-30)
+
+
+### Continuous Integration
+
+* fix npm script "prepublishOnly" ([7e32cdd](https://github.com/remarkablemark/html-dom-parser/commit/7e32cddea9df52a038a4cdbf4e5b730d29c53e8a))
+
 ## [5.1.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.5...v5.1.6) (2026-01-30)
 
 
