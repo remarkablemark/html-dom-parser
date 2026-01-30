@@ -43,7 +43,7 @@
     "lint:package": "publint",
     "lint:tsc": "tsc --project tsconfig.test.json",
     "prepare": "husky",
-    "prepublishOnly": "run-s lint lint:tsc clean build lint:package",
+    "prepublishOnly": "run-s build lint lint:tsc lint:package",
     "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
