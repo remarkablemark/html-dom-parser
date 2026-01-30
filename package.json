@@ -29,9 +29,9 @@
   "scripts": {
     "build": "run-s build:*",
     "build:cjs": "tsc",
-    "build:esm": "rollup --config --failAfterWarnings --environment ESM:true",
+    "build:esm": "rollup --config --failAfterWarnings --environment ESM:true && scripts/fix-esm.sh",
     "build:umd": "rollup --config --failAfterWarnings --environment UMD:true",
-    "clean": "rm -rf .nyc_output coverage dist lib esm",
+    "clean": "rm -rf .nyc_output coverage dist esm lib",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:package": "publint",
