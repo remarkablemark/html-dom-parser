@@ -7,6 +7,7 @@ const values = [
   false,
   {},
   [],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   () => {},
   new Date(),
 ];
@@ -14,8 +15,8 @@ const values = [
 /**
  * Calls parser with invalid arguments.
  *
- * @param {Function} assert         - Assert.
- * @param {Function} expectedParser - Expected parser.
+ * @param {{throws: () => void}} assert
+ * @param {() => object} expectedParser
  */
 module.exports = function throwErrors(assert, expectedParser) {
   values.forEach((value) => {

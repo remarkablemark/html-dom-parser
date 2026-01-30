@@ -20,8 +20,22 @@ jobs:
       - name: Install dependencies
         run: npm ci --prefer-offline
 
+      - name: Build package
+        run: npm run build
+
       - name: Run ESLint
         run: npm run lint
 
       - name: Type check
         run: npm run lint:tsc
+
+      - name: Lint package
+        run: npm run lint:package
+
+      - name: Check types
+        run: |
+          npx @arethetypeswrong/cli --pack
+          if [[ "$(npx @arethetypeswrong/cli --pack -f json | jq '.problems != {}')" == 'true' ]]; then
+            npx @arethetypeswrong/cli --pack -f json | jq
+            exit 1
+          fi

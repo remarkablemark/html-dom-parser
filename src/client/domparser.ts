@@ -46,8 +46,8 @@ if (typeof DOMParser === 'function') {
    * @returns - Document.
    */
   parseFromString = (html: string, tagName?: string): Document => {
+    /* istanbul ignore if */
     if (tagName) {
-      /* istanbul ignore next */
       html = `<${tagName}>${html}</${tagName}>`;
     }
 
@@ -62,6 +62,7 @@ if (typeof DOMParser === 'function') {
  *
  * @see https://developer.mozilla.org/docs/Web/API/DOMImplementation/createHTMLDocument
  */
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 if (typeof document === 'object' && document.implementation) {
   const htmlDocument = document.implementation.createHTMLDocument();
 
@@ -73,6 +74,7 @@ if (typeof document === 'object' && document.implementation) {
    * @returns - Document
    */
   parseFromDocument = function (html: string, tagName?: string): Document {
+    /* istanbul ignore if */
     if (tagName) {
       const element = htmlDocument.documentElement.querySelector(tagName);
 
@@ -98,6 +100,7 @@ const template =
 
 let parseFromTemplate: (html: string) => NodeList;
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 if (template && template.content) {
   /**
    * Uses a template element (content fragment) to parse HTML.
@@ -111,6 +114,9 @@ if (template && template.content) {
   };
 }
 
+/* istanbul ignore next */
+const createNodeList = () => document.createDocumentFragment().childNodes;
+
 /**
  * Parses HTML string to DOM nodes.
  *
@@ -121,8 +127,8 @@ export default function domparser(html: string): NodeList {
   // Escape special characters before parsing
   html = escapeSpecialCharacters(html);
 
-  const match = html.match(FIRST_TAG_REGEX);
-  const firstTagName = match && match[1] ? match[1].toLowerCase() : '';
+  const match = FIRST_TAG_REGEX.exec(html);
+  const firstTagName = match?.[1]?.toLowerCase();
 
   switch (firstTagName) {
     case HTML: {
@@ -132,11 +138,13 @@ export default function domparser(html: string): NodeList {
       // so make sure to remove them if they don't actually exist
       if (!HEAD_TAG_REGEX.test(html)) {
         const element = doc.querySelector(HEAD);
+        /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
       }
 
       if (!BODY_TAG_REGEX.test(html)) {
         const element = doc.querySelector(BODY);
+        /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
       }
 
@@ -149,7 +157,8 @@ export default function domparser(html: string): NodeList {
 
       // if there's a sibling element, then return both elements
       if (BODY_TAG_REGEX.test(html) && HEAD_TAG_REGEX.test(html)) {
-        return elements[0].parentNode!.childNodes;
+        /* istanbul ignore next */
+        return elements[0].parentNode?.childNodes ?? createNodeList();
       }
 
       return elements;
@@ -157,11 +166,16 @@ export default function domparser(html: string): NodeList {
 
     // low-level tag or text
     default: {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (parseFromTemplate) {
         return parseFromTemplate(html);
       }
+
+      /* istanbul ignore next */
       const element = parseFromDocument(html, BODY).querySelector(BODY);
-      return element!.childNodes;
+
+      /* istanbul ignore next */
+      return element?.childNodes ?? createNodeList();
     }
   }
 }

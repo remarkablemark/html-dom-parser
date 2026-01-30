@@ -6,10 +6,10 @@ const isKarma =
 /**
  * Runs tests.
  *
- * @param {Function} assert         - Assert.
- * @param {Object}   testCases      - Test cases.
- * @param {Function} actualParser   - Actual parser.
- * @param {Function} expectedParser - Expected parser.
+ * @param {{deepEqual: () => void}} assert
+ * @param {Record<string, string>[]} testCases
+ * @param {() => object} actualParser
+ * @param {() => object} expectedParser
  */
 module.exports = function runTests(
   assert,
@@ -27,7 +27,9 @@ module.exports = function runTests(
       // use `JSON.decycle` since `assert.deepEqual` fails
       // when instance types are different in the browser
       if (isKarma) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
         actualOutput = JSON.decycle(actualOutput);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
         expectedOutput = JSON.decycle(expectedOutput);
       }
 

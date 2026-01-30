@@ -2,7 +2,13 @@
   "name": "html-dom-parser",
   "version": "5.1.5",
   "description": "HTML to DOM parser.",
-  "author": "Mark <mark@remarkablemark.org>",
+  "author": "Mark <mark@remarkablemark.org> (https://remarkabl.org)",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/remarkablemark"
+    }
+  ],
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
   "exports": {
@@ -27,23 +33,24 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "run-s build:*",
-    "build:cjs": "tsc",
-    "build:esm": "rollup --config --failAfterWarnings --environment ESM:true",
-    "build:umd": "rollup --config --failAfterWarnings --environment UMD:true",
-    "clean": "rm -rf .nyc_output coverage dist lib esm",
+    "build": "run-s clean build:*",
+    "build:cjs": "scripts/build.sh --cjs",
+    "build:esm": "scripts/build.sh --esm",
+    "build:umd": "scripts/build.sh --umd",
+    "clean": "rm -rf .nyc_output coverage dist esm lib",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:package": "publint",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --project tsconfig.test.json",
     "prepare": "husky",
     "prepublishOnly": "run-s lint lint:tsc clean build lint:package",
     "size-limit": "size-limit",
     "test": "run-s test:server test:client",
     "test:client": "npm run test:client:watch -- --single-run",
-    "test:client:build": "NODE_ENV=test npm run build",
+    "test:client:build": "run-p build:cjs build:umd",
     "test:client:watch": "npm run test:client:build && karma start",
-    "test:esm": "npm run build && node --test test/esm",
+    "test:coverage": "npm run test:server && nyc report --reporter=html",
+    "test:esm": "npm run build:esm && node --test test/esm",
     "test:server": "npm run build:cjs && nyc mocha"
   },
   "repository": {
@@ -69,7 +76,6 @@
     "@commitlint/cli": "20.3.1",
     "@commitlint/config-conventional": "20.3.1",
     "@eslint/compat": "2.0.1",
-    "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
     "@rollup/plugin-alias": "6.0.0",
     "@rollup/plugin-commonjs": "29.0.0",
@@ -79,17 +85,18 @@
     "@size-limit/preset-big-lib": "12.0.0",
     "@types/chai": "4.3.16",
     "@types/estree": "1.0.8",
+    "@types/jscodeshift": "17.3.0",
     "@types/mocha": "10.0.10",
     "@types/node": "25.1.0",
-    "@typescript-eslint/eslint-plugin": "8.54.0",
-    "@typescript-eslint/parser": "8.54.0",
     "chai": "4.5.0",
     "eslint": "9.39.2",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-tsdoc": "0.5.0",
     "globals": "17.2.0",
     "html-minifier": "4.0.0",
     "husky": "9.1.7",
+    "jscodeshift": "17.3.0",
     "jsdomify": "3.1.1",
     "karma": "6.4.4",
     "karma-chai": "0.1.0",
@@ -106,7 +113,8 @@
     "rollup": "4.57.1",
     "size-limit": "12.0.0",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.54.0"
   },
   "files": [
     "/dist",

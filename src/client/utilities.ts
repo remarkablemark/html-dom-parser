@@ -121,11 +121,13 @@ export function formatDOM(
       }
 
       case 3:
-        current = new Text(revertEscapedCharacters(node.nodeValue!));
+        /* istanbul ignore next */
+        current = new Text(revertEscapedCharacters(node.nodeValue ?? ''));
         break;
 
       case 8:
-        current = new Comment(node.nodeValue!);
+        /* istanbul ignore next */
+        current = new Comment(node.nodeValue ?? '');
         break;
 
       default:
@@ -133,7 +135,8 @@ export function formatDOM(
     }
 
     // set previous node next
-    const prev = domNodes[index - 1] || null;
+    const prev = domNodes[index - 1] ?? null;
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (prev) {
       prev.next = current;
     }
@@ -152,7 +155,7 @@ export function formatDOM(
       directive,
     );
 
-    current.next = domNodes[0] || null;
+    current.next = domNodes[0] ?? null;
     current.parent = parent as Element;
     domNodes.unshift(current);
 

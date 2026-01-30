@@ -8,29 +8,28 @@ import typescript from '@rollup/plugin-typescript';
 
 const require = createRequire(import.meta.url);
 
-const getPlugins = ({ browser = false, minify = false, outDir }) =>
-  [
-    browser &&
-      alias({
-        entries: [
-          {
-            find: './server/html-to-dom',
-            replacement: './client/html-to-dom',
-          },
-        ],
-      }),
-    typescript({
-      declaration: false,
-      declarationMap: false,
-      module: 'esnext',
-      compilerOptions: {
-        outDir,
-      },
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+const getPlugins = ({ browser = false, minify = false, outDir = '' }) => [
+  browser &&
+    alias({
+      entries: [
+        {
+          find: './server/html-to-dom',
+          replacement: './client/html-to-dom',
+        },
+      ],
     }),
-    commonjs(),
-    resolve({ browser }),
-    minify && terser(),
-  ].filter(Boolean);
+  typescript({
+    tsconfig: 'tsconfig.build.json',
+    compilerOptions: {
+      module: 'esnext',
+      outDir,
+    },
+  }),
+  commonjs(),
+  resolve({ browser }),
+  minify && terser(),
+];
 
 const getUMDConfig = (minify = false) => {
   const output = `dist/html-dom-parser${minify ? '.min' : ''}.js`;
@@ -42,41 +41,49 @@ const getUMDConfig = (minify = false) => {
       name: 'HTMLDOMParser',
       sourcemap: true,
     },
-    plugins: getPlugins({ browser: true, minify, outDir: 'dist' }),
+    plugins: getPlugins({
+      browser: true,
+      minify,
+      outDir: 'dist',
+    }),
   };
 };
 
 const esmConfigs = [
+  // ESM server
   {
-    input: 'src/index.ts',
+    input: 'src/index.mts',
     output: {
-      file: 'esm/index.mjs',
+      dir: 'esm',
+      entryFileNames: '[name].mjs',
       format: 'es',
+      preserveModules: true,
+      preserveModulesRoot: 'src',
       sourcemap: true,
     },
-    plugins: getPlugins({ browser: false, minify: false, outDir: 'esm' }),
+    plugins: getPlugins({
+      browser: false,
+      minify: false,
+      outDir: 'esm',
+    }),
   },
-  // Client build: use preserveModules for proper module structure
+
+  // ESM client
   {
-    input: 'src/client/html-to-dom.ts',
+    input: 'src/client/html-to-dom.mts',
     output: {
       dir: 'esm/client',
-      format: 'es',
       entryFileNames: '[name].mjs',
+      format: 'es',
       preserveModules: true,
       preserveModulesRoot: 'src/client',
       sourcemap: true,
     },
-    plugins: getPlugins({ browser: true, minify: false, outDir: 'esm/client' }),
-  },
-  {
-    input: 'src/server/html-to-dom.ts',
-    output: {
-      file: 'esm/server/html-to-dom.mjs',
-      format: 'es',
-      sourcemap: true,
-    },
-    plugins: getPlugins({ browser: false, minify: false, outDir: 'esm' }),
+    plugins: getPlugins({
+      browser: true,
+      minify: false,
+      outDir: 'esm/client',
+    }),
   },
 ];
 
