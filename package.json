@@ -2,7 +2,13 @@
   "name": "html-dom-parser",
   "version": "5.1.5",
   "description": "HTML to DOM parser.",
-  "author": "Mark <mark@remarkablemark.org>",
+  "author": "Mark <mark@remarkablemark.org> (https://remarkabl.org)",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/remarkablemark"
+    }
+  ],
   "main": "./lib/index.js",
   "module": "./esm/index.mjs",
   "exports": {
@@ -69,7 +75,6 @@
     "@commitlint/cli": "20.3.1",
     "@commitlint/config-conventional": "20.3.1",
     "@eslint/compat": "2.0.1",
-    "@eslint/eslintrc": "3.3.3",
     "@eslint/js": "9.39.2",
     "@rollup/plugin-alias": "6.0.0",
     "@rollup/plugin-commonjs": "29.0.0",
@@ -81,12 +86,11 @@
     "@types/estree": "1.0.8",
     "@types/mocha": "10.0.10",
     "@types/node": "25.1.0",
-    "@typescript-eslint/eslint-plugin": "8.54.0",
-    "@typescript-eslint/parser": "8.54.0",
     "chai": "4.5.0",
     "eslint": "9.39.2",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-tsdoc": "0.5.0",
     "globals": "17.2.0",
     "html-minifier": "4.0.0",
     "husky": "9.1.7",
@@ -106,7 +110,8 @@
     "rollup": "4.57.0",
     "size-limit": "12.0.0",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.54.0"
   },
   "files": [
     "/dist",

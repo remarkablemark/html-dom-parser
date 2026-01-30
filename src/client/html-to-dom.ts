@@ -19,7 +19,7 @@ export default function HTMLDOMParser(html: string) {
   }
 
   // match directive
-  const match = html.match(DIRECTIVE_REGEX);
+  const match = DIRECTIVE_REGEX.exec(html);
   const directive = match ? match[1] : undefined;
 
   return formatDOM(domparser(html), null, directive);

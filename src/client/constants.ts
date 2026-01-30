@@ -37,17 +37,16 @@ export const CASE_SENSITIVE_TAG_NAMES = [
   'textPath',
 ] as const;
 
-export const CASE_SENSITIVE_TAG_NAMES_MAP = CASE_SENSITIVE_TAG_NAMES.reduce(
-  (accumulator, tagName) => {
-    accumulator[tagName.toLowerCase()] = tagName;
-    return accumulator;
-  },
-  {} as Record<string, string>,
-);
+export const CASE_SENSITIVE_TAG_NAMES_MAP = CASE_SENSITIVE_TAG_NAMES.reduce<
+  Record<string, string>
+>((accumulator, tagName) => {
+  accumulator[tagName.toLowerCase()] = tagName;
+  return accumulator;
+}, {});
 
 export const CARRIAGE_RETURN = '\r';
 export const CARRIAGE_RETURN_REGEX = new RegExp(CARRIAGE_RETURN, 'g');
-export const CARRIAGE_RETURN_PLACEHOLDER = `__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_${Date.now()}__`;
+export const CARRIAGE_RETURN_PLACEHOLDER = `__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_${Date.now().toString()}__`;
 export const CARRIAGE_RETURN_PLACEHOLDER_REGEX = new RegExp(
   CARRIAGE_RETURN_PLACEHOLDER,
   'g',
