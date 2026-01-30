@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.1.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.5...v5.1.6) (2026-01-30)
+
+
+### Bug Fixes
+
+* correct internal resolution resolution of esm types ([e98355d](https://github.com/remarkablemark/html-dom-parser/commit/e98355dc295001e740c8d88a49268ff928b5ba90)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
+* fix ESM build and types ([67f1ff5](https://github.com/remarkablemark/html-dom-parser/commit/67f1ff5c8f35d51425d3494c8e439b0050db9aec)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
+
 ## [5.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.4...v5.1.5) (2026-01-26)
 
 
