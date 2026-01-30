@@ -1,12 +1,14 @@
+import { createRequire } from 'node:module';
+
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { createRequire } from 'module';
+
 const require = createRequire(import.meta.url);
 
-const getPlugins = (browser = false, minify = false, outDir) =>
+const getPlugins = ({ browser = false, minify = false, outDir }) =>
   [
     browser &&
       alias({
@@ -40,7 +42,7 @@ const getUMDConfig = (minify = false) => {
       name: 'HTMLDOMParser',
       sourcemap: true,
     },
-    plugins: getPlugins(true, minify, 'dist'),
+    plugins: getPlugins({ browser: true, minify, outDir: 'dist' }),
   };
 };
 
@@ -52,7 +54,7 @@ const esmConfigs = [
       format: 'es',
       sourcemap: true,
     },
-    plugins: getPlugins(false, false, 'esm'),
+    plugins: getPlugins({ browser: false, minify: false, outDir: 'esm' }),
   },
   // Client build: use preserveModules for proper module structure
   {
@@ -65,7 +67,7 @@ const esmConfigs = [
       preserveModulesRoot: 'src/client',
       sourcemap: true,
     },
-    plugins: getPlugins(true, false, 'esm/client'),
+    plugins: getPlugins({ browser: true, minify: false, outDir: 'esm/client' }),
   },
   {
     input: 'src/server/html-to-dom.ts',
@@ -74,15 +76,18 @@ const esmConfigs = [
       format: 'es',
       sourcemap: true,
     },
-    plugins: getPlugins(false, false, 'esm'),
+    plugins: getPlugins({ browser: false, minify: false, outDir: 'esm' }),
   },
 ];
 
-const configs = [
-  getUMDConfig(),
-  getUMDConfig(true),
-  ...esmConfigs,
-  {
+const configs = [];
+
+if (process.env.ESM === 'true') {
+  configs.push(...esmConfigs);
+}
+
+if (process.env.UMD === 'true') {
+  configs.push(getUMDConfig(), getUMDConfig(true), {
     input: require.resolve('htmlparser2'),
     output: {
       file: 'dist/htmlparser2.js',
@@ -91,7 +96,7 @@ const configs = [
       sourcemap: true,
     },
     plugins: [commonjs(), resolve({ browser: true })],
-  },
-];
+  });
+}
 
 export default configs;
