@@ -8,28 +8,28 @@ import typescript from '@rollup/plugin-typescript';
 
 const require = createRequire(import.meta.url);
 
-const getPlugins = ({ browser = false, minify = false, outDir = '' }) =>
-  [
-    browser &&
-      alias({
-        entries: [
-          {
-            find: './server/html-to-dom',
-            replacement: './client/html-to-dom',
-          },
-        ],
-      }),
-    typescript({
-      tsconfig: 'tsconfig.build.json',
-      compilerOptions: {
-        module: 'esnext',
-        outDir,
-      },
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+const getPlugins = ({ browser = false, minify = false, outDir = '' }) => [
+  browser &&
+    alias({
+      entries: [
+        {
+          find: './server/html-to-dom',
+          replacement: './client/html-to-dom',
+        },
+      ],
     }),
-    commonjs(),
-    resolve({ browser }),
-    minify && terser(),
-  ].filter(Boolean);
+  typescript({
+    tsconfig: 'tsconfig.build.json',
+    compilerOptions: {
+      module: 'esnext',
+      outDir,
+    },
+  }),
+  commonjs(),
+  resolve({ browser }),
+  minify && terser(),
+];
 
 const getUMDConfig = (minify = false) => {
   const output = `dist/html-dom-parser${minify ? '.min' : ''}.js`;
@@ -52,7 +52,7 @@ const getUMDConfig = (minify = false) => {
 const esmConfigs = [
   // ESM server
   {
-    input: 'src/index.ts',
+    input: 'src/index.mts',
     output: {
       dir: 'esm',
       entryFileNames: '[name].mjs',
@@ -70,7 +70,7 @@ const esmConfigs = [
 
   // ESM client
   {
-    input: 'src/client/html-to-dom.ts',
+    input: 'src/client/html-to-dom.mts',
     output: {
       dir: 'esm/client',
       entryFileNames: '[name].mjs',

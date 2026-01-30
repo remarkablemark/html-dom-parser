@@ -1,13 +1,11 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
     "allowJs": true
   },
-  "include": [
-    "src",
-    "test",
-    "eslint.config.mjs",
-    "karma.conf.js",
-    "rollup.config.mjs"
-  ]
+  "include": ["scripts", "src", "test", "*.mjs", "*.js"]
 }
