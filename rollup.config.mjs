@@ -6,9 +6,9 @@ import typescript from '@rollup/plugin-typescript';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
-const getPlugins = (isBrowser = false, minify = false, outputDir) =>
+const getPlugins = (browser = false, minify = false, outDir) =>
   [
-    isBrowser &&
+    browser &&
       alias({
         entries: [
           {
@@ -22,11 +22,11 @@ const getPlugins = (isBrowser = false, minify = false, outputDir) =>
       declarationMap: false,
       module: 'esnext',
       compilerOptions: {
-        outDir: outputDir,
+        outDir,
       },
     }),
     commonjs(),
-    resolve({ browser: isBrowser }),
+    resolve({ browser }),
     minify && terser(),
   ].filter(Boolean);
 
