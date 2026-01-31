@@ -5,6 +5,11 @@ if [[ $1 == '--cjs' ]]; then
   find lib -type f \( -name '*.mjs*' -or -name '*.mts*' \) -delete
 
 elif [[ $1 == '--esm' ]]; then
+  if [[ ! -z $(git status --porcelain src) ]]; then
+    echo '*** Working changes detected in "src", skipping ESM build! ***'
+    exit 0
+  fi
+
   find src -type f -name '*.ts' -exec bash -c 'mv "$1" "${1%.ts}.mts"' _ {} \;
   jscodeshift -t scripts/add-mjs-extension.ts src --extensions=mts
   rollup --config --failAfterWarnings --environment ESM:true
