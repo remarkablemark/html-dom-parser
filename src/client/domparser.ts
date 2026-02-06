@@ -1,37 +1,10 @@
-import { escapeSpecialCharacters } from './utilities';
+import { escapeSpecialCharacters, hasOpenTag } from './utilities';
 
 // constants
 const HTML = 'html';
 const HEAD = 'head';
 const BODY = 'body';
 const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
-
-/**
- * Checks if an HTML string contains an opening tag (case-insensitive).
- *
- * @param html - HTML string.
- * @param tagName - Tag name to search for (e.g., 'head' or 'body').
- * @returns - Whether the tag is found.
- */
-function hasOpenTag(html: string, tagName: string): boolean {
-  const openTag = '<' + tagName;
-  const index = html.toLowerCase().indexOf(openTag);
-
-  if (index === -1) {
-    return false;
-  }
-
-  const char = html[index + openTag.length];
-  // the character after the tag name must be '>' or whitespace (for attributes)
-  return (
-    char === '>' ||
-    char === ' ' ||
-    char === '\t' ||
-    char === '\n' ||
-    char === '\r' ||
-    char === '/'
-  );
-}
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 /* eslint-disable @typescript-eslint/no-unused-vars */
