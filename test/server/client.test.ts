@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-
+// @vitest-environment jsdom
 import { CARRIAGE_RETURN_PLACEHOLDER } from '../../src/client/constants';
 import { formatDOM } from '../../src/client/utilities';
 import { revertEscapedCharacters } from '../../src/client/utilities';

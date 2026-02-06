@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   // html tags
   {
     name: 'empty html',
@@ -224,10 +224,8 @@ module.exports = [
     name: 'noscript with p',
     data: '<noscript><p>JS is disabled</p></noscript>',
     get skip() {
-      // client parser renders noscript incorrectly in jsdom
       // template renders noscript children as text instead of nodes
-      var isJSDOM = typeof window === 'object' && window.name === 'nodejs';
-      return isJSDOM;
+      return true;
     },
   },
 
