@@ -224,8 +224,8 @@ export default [
     name: 'noscript with p',
     data: '<noscript><p>JS is disabled</p></noscript>',
     get skip() {
-      // template renders noscript children as text instead of nodes
-      return true;
+      // jsdom template renders noscript children as text instead of nodes
+      return typeof process !== 'undefined';
     },
   },
 
