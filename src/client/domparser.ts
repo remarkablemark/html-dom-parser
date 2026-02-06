@@ -6,9 +6,9 @@ const HEAD = 'head';
 const BODY = 'body';
 const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
-// match-all-characters in case of newlines (DOTALL)
-const HEAD_TAG_REGEX = /<head[^]*>/i;
-const BODY_TAG_REGEX = /<body[^]*>/i;
+// match opening <head> or <body> tags with optional attributes
+const HEAD_TAG_REGEX = /<head[^>]*>/i;
+const BODY_TAG_REGEX = /<body[^>]*>/i;
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 /* eslint-disable @typescript-eslint/no-unused-vars */
