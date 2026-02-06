@@ -34,8 +34,6 @@ export default defineConfig([
 
     languageOptions: {
       globals: {
-        ...globals.browser,
-        ...globals.mocha,
         ...globals.node,
       },
       parserOptions: {

@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { Element } from 'domhandler';
 
 import parse from '../../src';

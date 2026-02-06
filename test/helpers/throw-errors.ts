@@ -14,19 +14,16 @@ const values = [
 
 /**
  * Calls parser with invalid arguments.
- *
- * @param {{throws: () => void}} assert
- * @param {() => object} expectedParser
  */
-module.exports = function throwErrors(assert, expectedParser) {
+export function throwErrors(expectedParser: (input: unknown) => void) {
   values.forEach((value) => {
     const type =
       value instanceof Object ? value.constructor.name : JSON.stringify(value);
 
     it(`throws error for argument: ${type}`, () => {
-      assert.throws(function () {
+      expect(() => {
         expectedParser(value);
-      }, TypeError);
+      }).toThrowError(TypeError);
     });
   });
-};
+}

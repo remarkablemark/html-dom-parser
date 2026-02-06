@@ -11,21 +11,21 @@ const HEAD_TAG_REGEX = /<head[^]*>/i;
 const BODY_TAG_REGEX = /<body[^]*>/i;
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* istanbul ignore start */
 let parseFromDocument = (html: string, tagName?: string): Document => {
-  /* istanbul ignore next */
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let parseFromString = (html: string, tagName?: string): Document => {
-  /* istanbul ignore next */
   throw new Error(
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
 };
+/* istanbul ignore stop */
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
 const DOMParser = typeof window === 'object' && window.DOMParser;
 
@@ -46,10 +46,11 @@ if (typeof DOMParser === 'function') {
    * @returns - Document.
    */
   parseFromString = (html: string, tagName?: string): Document => {
-    /* istanbul ignore if */
+    /* istanbul ignore start */
     if (tagName) {
       html = `<${tagName}>${html}</${tagName}>`;
     }
+    /* istanbul ignore stop */
 
     return domParser.parseFromString(html, mimeType);
   };
@@ -74,7 +75,7 @@ if (typeof document === 'object' && document.implementation) {
    * @returns - Document
    */
   parseFromDocument = function (html: string, tagName?: string): Document {
-    /* istanbul ignore if */
+    /* istanbul ignore start */
     if (tagName) {
       const element = htmlDocument.documentElement.querySelector(tagName);
 
@@ -84,6 +85,7 @@ if (typeof document === 'object' && document.implementation) {
 
       return htmlDocument;
     }
+    /* istanbul ignore stop */
 
     htmlDocument.documentElement.innerHTML = html;
     return htmlDocument;
@@ -114,8 +116,8 @@ if (template && template.content) {
   };
 }
 
-/* istanbul ignore next */
-const createNodeList = () => document.createDocumentFragment().childNodes;
+const createNodeList = /* istanbul ignore next */ () =>
+  document.createDocumentFragment().childNodes;
 
 /**
  * Parses HTML string to DOM nodes.
@@ -171,11 +173,11 @@ export default function domparser(html: string): NodeList {
         return parseFromTemplate(html);
       }
 
-      /* istanbul ignore next */
+      /* istanbul ignore start */
       const element = parseFromDocument(html, BODY).querySelector(BODY);
 
-      /* istanbul ignore next */
       return element?.childNodes ?? createNodeList();
+      /* istanbul ignore stop */
     }
   }
 }
