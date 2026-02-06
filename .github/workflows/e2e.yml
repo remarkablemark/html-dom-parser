@@ -25,7 +25,7 @@ jobs:
         run: npm ci --prefer-offline
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps ${{ matrix.browser }}
+        run: npx playwright install ${{ matrix.browser == 'webkit' && '--with-deps' || '' }} ${{ matrix.browser }}
 
-      - name: Run browser tests on Chrome
+      - name: Run browser tests on ${{ matrix.browser }}
         run: npx vitest run --config vitest.browser.config.mts --browser=${{ matrix.browser }}
