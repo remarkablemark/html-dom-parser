@@ -58,6 +58,33 @@ function formatTagName(tagName: string): string {
 }
 
 /**
+ * Checks if an HTML string contains an opening tag (case-insensitive).
+ *
+ * @param html - HTML string.
+ * @param tagName - Tag name to search for (e.g., 'head' or 'body').
+ * @returns - Whether the tag is found.
+ */
+export function hasOpenTag(html: string, tagName: string): boolean {
+  const openTag = '<' + tagName;
+  const index = html.toLowerCase().indexOf(openTag);
+
+  if (index === -1) {
+    return false;
+  }
+
+  const char = html[index + openTag.length];
+  // the character after the tag name must be '>' or whitespace (for attributes)
+  return (
+    char === '>' ||
+    char === ' ' ||
+    char === '\t' ||
+    char === '\n' ||
+    char === '\r' ||
+    char === '/'
+  );
+}
+
+/**
  * Escapes special characters before parsing.
  *
  * @param html - The HTML string.
