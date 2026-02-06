@@ -48,7 +48,7 @@
     "test": "vitest",
     "test:browser": "vitest run --config vitest.browser.config.mts --browser=chromium",
     "test:coverage": "vitest run --color --coverage",
-    "test:esm": "npm run build:esm && node --test test/esm"
+    "test:esm": "npm run build:esm && node --test test/esm/*.test.mjs"
   },
   "repository": {
     "type": "git",
