@@ -11,18 +11,16 @@ export function runTests(
     const _it = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
     _it('parses ' + testCase.name, function () {
-      let actualOutput = actualParser(testCase.data);
-      let expectedOutput = unsetRootParent(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
-        expectedParser(testCase.data) as any,
+      let actualOutput: unknown = actualParser(testCase.data);
+      let expectedOutput: unknown = unsetRootParent(
+        expectedParser(testCase.data) as Parameters<typeof unsetRootParent>[0],
       );
 
       // use `JSON.decycle` since `assert.deepEqual` fails
       // when instance types are different in the browser
       if (typeof window !== 'undefined') {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         actualOutput = decycle(actualOutput);
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
         expectedOutput = decycle(expectedOutput);
       }
 

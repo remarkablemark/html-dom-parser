@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 /**
  * @see {@link https://github.com/douglascrockford/JSON-js/blob/master/cycle.js}
  */
@@ -23,7 +21,14 @@
 
 /* jslint eval */
 
-export function decycle(object, replacer) {
+type ReplacerFunction = (value: unknown) => unknown;
+
+interface DecycledObject {
+  [key: string]: unknown;
+  $ref?: string;
+}
+
+export function decycle(object: unknown, replacer?: ReplacerFunction) {
   'use strict';
 
   // Make a deep copy of an object or array, assuring that there is at most
@@ -50,13 +55,13 @@ export function decycle(object, replacer) {
   // the object or array. [NUMBER] or [STRING] indicates a child element or
   // property.
 
-  var objects = new window.WeakMap(); // object to path mappings
+  const objects = new WeakMap<object, string>(); // object to path mappings
 
-  return (function derez(value, path) {
+  return (function derez(value: unknown, path: string): unknown {
     // The derez function recurses through the object, producing the deep copy.
 
-    var old_path; // The path of an earlier occurance of value
-    var nu; // The new object or array
+    let old_path: string | undefined; // The path of an earlier occurance of value
+    let nu: unknown[] | DecycledObject; // The new object or array
 
     // If a replacer function was provided, then call it to get a replacement value.
 
@@ -93,16 +98,18 @@ export function decycle(object, replacer) {
 
       if (Array.isArray(value)) {
         nu = [];
-        value.forEach(function (element, i) {
-          nu[i] = derez(element, path + '[' + i + ']');
+        (value as unknown[]).forEach(function (element: unknown, i: number) {
+          (nu as unknown[])[i] = derez(element, path + '[' + String(i) + ']');
         });
       } else {
         // If it is an object, replicate the object.
 
-        nu = {};
-        Object.keys(value).forEach(function (name) {
-          nu[name] = derez(
-            value[name],
+        nu = {} as DecycledObject;
+        Object.keys(value as Record<string, unknown>).forEach(function (
+          name: string,
+        ) {
+          (nu as DecycledObject)[name] = derez(
+            (value as Record<string, unknown>)[name],
             path + '[' + JSON.stringify(name) + ']',
           );
         });
