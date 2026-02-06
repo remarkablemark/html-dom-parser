@@ -2,6 +2,7 @@
 import htmlToDOM from '../../src/client/html-to-dom';
 import htmlCases from '../cases/html';
 import {
+  isBrowser,
   parseDOM,
   runTests,
   testCaseSensitiveTags,
@@ -15,16 +16,18 @@ describe('client parser', () => {
   runTests(htmlToDOM, parseDOM, htmlCases);
   testCaseSensitiveTags(htmlToDOM);
 
-  describe('performance', () => {
-    it('executes 1000 times in less than 50ms', () => {
-      let times = 1000;
-      const start = performance.now();
-      while (--times) {
-        htmlToDOM('<div>test</div>');
-      }
-      const end = performance.now();
-      const elapsed = end - start;
-      expect(elapsed).below(50);
+  if (isBrowser()) {
+    describe('performance', () => {
+      it('executes 1000 times in less than 50ms', () => {
+        let times = 1000;
+        const start = performance.now();
+        while (--times) {
+          htmlToDOM('<div>test</div>');
+        }
+        const end = performance.now();
+        const elapsed = end - start;
+        expect(elapsed).below(50);
+      });
     });
-  });
+  }
 });

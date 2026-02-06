@@ -1,3 +1,5 @@
+import { isNode } from '../helpers';
+
 export default [
   // html tags
   {
@@ -224,8 +226,8 @@ export default [
     name: 'noscript with p',
     data: '<noscript><p>JS is disabled</p></noscript>',
     get skip() {
-      // jsdom template renders noscript children as text instead of nodes
-      return typeof process !== 'undefined';
+      // template renders noscript children as text instead of nodes
+      return isNode() || /firefox/i.test(navigator.userAgent);
     },
   },
 

@@ -46,7 +46,7 @@
     "prepublishOnly": "run-s build lint lint:tsc lint:package",
     "size-limit": "size-limit",
     "test": "vitest",
-    "test:browser": "vitest run --config vitest.browser.config.mts",
+    "test:browser": "vitest run --config vitest.browser.config.mts --browser=chromium",
     "test:coverage": "vitest run --color --coverage",
     "test:esm": "npm run build:esm && node --test test/esm"
   },
