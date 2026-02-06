@@ -6,9 +6,32 @@ const HEAD = 'head';
 const BODY = 'body';
 const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
-// match opening <head> or <body> tags with optional attributes
-const HEAD_TAG_REGEX = /<head[^>]*>/i;
-const BODY_TAG_REGEX = /<body[^>]*>/i;
+/**
+ * Checks if an HTML string contains an opening tag (case-insensitive).
+ *
+ * @param html - HTML string.
+ * @param tagName - Tag name to search for (e.g., 'head' or 'body').
+ * @returns - Whether the tag is found.
+ */
+function hasOpenTag(html: string, tagName: string): boolean {
+  const openTag = '<' + tagName;
+  const index = html.toLowerCase().indexOf(openTag);
+
+  if (index === -1) {
+    return false;
+  }
+
+  const char = html[index + openTag.length];
+  // the character after the tag name must be '>' or whitespace (for attributes)
+  return (
+    char === '>' ||
+    char === ' ' ||
+    char === '\t' ||
+    char === '\n' ||
+    char === '\r' ||
+    char === '/'
+  );
+}
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -138,13 +161,13 @@ export default function domparser(html: string): NodeList {
 
       // the created document may come with filler head/body elements,
       // so make sure to remove them if they don't actually exist
-      if (!HEAD_TAG_REGEX.test(html)) {
+      if (!hasOpenTag(html, HEAD)) {
         const element = doc.querySelector(HEAD);
         /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
       }
 
-      if (!BODY_TAG_REGEX.test(html)) {
+      if (!hasOpenTag(html, BODY)) {
         const element = doc.querySelector(BODY);
         /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
@@ -158,7 +181,7 @@ export default function domparser(html: string): NodeList {
       const elements = parseFromDocument(html).querySelectorAll(firstTagName);
 
       // if there's a sibling element, then return both elements
-      if (BODY_TAG_REGEX.test(html) && HEAD_TAG_REGEX.test(html)) {
+      if (hasOpenTag(html, BODY) && hasOpenTag(html, HEAD)) {
         /* istanbul ignore next */
         return elements[0].parentNode?.childNodes ?? createNodeList();
       }
