@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.8](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.7...v5.1.8) (2026-02-06)
+
+
+### Bug Fixes
+
+* **client:** fix polynomial regular expression used on uncontrolled data ([#1330](https://github.com/remarkablemark/html-dom-parser/issues/1330)) ([35f32fa](https://github.com/remarkablemark/html-dom-parser/commit/35f32fabf1c8cfe6d99391caa31fb6506e442fe7))
+
 ## [5.1.7](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.6...v5.1.7) (2026-01-30)
 
 
