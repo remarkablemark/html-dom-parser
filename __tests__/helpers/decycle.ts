@@ -75,23 +75,13 @@ function deepCopy(
   visitedObjects: WeakMap<object, string>,
   replacer?: ReplacerFunction,
 ): unknown {
-  let existingPath: string | undefined;
-  let copy: unknown[] | DecycledObject;
-
-  if (replacer !== undefined) {
+  if (typeof replacer === 'function') {
     value = replacer(value);
   }
 
-  if (
-    typeof value === 'object' &&
-    value !== null &&
-    !(value instanceof Boolean) &&
-    !(value instanceof Date) &&
-    !(value instanceof Number) &&
-    !(value instanceof RegExp) &&
-    !(value instanceof String)
-  ) {
-    existingPath = visitedObjects.get(value);
+  if (isPlainObjectOrArray(value)) {
+    const existingPath = visitedObjects.get(value);
+
     if (existingPath !== undefined) {
       return { $ref: existingPath };
     }
@@ -99,31 +89,51 @@ function deepCopy(
     visitedObjects.set(value, path);
 
     if (Array.isArray(value)) {
-      copy = [];
-      (value as unknown[]).forEach((element: unknown, index: number) => {
-        (copy as unknown[])[index] = deepCopy(
+      const copy: unknown[] = [];
+      value.forEach((element, index) => {
+        copy[index] = deepCopy(
           element,
           `${path}[${index.toString()}]`,
           visitedObjects,
           replacer,
         );
       });
-    } else {
-      copy = {} as DecycledObject;
-      Object.keys(value as Record<string, unknown>).forEach(function (
-        key: string,
-      ) {
-        (copy as DecycledObject)[key] = deepCopy(
-          (value as Record<string, unknown>)[key],
-          `${path}[${JSON.stringify(key)}]`,
-          visitedObjects,
-          replacer,
-        );
-      });
+      return copy;
     }
+
+    const record = value as Record<string, unknown>;
+    const copy: DecycledObject = {};
+
+    Object.keys(record).forEach((key) => {
+      copy[key] = deepCopy(
+        record[key],
+        `${path}[${JSON.stringify(key)}]`,
+        visitedObjects,
+        replacer,
+      );
+    });
 
     return copy;
   }
 
   return value;
+}
+
+/**
+ * Checks whether a value is a plain object or array (not a primitive or
+ * built-in wrapper like `Boolean`, `Date`, `Number`, `RegExp`, or `String`).
+ *
+ * @param value - The value to check.
+ * @returns `true` if the value is a plain object or array.
+ */
+function isPlainObjectOrArray(value: unknown): value is object {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    !(value instanceof Boolean) &&
+    !(value instanceof Date) &&
+    !(value instanceof Number) &&
+    !(value instanceof RegExp) &&
+    !(value instanceof String)
+  );
 }
