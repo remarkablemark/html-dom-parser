@@ -100,10 +100,10 @@ function deepCopy(
 
     if (Array.isArray(value)) {
       copy = [];
-      (value as unknown[]).forEach(function (element: unknown, index: number) {
+      (value as unknown[]).forEach((element: unknown, index: number) => {
         (copy as unknown[])[index] = deepCopy(
           element,
-          path + '[' + String(index) + ']',
+          `${path}[${index.toString()}]`,
           visitedObjects,
           replacer,
         );
@@ -115,13 +115,15 @@ function deepCopy(
       ) {
         (copy as DecycledObject)[key] = deepCopy(
           (value as Record<string, unknown>)[key],
-          path + '[' + JSON.stringify(key) + ']',
+          `${path}[${JSON.stringify(key)}]`,
           visitedObjects,
           replacer,
         );
       });
     }
+
     return copy;
   }
+
   return value;
 }
