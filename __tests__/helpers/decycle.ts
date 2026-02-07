@@ -54,9 +54,9 @@ interface DecycledObject {
  * @returns A deep copy of the object with circular references replaced by `$ref` objects.
  */
 export function decycle(object: unknown, replacer?: ReplacerFunction) {
-  const objects = new WeakMap<object, string>(); // object to path mappings
+  const visitedObjects = new WeakMap<object, string>(); // object to path mappings
 
-  return deepCopy(object, '$', objects, replacer);
+  return deepCopy(object, '$', visitedObjects, replacer);
 }
 
 /**
@@ -65,18 +65,18 @@ export function decycle(object: unknown, replacer?: ReplacerFunction) {
  *
  * @param value - The current value to copy.
  * @param path - The JSONPath to the current value.
- * @param objects - WeakMap tracking already-visited objects and their paths.
+ * @param visitedObjects - WeakMap tracking already-visited objects and their paths.
  * @param replacer - Optional replacer function called for each value.
  * @returns The deep-copied value.
  */
 function deepCopy(
   value: unknown,
   path: string,
-  objects: WeakMap<object, string>,
+  visitedObjects: WeakMap<object, string>,
   replacer?: ReplacerFunction,
 ): unknown {
-  let old_path: string | undefined;
-  let nu: unknown[] | DecycledObject;
+  let existingPath: string | undefined;
+  let copy: unknown[] | DecycledObject;
 
   if (replacer !== undefined) {
     value = replacer(value);
@@ -91,37 +91,37 @@ function deepCopy(
     !(value instanceof RegExp) &&
     !(value instanceof String)
   ) {
-    old_path = objects.get(value);
-    if (old_path !== undefined) {
-      return { $ref: old_path };
+    existingPath = visitedObjects.get(value);
+    if (existingPath !== undefined) {
+      return { $ref: existingPath };
     }
 
-    objects.set(value, path);
+    visitedObjects.set(value, path);
 
     if (Array.isArray(value)) {
-      nu = [];
-      (value as unknown[]).forEach(function (element: unknown, i: number) {
-        (nu as unknown[])[i] = deepCopy(
+      copy = [];
+      (value as unknown[]).forEach(function (element: unknown, index: number) {
+        (copy as unknown[])[index] = deepCopy(
           element,
-          path + '[' + String(i) + ']',
-          objects,
+          path + '[' + String(index) + ']',
+          visitedObjects,
           replacer,
         );
       });
     } else {
-      nu = {} as DecycledObject;
+      copy = {} as DecycledObject;
       Object.keys(value as Record<string, unknown>).forEach(function (
-        name: string,
+        key: string,
       ) {
-        (nu as DecycledObject)[name] = deepCopy(
-          (value as Record<string, unknown>)[name],
-          path + '[' + JSON.stringify(name) + ']',
-          objects,
+        (copy as DecycledObject)[key] = deepCopy(
+          (value as Record<string, unknown>)[key],
+          path + '[' + JSON.stringify(key) + ']',
+          visitedObjects,
           replacer,
         );
       });
     }
-    return nu;
+    return copy;
   }
   return value;
 }
