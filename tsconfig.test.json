@@ -4,9 +4,9 @@
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "types": ["vite/client", "vitest/globals"],
+    "types": ["vitest/globals"],
     "noEmit": true,
     "allowJs": true
   },
-  "include": ["scripts", "src", "test", "*.mjs", "*.mts", "*.js", "*.ts"]
+  "include": ["__tests__", "scripts", "src", "*.mjs", "*.mts", "*.js", "*.ts"]
 }

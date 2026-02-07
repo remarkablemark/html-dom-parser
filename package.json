@@ -45,10 +45,11 @@
     "prepare": "husky",
     "prepublishOnly": "run-s build lint lint:tsc lint:package",
     "size-limit": "size-limit",
-    "test": "vitest",
+    "test": "vitest run",
     "test:browser": "vitest run --config vitest.browser.config.mts --browser=chromium",
-    "test:coverage": "vitest run --color --coverage",
-    "test:esm": "npm run build:esm && node --test test/esm/*.test.mjs"
+    "test:ci": "CI=true vitest run --color",
+    "test:esm": "npm run build:esm && node --test test/esm/*.test.mjs",
+    "test:watch": "vitest"
   },
   "repository": {
     "type": "git",

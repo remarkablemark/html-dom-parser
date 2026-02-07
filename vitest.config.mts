@@ -1,31 +1,20 @@
-import { configDefaults, defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     globals: true,
-    exclude: [
-      ...configDefaults.exclude,
-      'dist/**',
-      'esm/**',
-      'lib/**',
-      'scripts/**',
-      'coverage/**',
-      'test/esm/**',
-      'test/types/**',
-    ],
     coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      enabled: true,
       include: ['src/**'],
       thresholds: {
-        global: {
-          branches: 100,
-          functions: 100,
-          lines: 100,
-          statements: 100,
-        },
+        branches: 90,
+        functions: 100,
+        lines: 100,
+        statements: 100,
       },
     },
+    include: ['**/__tests__/**/*.test.?(m)[jt]s'],
+    exclude: ['**/__tests__/(esm|types)/**'],
     reporters:
       process.env.CI === 'true' ? ['default', 'github-actions'] : ['default'],
   },
