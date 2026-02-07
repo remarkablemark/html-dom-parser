@@ -13,8 +13,7 @@ export default defineConfig({
         statements: 100,
       },
     },
-    include: ['**/__tests__/**/*.test.?(m)[jt]s'],
-    exclude: ['**/__tests__/(esm|types)/**'],
+    exclude: ['__tests__/(esm|types)/**'],
     reporters:
       process.env.CI === 'true' ? ['default', 'github-actions'] : ['default'],
   },

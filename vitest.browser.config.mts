@@ -8,6 +8,9 @@ export default mergeConfig(
   defineConfig({
     test: {
       globals: true,
+      coverage: {
+        enabled: false,
+      },
       browser: {
         enabled: true,
         provider: playwright(),
@@ -18,7 +21,7 @@ export default mergeConfig(
           { browser: 'webkit' },
         ],
       },
-      include: ['test/client/**'],
+      exclude: ['__tests__/server/server.test.ts'],
     },
   }),
 );
