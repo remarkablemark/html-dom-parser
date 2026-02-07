@@ -54,4 +54,4 @@ jobs:
         run: npx playwright install ${{ matrix.browser == 'webkit' && '--with-deps' || '' }} ${{ matrix.browser }}
 
       - name: Run browser tests on ${{ matrix.browser }}
-        run: npm test -- --config=vitest.browser.config.mts --browser=${{ matrix.browser }}
+        run: npm test -- --config=vitest.config.browser.mts --browser=${{ matrix.browser }}
