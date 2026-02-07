@@ -92,33 +92,25 @@ function deepCopy(
   visitedObjects.set(value, path);
 
   if (Array.isArray(value)) {
-    const copy: unknown[] = [];
-
-    value.forEach((element, index) => {
-      copy[index] = deepCopy(
+    return value.map((element, index) =>
+      deepCopy(
         element,
         `${path}[${index.toString()}]`,
         visitedObjects,
         replacer,
-      );
-    });
-
-    return copy;
+      ),
+    );
   }
 
   const record = value as Record<string, unknown>;
-  const copy: DecycledObject = {};
 
-  Object.keys(record).forEach((key) => {
-    copy[key] = deepCopy(
-      record[key],
-      `${path}[${JSON.stringify(key)}]`,
-      visitedObjects,
-      replacer,
-    );
-  });
+  return Object.keys(record).reduce<DecycledObject>((copy, key) => {
+    const value = record[key];
+    const newPath = `${path}[${JSON.stringify(key)}]`;
 
-  return copy;
+    copy[key] = deepCopy(value, newPath, visitedObjects, replacer);
+    return copy;
+  }, {});
 }
 
 /**
