@@ -79,35 +79,25 @@ function deepCopy(
     value = replacer(value);
   }
 
-  if (isPlainObjectOrArray(value)) {
-    const existingPath = visitedObjects.get(value);
+  if (!isPlainObjectOrArray(value)) {
+    return value;
+  }
 
-    if (existingPath !== undefined) {
-      return { $ref: existingPath };
-    }
+  const existingPath = visitedObjects.get(value);
 
-    visitedObjects.set(value, path);
+  if (existingPath !== undefined) {
+    return { $ref: existingPath };
+  }
 
-    if (Array.isArray(value)) {
-      const copy: unknown[] = [];
-      value.forEach((element, index) => {
-        copy[index] = deepCopy(
-          element,
-          `${path}[${index.toString()}]`,
-          visitedObjects,
-          replacer,
-        );
-      });
-      return copy;
-    }
+  visitedObjects.set(value, path);
 
-    const record = value as Record<string, unknown>;
-    const copy: DecycledObject = {};
+  if (Array.isArray(value)) {
+    const copy: unknown[] = [];
 
-    Object.keys(record).forEach((key) => {
-      copy[key] = deepCopy(
-        record[key],
-        `${path}[${JSON.stringify(key)}]`,
+    value.forEach((element, index) => {
+      copy[index] = deepCopy(
+        element,
+        `${path}[${index.toString()}]`,
         visitedObjects,
         replacer,
       );
@@ -116,7 +106,19 @@ function deepCopy(
     return copy;
   }
 
-  return value;
+  const record = value as Record<string, unknown>;
+  const copy: DecycledObject = {};
+
+  Object.keys(record).forEach((key) => {
+    copy[key] = deepCopy(
+      record[key],
+      `${path}[${JSON.stringify(key)}]`,
+      visitedObjects,
+      replacer,
+    );
+  });
+
+  return copy;
 }
 
 /**
