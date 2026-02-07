@@ -7,7 +7,6 @@ export default mergeConfig(
   vitestConfig,
   defineConfig({
     test: {
-      globals: true,
       coverage: {
         enabled: false,
       },
