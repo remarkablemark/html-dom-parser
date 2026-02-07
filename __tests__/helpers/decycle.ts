@@ -28,9 +28,81 @@ interface DecycledObject {
   $ref?: string;
 }
 
-export function decycle(object: unknown, replacer?: ReplacerFunction) {
-  'use strict';
+function deepCopy(
+  value: unknown,
+  path: string,
+  objects: WeakMap<object, string>,
+  replacer?: ReplacerFunction,
+): unknown {
+  // Recurses through the object, producing the deep copy.
 
+  let old_path: string | undefined; // The path of an earlier occurance of value
+  let nu: unknown[] | DecycledObject; // The new object or array
+
+  // If a replacer function was provided, then call it to get a replacement value.
+
+  if (replacer !== undefined) {
+    value = replacer(value);
+  }
+
+  // typeof null === "object", so go on if this value is really an object but not
+  // one of the weird builtin objects.
+
+  if (
+    typeof value === 'object' &&
+    value !== null &&
+    !(value instanceof Boolean) &&
+    !(value instanceof Date) &&
+    !(value instanceof Number) &&
+    !(value instanceof RegExp) &&
+    !(value instanceof String)
+  ) {
+    // If the value is an object or array, look to see if we have already
+    // encountered it. If so, return a {"$ref":PATH} object. This uses an
+    // ES6 WeakMap.
+
+    old_path = objects.get(value);
+    if (old_path !== undefined) {
+      return { $ref: old_path };
+    }
+
+    // Otherwise, accumulate the unique value and its path.
+
+    objects.set(value, path);
+
+    // If it is an array, replicate the array.
+
+    if (Array.isArray(value)) {
+      nu = [];
+      (value as unknown[]).forEach(function (element: unknown, i: number) {
+        (nu as unknown[])[i] = deepCopy(
+          element,
+          path + '[' + String(i) + ']',
+          objects,
+          replacer,
+        );
+      });
+    } else {
+      // If it is an object, replicate the object.
+
+      nu = {} as DecycledObject;
+      Object.keys(value as Record<string, unknown>).forEach(function (
+        name: string,
+      ) {
+        (nu as DecycledObject)[name] = deepCopy(
+          (value as Record<string, unknown>)[name],
+          path + '[' + JSON.stringify(name) + ']',
+          objects,
+          replacer,
+        );
+      });
+    }
+    return nu;
+  }
+  return value;
+}
+
+export function decycle(object: unknown, replacer?: ReplacerFunction) {
   // Make a deep copy of an object or array, assuring that there is at most
   // one instance of each object or array in the resulting structure. The
   // duplicate references (which might be forming cycles) are replaced with
@@ -57,65 +129,5 @@ export function decycle(object: unknown, replacer?: ReplacerFunction) {
 
   const objects = new WeakMap<object, string>(); // object to path mappings
 
-  return (function derez(value: unknown, path: string): unknown {
-    // The derez function recurses through the object, producing the deep copy.
-
-    let old_path: string | undefined; // The path of an earlier occurance of value
-    let nu: unknown[] | DecycledObject; // The new object or array
-
-    // If a replacer function was provided, then call it to get a replacement value.
-
-    if (replacer !== undefined) {
-      value = replacer(value);
-    }
-
-    // typeof null === "object", so go on if this value is really an object but not
-    // one of the weird builtin objects.
-
-    if (
-      typeof value === 'object' &&
-      value !== null &&
-      !(value instanceof Boolean) &&
-      !(value instanceof Date) &&
-      !(value instanceof Number) &&
-      !(value instanceof RegExp) &&
-      !(value instanceof String)
-    ) {
-      // If the value is an object or array, look to see if we have already
-      // encountered it. If so, return a {"$ref":PATH} object. This uses an
-      // ES6 WeakMap.
-
-      old_path = objects.get(value);
-      if (old_path !== undefined) {
-        return { $ref: old_path };
-      }
-
-      // Otherwise, accumulate the unique value and its path.
-
-      objects.set(value, path);
-
-      // If it is an array, replicate the array.
-
-      if (Array.isArray(value)) {
-        nu = [];
-        (value as unknown[]).forEach(function (element: unknown, i: number) {
-          (nu as unknown[])[i] = derez(element, path + '[' + String(i) + ']');
-        });
-      } else {
-        // If it is an object, replicate the object.
-
-        nu = {} as DecycledObject;
-        Object.keys(value as Record<string, unknown>).forEach(function (
-          name: string,
-        ) {
-          (nu as DecycledObject)[name] = derez(
-            (value as Record<string, unknown>)[name],
-            path + '[' + JSON.stringify(name) + ']',
-          );
-        });
-      }
-      return nu;
-    }
-    return value;
-  })(object, '$');
+  return deepCopy(object, '$', objects, replacer);
 }
