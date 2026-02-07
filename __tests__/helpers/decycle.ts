@@ -28,25 +28,59 @@ interface DecycledObject {
   $ref?: string;
 }
 
+/**
+ * Makes a deep copy of an object or array, assuring that there is at most
+ * one instance of each object or array in the resulting structure. The
+ * duplicate references (which might be forming cycles) are replaced with
+ * an object of the form `{"$ref": PATH}` where the PATH is a JSONPath
+ * string that locates the first occurance.
+ *
+ * @example
+ * ```ts
+ * var a = [];
+ * a[0] = a;
+ * JSON.stringify(decycle(a)); // '[{"$ref":"$"}]'
+ * ```
+ *
+ * If a replacer function is provided, then it will be called for each value.
+ * A replacer function receives a value and returns a replacement value.
+ *
+ * JSONPath is used to locate the unique object. `$` indicates the top level of
+ * the object or array. `[NUMBER]` or `[STRING]` indicates a child element or
+ * property.
+ *
+ * @param object - The object or array to decycle.
+ * @param replacer - Optional replacer function called for each value.
+ * @returns A deep copy of the object with circular references replaced by `$ref` objects.
+ */
+export function decycle(object: unknown, replacer?: ReplacerFunction) {
+  const objects = new WeakMap<object, string>(); // object to path mappings
+
+  return deepCopy(object, '$', objects, replacer);
+}
+
+/**
+ * Recursively deep copies a value, replacing circular references with
+ * `{"$ref": PATH}` objects.
+ *
+ * @param value - The current value to copy.
+ * @param path - The JSONPath to the current value.
+ * @param objects - WeakMap tracking already-visited objects and their paths.
+ * @param replacer - Optional replacer function called for each value.
+ * @returns The deep-copied value.
+ */
 function deepCopy(
   value: unknown,
   path: string,
   objects: WeakMap<object, string>,
   replacer?: ReplacerFunction,
 ): unknown {
-  // Recurses through the object, producing the deep copy.
-
-  let old_path: string | undefined; // The path of an earlier occurance of value
-  let nu: unknown[] | DecycledObject; // The new object or array
-
-  // If a replacer function was provided, then call it to get a replacement value.
+  let old_path: string | undefined;
+  let nu: unknown[] | DecycledObject;
 
   if (replacer !== undefined) {
     value = replacer(value);
   }
-
-  // typeof null === "object", so go on if this value is really an object but not
-  // one of the weird builtin objects.
 
   if (
     typeof value === 'object' &&
@@ -57,20 +91,12 @@ function deepCopy(
     !(value instanceof RegExp) &&
     !(value instanceof String)
   ) {
-    // If the value is an object or array, look to see if we have already
-    // encountered it. If so, return a {"$ref":PATH} object. This uses an
-    // ES6 WeakMap.
-
     old_path = objects.get(value);
     if (old_path !== undefined) {
       return { $ref: old_path };
     }
 
-    // Otherwise, accumulate the unique value and its path.
-
     objects.set(value, path);
-
-    // If it is an array, replicate the array.
 
     if (Array.isArray(value)) {
       nu = [];
@@ -83,8 +109,6 @@ function deepCopy(
         );
       });
     } else {
-      // If it is an object, replicate the object.
-
       nu = {} as DecycledObject;
       Object.keys(value as Record<string, unknown>).forEach(function (
         name: string,
@@ -100,34 +124,4 @@ function deepCopy(
     return nu;
   }
   return value;
-}
-
-export function decycle(object: unknown, replacer?: ReplacerFunction) {
-  // Make a deep copy of an object or array, assuring that there is at most
-  // one instance of each object or array in the resulting structure. The
-  // duplicate references (which might be forming cycles) are replaced with
-  // an object of the form
-
-  //      {"$ref": PATH}
-
-  // where the PATH is a JSONPath string that locates the first occurance.
-
-  // So,
-
-  //      var a = [];
-  //      a[0] = a;
-  //      return JSON.stringify(JSON.decycle(a));
-
-  // produces the string '[{"$ref":"$"}]'.
-
-  // If a replacer function is provided, then it will be called for each value.
-  // A replacer function receives a value and returns a replacement value.
-
-  // JSONPath is used to locate the unique object. $ indicates the top level of
-  // the object or array. [NUMBER] or [STRING] indicates a child element or
-  // property.
-
-  const objects = new WeakMap<object, string>(); // object to path mappings
-
-  return deepCopy(object, '$', objects, replacer);
 }
