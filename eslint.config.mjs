@@ -34,7 +34,9 @@ export default defineConfig([
 
     languageOptions: {
       globals: {
+        ...globals.browser,
         ...globals.node,
+        ...globals.vitest,
       },
       parserOptions: {
         project: ['tsconfig.build.json', 'tsconfig.test.json'],
