@@ -14,7 +14,5 @@ export default defineConfig({
       },
     },
     exclude: ['__tests__/(esm|types)/**'],
-    reporters:
-      process.env.CI === 'true' ? ['default', 'github-actions'] : ['default'],
   },
 });
