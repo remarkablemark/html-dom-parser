@@ -1,6 +1,7 @@
+import { decycle } from 'decycle';
+
 import { unsetRootParent } from '../../src/server/utilities';
 import type { TestCase } from '../cases';
-import { decycle } from './decycle';
 
 export function runTests(
   actualParser: (input: string) => object[],
