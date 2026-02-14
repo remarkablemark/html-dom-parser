@@ -1,6 +1,6 @@
 # html-dom-parser
 
-[![NPM](https://nodei.co/npm/html-dom-parser.png)](https://nodei.co/npm/html-dom-parser/)
+[![NPM](https://nodei.co/npm/html-dom-parser.svg)](https://b.remarkabl.org/html-dom-parser)
 
 [![NPM version](https://img.shields.io/npm/v/html-dom-parser)](https://www.npmjs.com/package/html-dom-parser)
 [![NPM bundle size](https://img.shields.io/bundlephobia/minzip/html-dom-parser)](https://bundlephobia.com/package/html-dom-parser)
