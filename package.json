@@ -71,8 +71,8 @@
     "htmlparser2": "10.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.4.1",
-    "@commitlint/config-conventional": "20.4.1",
+    "@commitlint/cli": "20.4.2",
+    "@commitlint/config-conventional": "20.4.2",
     "@eslint/compat": "2.0.2",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-alias": "6.0.0",
