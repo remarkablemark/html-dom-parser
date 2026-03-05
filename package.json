@@ -76,7 +76,7 @@
     "@eslint/compat": "2.0.2",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-alias": "6.0.0",
-    "@rollup/plugin-commonjs": "29.0.0",
+    "@rollup/plugin-commonjs": "29.0.1",
     "@rollup/plugin-node-resolve": "16.0.3",
     "@rollup/plugin-terser": "1.0.0",
     "@rollup/plugin-typescript": "12.3.0",
