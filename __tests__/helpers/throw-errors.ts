@@ -23,7 +23,7 @@ export function throwErrors(expectedParser: (input: unknown) => void) {
     it(`throws error for argument: ${type}`, () => {
       expect(() => {
         expectedParser(value);
-      }).toThrowError(TypeError);
+      }).toThrow(TypeError);
     });
   });
 }
