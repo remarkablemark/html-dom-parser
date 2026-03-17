@@ -18,6 +18,10 @@ updates:
           - '@eslint/*'
           - 'eslint*'
           - prettier
+      vitest:
+        patterns:
+          - '@vitest/*'
+          - vitest
 
   - package-ecosystem: 'github-actions'
     directory: '/'
