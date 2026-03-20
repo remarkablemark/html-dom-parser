@@ -1,5 +1,24 @@
 # Changelog
 
+## [6.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.8...v6.0.0) (2026-03-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` constants
+* **deps:** bump htmlparser2 from 10.1.0 to 11.0.0
+* **deps:** bump domhandler from 5.0.3 to 6.0.1
+
+### Code Refactoring
+
+* **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` ([77c2e92](https://github.com/remarkablemark/html-dom-parser/commit/77c2e92ea1fa2dcdc76e1f7e8fd769322c2e500f))
+
+
+### Build System
+
+* **deps:** bump domhandler from 5.0.3 to 6.0.1 ([24b7e31](https://github.com/remarkablemark/html-dom-parser/commit/24b7e3149625691f736fc6a366a211b61a4e3d13))
+* **deps:** bump htmlparser2 from 10.1.0 to 11.0.0 ([cb389eb](https://github.com/remarkablemark/html-dom-parser/commit/cb389eb5d364bb540143b5b816718f35f34d93d1))
+
 ## [5.1.8](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.7...v5.1.8) (2026-02-06)
 
 
