@@ -7,10 +7,7 @@ export default defineConfig({
       enabled: true,
       include: ['src/**'],
       thresholds: {
-        branches: 90,
-        functions: 100,
-        lines: 100,
-        statements: 100,
+        100: true,
       },
     },
     exclude: ['__tests__/(esm|types)/**'],
