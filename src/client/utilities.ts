@@ -1,13 +1,15 @@
 import { Comment, Element, ProcessingInstruction, Text } from 'domhandler';
 
 import type { DOMNode } from '../types';
-import {
-  CARRIAGE_RETURN,
+import { CASE_SENSITIVE_TAG_NAMES_MAP } from './constants';
+
+const CARRIAGE_RETURN = '\r';
+const CARRIAGE_RETURN_REGEX = new RegExp(CARRIAGE_RETURN, 'g');
+const CARRIAGE_RETURN_PLACEHOLDER = `__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_${Date.now().toString()}__`;
+const CARRIAGE_RETURN_PLACEHOLDER_REGEX = new RegExp(
   CARRIAGE_RETURN_PLACEHOLDER,
-  CARRIAGE_RETURN_PLACEHOLDER_REGEX,
-  CARRIAGE_RETURN_REGEX,
-  CASE_SENSITIVE_TAG_NAMES_MAP,
-} from './constants';
+  'g',
+);
 
 /**
  * Gets case-sensitive tag name.
@@ -25,7 +27,7 @@ function getCaseSensitiveTagName(tagName: string): string | undefined {
  * @param attributes - List of attributes.
  * @returns - Map of attribute name to value.
  */
-export function formatAttributes(attributes: NamedNodeMap) {
+function formatAttributes(attributes: NamedNodeMap) {
   const map: Record<string, string> = {};
   let index = 0;
   const attributesLength = attributes.length;

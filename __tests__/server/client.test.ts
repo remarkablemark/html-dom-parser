@@ -1,5 +1,4 @@
 // @vitest-environment jsdom
-import { CARRIAGE_RETURN_PLACEHOLDER } from '../../src/client/constants';
 import { formatDOM } from '../../src/client/utilities';
 import { revertEscapedCharacters } from '../../src/client/utilities';
 import { escapeSpecialCharacters } from '../../src/client/utilities';
@@ -15,8 +14,8 @@ describe('client utilities', () => {
 
   describe('escapeSpecialCharacters', () => {
     it('escapes carriage return characters', () => {
-      expect(escapeSpecialCharacters('Hello\rWorld')).to.equal(
-        `Hello${CARRIAGE_RETURN_PLACEHOLDER}World`,
+      expect(escapeSpecialCharacters('Hello\rWorld')).to.match(
+        /^Hello__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__World$/,
       );
     });
 
@@ -31,15 +30,22 @@ describe('client utilities', () => {
     });
 
     it('handles multiple carriage returns', () => {
-      expect(escapeSpecialCharacters('Hello\rDear\rWorld')).to.equal(
-        `Hello${CARRIAGE_RETURN_PLACEHOLDER}Dear${CARRIAGE_RETURN_PLACEHOLDER}World`,
+      const escaped = escapeSpecialCharacters('Hello\rDear\rWorld');
+      const placeholders = escaped.match(
+        /__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__/g,
       );
+
+      expect(escaped).to.match(
+        /^Hello__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__Dear__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__World$/,
+      );
+      expect(placeholders).to.have.length(2);
+      expect(placeholders?.[0]).to.equal(placeholders?.[1]);
     });
 
     it('only escapes carriage returns', () => {
       // `\n` and `\right` should not be affected
-      expect(escapeSpecialCharacters('Hello\rWorld\n\right')).to.equal(
-        `Hello${CARRIAGE_RETURN_PLACEHOLDER}World\n${CARRIAGE_RETURN_PLACEHOLDER}ight`,
+      expect(escapeSpecialCharacters('Hello\rWorld\n\right')).to.match(
+        /^Hello__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__World\n__HTML_DOM_PARSER_CARRIAGE_RETURN_PLACEHOLDER_\d+__ight$/,
       );
     });
   });
@@ -47,7 +53,7 @@ describe('client utilities', () => {
   describe('revertEscapedCharacters', () => {
     it('reverts escaped carriage return characters', () => {
       expect(
-        revertEscapedCharacters(`Hello${CARRIAGE_RETURN_PLACEHOLDER}World`),
+        revertEscapedCharacters(escapeSpecialCharacters('Hello\rWorld')),
       ).to.equal('Hello\rWorld');
     });
 
@@ -63,9 +69,7 @@ describe('client utilities', () => {
 
     it('handles multiple escaped carriage returns', () => {
       expect(
-        revertEscapedCharacters(
-          `Hello${CARRIAGE_RETURN_PLACEHOLDER}Dear${CARRIAGE_RETURN_PLACEHOLDER}World`,
-        ),
+        revertEscapedCharacters(escapeSpecialCharacters('Hello\rDear\rWorld')),
       ).to.equal('Hello\rDear\rWorld');
     });
 
@@ -73,7 +77,7 @@ describe('client utilities', () => {
       // `\n` and `\right` should not be affected
       expect(
         revertEscapedCharacters(
-          `Hello${CARRIAGE_RETURN_PLACEHOLDER}World\\n\\right`,
+          escapeSpecialCharacters('Hello\rWorld\\n\\right'),
         ),
       ).to.equal('Hello\rWorld\\n\\right');
     });
