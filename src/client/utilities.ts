@@ -149,6 +149,7 @@ export function formatDOM(
         break;
       }
 
+      /* v8 ignore start */
       case 3:
         current = new Text(revertEscapedCharacters(node.nodeValue ?? ''));
         break;
@@ -156,6 +157,7 @@ export function formatDOM(
       case 8:
         current = new Comment(node.nodeValue ?? '');
         break;
+      /* v8 ignore stop */
 
       default:
         continue;

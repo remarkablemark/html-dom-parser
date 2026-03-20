@@ -8,7 +8,7 @@ const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* istanbul ignore start */
+/* v8 ignore start */
 let parseFromDocument = (html: string, tagName?: string): Document => {
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
@@ -20,8 +20,6 @@ let parseFromString = (html: string, tagName?: string): Document => {
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
 };
-/* istanbul ignore stop */
-/* eslint-enable @typescript-eslint/no-unused-vars */
 
 const DOMParser = typeof window === 'object' && window.DOMParser;
 
@@ -42,11 +40,9 @@ if (typeof DOMParser === 'function') {
    * @returns - Document.
    */
   parseFromString = (html: string, tagName?: string): Document => {
-    /* istanbul ignore start */
     if (tagName) {
       html = `<${tagName}>${html}</${tagName}>`;
     }
-    /* istanbul ignore stop */
 
     return domParser.parseFromString(html, mimeType);
   };
@@ -71,7 +67,6 @@ if (typeof document === 'object' && document.implementation) {
    * @returns - Document
    */
   parseFromDocument = function (html: string, tagName?: string): Document {
-    /* istanbul ignore start */
     if (tagName) {
       const element = htmlDocument.documentElement.querySelector(tagName);
 
@@ -81,7 +76,6 @@ if (typeof document === 'object' && document.implementation) {
 
       return htmlDocument;
     }
-    /* istanbul ignore stop */
 
     htmlDocument.documentElement.innerHTML = html;
     return htmlDocument;
@@ -112,8 +106,8 @@ if (template && template.content) {
   };
 }
 
-const createNodeList = /* istanbul ignore next */ () =>
-  document.createDocumentFragment().childNodes;
+const createNodeList = () => document.createDocumentFragment().childNodes;
+/* v8 ignore stop */
 
 /**
  * Parses HTML string to DOM nodes.
@@ -136,13 +130,11 @@ export default function domparser(html: string): NodeList {
       // so make sure to remove them if they don't actually exist
       if (!hasOpenTag(html, HEAD)) {
         const element = doc.querySelector(HEAD);
-        /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
       }
 
       if (!hasOpenTag(html, BODY)) {
         const element = doc.querySelector(BODY);
-        /* istanbul ignore next */
         element?.parentNode?.removeChild(element);
       }
 
@@ -154,8 +146,8 @@ export default function domparser(html: string): NodeList {
       const elements = parseFromDocument(html).querySelectorAll(firstTagName);
 
       // if there's a sibling element, then return both elements
+      /* v8 ignore next */
       if (hasOpenTag(html, BODY) && hasOpenTag(html, HEAD)) {
-        /* istanbul ignore next */
         return elements[0].parentNode?.childNodes ?? createNodeList();
       }
 
@@ -163,17 +155,17 @@ export default function domparser(html: string): NodeList {
     }
 
     // low-level tag or text
+    /* v8 ignore start */
     default: {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (parseFromTemplate) {
         return parseFromTemplate(html);
       }
 
-      /* istanbul ignore start */
       const element = parseFromDocument(html, BODY).querySelector(BODY);
 
       return element?.childNodes ?? createNodeList();
-      /* istanbul ignore stop */
     }
+    /* v8 ignore stop */
   }
 }
