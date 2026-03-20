@@ -236,6 +236,10 @@ If you're parsing SVG, you can set `lowerCaseTags` to `true` without having to e
 
 ## Migration
 
+### v6
+
+Upgraded [domhandler](https://github.com/fb55/domhandler/releases/tag/v6.0.0) and [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v11.0.0). Removed client exports `formatAttributes` and `CARRIAGE_RETURN` constants.
+
 ### v5
 
 Migrated to TypeScript. CommonJS imports require the `.default` key:
@@ -246,11 +250,11 @@ const parse = require('html-dom-parser').default;
 
 ### v4
 
-Upgraded [htmlparser2](https://github.com/fb55/htmlparser2) to v9.
+Upgraded [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v9.0.0).
 
 ### v3
 
-Upgraded [domhandler](https://github.com/fb55/domhandler) to v5. [Parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
+Upgraded [domhandler](https://github.com/fb55/domhandler/releases/tag/v5.0.0). [Parser options](https://github.com/fb55/htmlparser2/wiki/Parser-options) like `normalizeWhitespace` have been removed.
 
 ### v2
 
@@ -258,7 +262,7 @@ Removed Internet Explorer (IE11) support.
 
 ### v1
 
-Upgraded `domhandler` to v4 and `htmlparser2` to v6.
+Upgraded [domhandler](https://github.com/fb55/domhandler/releases/tag/v4.0.0) and [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v6.0.0).
 
 ## Release
 

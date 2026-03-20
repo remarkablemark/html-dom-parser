@@ -23,7 +23,6 @@ assignees: remarkablemark
 Creating a bug demo will help speed up the process of resolving the issue:
 
 * JSFiddle: https://jsfiddle.net/remarkablemark/ff9yg1yz/
-* Replit: https://replit.com/@remarkablemark/html-dom-parser
 -->
 
 ## Environment
