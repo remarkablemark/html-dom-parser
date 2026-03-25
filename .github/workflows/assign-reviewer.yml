@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Assign reviewer
         if: >
-          startsWith(github.event.pull_request.title, 'build(deps-dev): bump ') == false &&
-          contains(github.event.action, 'opened')
+          startsWith(github.event.pull_request.title, 'build(deps-dev): bump ') == false
+          && contains(github.event.action, 'opened')
         run: >
           gh pr edit ${{ github.event.pull_request.html_url }}
           --add-assignee ${{ github.event.pull_request.user.login }}
