@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v6.0.0...v7.0.0) (2026-03-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** bump htmlparser2 from 11.0.0 to 12.0.0
+
+### Build System
+
+* **deps:** bump htmlparser2 from 11.0.0 to 12.0.0 ([#1389](https://github.com/remarkablemark/html-dom-parser/issues/1389)) ([9e72885](https://github.com/remarkablemark/html-dom-parser/commit/9e72885b4697677aa88353976b1e5f047e4ba544))
+
 ## [6.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.8...v6.0.0) (2026-03-20)
 
 
