@@ -236,6 +236,10 @@ If you're parsing SVG, you can set `lowerCaseTags` to `true` without having to e
 
 ## Migration
 
+### v7
+
+Upgraded [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v12.0.0).
+
 ### v6
 
 Upgraded [domhandler](https://github.com/fb55/domhandler/releases/tag/v6.0.0) and [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v11.0.0). Removed client exports `formatAttributes` and `CARRIAGE_RETURN` constants.
