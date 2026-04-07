@@ -1,70 +1,68 @@
 # Changelog
 
-## [7.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v6.0.0...v7.0.0) (2026-03-30)
+## [7.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v7.0.0...v7.0.1) (2026-04-07)
 
+### Bug Fixes
+
+- bundle ESM-only deps into CJS output with Rollup ([#1409](https://github.com/remarkablemark/html-dom-parser/issues/1409)) ([901f1b4](https://github.com/remarkablemark/html-dom-parser/commit/901f1b4c1627017660a763cb9f1b5fe21b2e8560))
+
+## [7.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v6.0.0...v7.0.0) (2026-03-30)
 
 ### ⚠ BREAKING CHANGES
 
-* **deps:** bump htmlparser2 from 11.0.0 to 12.0.0
+- **deps:** bump htmlparser2 from 11.0.0 to 12.0.0
 
 ### Build System
 
-* **deps:** bump htmlparser2 from 11.0.0 to 12.0.0 ([#1389](https://github.com/remarkablemark/html-dom-parser/issues/1389)) ([9e72885](https://github.com/remarkablemark/html-dom-parser/commit/9e72885b4697677aa88353976b1e5f047e4ba544))
+- **deps:** bump htmlparser2 from 11.0.0 to 12.0.0 ([#1389](https://github.com/remarkablemark/html-dom-parser/issues/1389)) ([9e72885](https://github.com/remarkablemark/html-dom-parser/commit/9e72885b4697677aa88353976b1e5f047e4ba544))
 
 ## [6.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.8...v6.0.0) (2026-03-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` constants
-* **deps:** bump htmlparser2 from 10.1.0 to 11.0.0
-* **deps:** bump domhandler from 5.0.3 to 6.0.1
+- **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` constants
+- **deps:** bump htmlparser2 from 10.1.0 to 11.0.0
+- **deps:** bump domhandler from 5.0.3 to 6.0.1
 
 ### Code Refactoring
 
-* **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` ([77c2e92](https://github.com/remarkablemark/html-dom-parser/commit/77c2e92ea1fa2dcdc76e1f7e8fd769322c2e500f))
-
+- **client:** remove exports `formatAttributes` and `CARRIAGE_RETURN` ([77c2e92](https://github.com/remarkablemark/html-dom-parser/commit/77c2e92ea1fa2dcdc76e1f7e8fd769322c2e500f))
 
 ### Build System
 
-* **deps:** bump domhandler from 5.0.3 to 6.0.1 ([24b7e31](https://github.com/remarkablemark/html-dom-parser/commit/24b7e3149625691f736fc6a366a211b61a4e3d13))
-* **deps:** bump htmlparser2 from 10.1.0 to 11.0.0 ([cb389eb](https://github.com/remarkablemark/html-dom-parser/commit/cb389eb5d364bb540143b5b816718f35f34d93d1))
+- **deps:** bump domhandler from 5.0.3 to 6.0.1 ([24b7e31](https://github.com/remarkablemark/html-dom-parser/commit/24b7e3149625691f736fc6a366a211b61a4e3d13))
+- **deps:** bump htmlparser2 from 10.1.0 to 11.0.0 ([cb389eb](https://github.com/remarkablemark/html-dom-parser/commit/cb389eb5d364bb540143b5b816718f35f34d93d1))
 
 ## [5.1.8](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.7...v5.1.8) (2026-02-06)
 
-
 ### Bug Fixes
 
-* **client:** fix polynomial regular expression used on uncontrolled data ([#1330](https://github.com/remarkablemark/html-dom-parser/issues/1330)) ([35f32fa](https://github.com/remarkablemark/html-dom-parser/commit/35f32fabf1c8cfe6d99391caa31fb6506e442fe7))
+- **client:** fix polynomial regular expression used on uncontrolled data ([#1330](https://github.com/remarkablemark/html-dom-parser/issues/1330)) ([35f32fa](https://github.com/remarkablemark/html-dom-parser/commit/35f32fabf1c8cfe6d99391caa31fb6506e442fe7))
 
 ## [5.1.7](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.6...v5.1.7) (2026-01-30)
 
-
 ### Continuous Integration
 
-* fix npm script "prepublishOnly" ([7e32cdd](https://github.com/remarkablemark/html-dom-parser/commit/7e32cddea9df52a038a4cdbf4e5b730d29c53e8a))
+- fix npm script "prepublishOnly" ([7e32cdd](https://github.com/remarkablemark/html-dom-parser/commit/7e32cddea9df52a038a4cdbf4e5b730d29c53e8a))
 
 ## [5.1.6](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.5...v5.1.6) (2026-01-30)
 
-
 ### Bug Fixes
 
-* correct internal resolution resolution of esm types ([e98355d](https://github.com/remarkablemark/html-dom-parser/commit/e98355dc295001e740c8d88a49268ff928b5ba90)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
-* fix ESM build and types ([67f1ff5](https://github.com/remarkablemark/html-dom-parser/commit/67f1ff5c8f35d51425d3494c8e439b0050db9aec)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
+- correct internal resolution resolution of esm types ([e98355d](https://github.com/remarkablemark/html-dom-parser/commit/e98355dc295001e740c8d88a49268ff928b5ba90)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
+- fix ESM build and types ([67f1ff5](https://github.com/remarkablemark/html-dom-parser/commit/67f1ff5c8f35d51425d3494c8e439b0050db9aec)), closes [#1317](https://github.com/remarkablemark/html-dom-parser/issues/1317)
 
 ## [5.1.5](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.4...v5.1.5) (2026-01-26)
 
-
 ### Bug Fixes
 
-* resolve ModuleNotFoundError in ESM environments by generating native bundles ([#1299](https://github.com/remarkablemark/html-dom-parser/issues/1299)) ([7172552](https://github.com/remarkablemark/html-dom-parser/commit/7172552689f416e9c1aec03910fe9d9bfb7e043e))
+- resolve ModuleNotFoundError in ESM environments by generating native bundles ([#1299](https://github.com/remarkablemark/html-dom-parser/issues/1299)) ([7172552](https://github.com/remarkablemark/html-dom-parser/commit/7172552689f416e9c1aec03910fe9d9bfb7e043e))
 
 ## [5.1.4](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.3...v5.1.4) (2026-01-23)
 
-
 ### Miscellaneous Chores
 
-* release 5.1.4 ([198dea5](https://github.com/remarkablemark/html-dom-parser/commit/198dea5558b5029b5c91ff2477e5f7485b861ae3))
+- release 5.1.4 ([198dea5](https://github.com/remarkablemark/html-dom-parser/commit/198dea5558b5029b5c91ff2477e5f7485b861ae3))
 
 ## [5.1.3](https://github.com/remarkablemark/html-dom-parser/compare/v5.1.2...v5.1.3) (2026-01-23)
 
