@@ -87,7 +87,34 @@ const esmConfigs = [
   },
 ];
 
+const cjsConfigs = [
+  {
+    input: 'src/index.ts',
+    output: {
+      file: 'lib/index.js',
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+    plugins: getPlugins({ browser: false, outDir: 'lib' }),
+  },
+  {
+    input: 'src/client/html-to-dom.ts',
+    output: {
+      file: 'lib/client/html-to-dom.js',
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+    plugins: getPlugins({ browser: true, outDir: 'lib/client' }),
+  },
+];
+
 const configs = [];
+
+if (process.env.CJS === 'true') {
+  configs.push(...cjsConfigs);
+}
 
 if (process.env.ESM === 'true') {
   configs.push(...esmConfigs);
