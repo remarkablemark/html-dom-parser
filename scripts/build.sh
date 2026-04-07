@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 if [[ $1 == '--cjs' ]]; then
-  tsc --project tsconfig.build.json
+  tsc --project tsconfig.build.json --emitDeclarationOnly
   find lib -type f \( -name '*.mjs*' -or -name '*.mts*' \) -delete
+  rollup --config --failAfterWarnings --environment CJS:true
 
 elif [[ $1 == '--esm' ]]; then
   if [[ ! -z $(git status --porcelain src) ]]; then
