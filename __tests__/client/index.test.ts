@@ -17,6 +17,34 @@ describe('client parser', () => {
   testCaseSensitiveTags(htmlToDOM);
 
   if (isBrowser()) {
+    describe('trustedTypePolicy', () => {
+      it('uses policy before setting template innerHTML', () => {
+        const trustedTypePolicy = {
+          createHTML: vi.fn((input: string) => input),
+        };
+
+        htmlToDOM('<div>test</div>', { trustedTypePolicy });
+
+        expect(trustedTypePolicy.createHTML).toHaveBeenCalledOnce();
+        expect(trustedTypePolicy.createHTML).toHaveBeenCalledWith(
+          '<div>test</div>',
+        );
+      });
+
+      it('uses policy before setting document innerHTML', () => {
+        const trustedTypePolicy = {
+          createHTML: vi.fn((input: string) => input),
+        };
+
+        htmlToDOM('<body><div>test</div></body>', { trustedTypePolicy });
+
+        expect(trustedTypePolicy.createHTML).toHaveBeenCalledOnce();
+        expect(trustedTypePolicy.createHTML).toHaveBeenCalledWith(
+          '<body><div>test</div></body>',
+        );
+      });
+    });
+
     describe('performance', () => {
       it('executes 1000 times in less than 50ms', () => {
         let times = 1000;

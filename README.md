@@ -169,7 +169,24 @@ The server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlpars
 
 The client parser mimics the server parser by using the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) API to parse the HTML string.
 
-## Options (server only)
+## Options
+
+### trustedTypePolicy (browser only)
+
+When running in the browser, you can pass a Trusted Types policy. The parser
+uses `trustedTypePolicy.createHTML` right before assigning to `innerHTML`.
+
+```js
+const trustedTypePolicy = window.trustedTypes?.createPolicy('my-policy', {
+  createHTML(input) {
+    return input;
+  },
+});
+
+parse('<div>Hello</div>', { trustedTypePolicy });
+```
+
+### Server parser options
 
 Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the options:
 

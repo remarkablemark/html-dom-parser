@@ -13,4 +13,13 @@ parse('<div>text</div>', { decodeEntities: false });
 parse('<div>text</div>', { lowerCaseTags: true });
 
 // $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
+parse('<div>text</div>', {
+  trustedTypePolicy: {
+    createHTML(input: string) {
+      return input;
+    },
+  },
+});
+
+// $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
 parse('');
