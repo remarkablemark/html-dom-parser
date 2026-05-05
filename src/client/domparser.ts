@@ -1,4 +1,4 @@
-import type { TrustedTypePolicyLike } from '../types';
+import type { TrustedTypePolicy } from '../types';
 import { escapeSpecialCharacters, hasOpenTag } from './utilities';
 
 // constants
@@ -9,7 +9,7 @@ const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
 export function getHTMLForInnerHTML(
   html: string,
-  trustedTypePolicy?: TrustedTypePolicyLike,
+  trustedTypePolicy?: TrustedTypePolicy,
 ) {
   return trustedTypePolicy ? trustedTypePolicy.createHTML(html) : html;
 }
@@ -20,7 +20,7 @@ export function getHTMLForInnerHTML(
 let parseFromDocument = (
   html: string,
   tagName?: string,
-  trustedTypePolicy?: TrustedTypePolicyLike,
+  trustedTypePolicy?: TrustedTypePolicy,
 ): Document => {
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
@@ -30,7 +30,7 @@ let parseFromDocument = (
 let parseFromString = (
   html: string,
   tagName?: string,
-  trustedTypePolicy?: TrustedTypePolicyLike,
+  trustedTypePolicy?: TrustedTypePolicy,
 ): Document => {
   void trustedTypePolicy;
   throw new Error(
@@ -59,7 +59,7 @@ if (typeof DOMParser === 'function') {
   parseFromString = (
     html: string,
     tagName?: string,
-    trustedTypePolicy?: TrustedTypePolicyLike,
+    trustedTypePolicy?: TrustedTypePolicy,
   ): Document => {
     void trustedTypePolicy;
     if (tagName) {
@@ -91,7 +91,7 @@ if (typeof document === 'object' && document.implementation) {
   parseFromDocument = function (
     html: string,
     tagName?: string,
-    trustedTypePolicy?: TrustedTypePolicyLike,
+    trustedTypePolicy?: TrustedTypePolicy,
   ): Document {
     if (tagName) {
       const element = htmlDocument.documentElement.querySelector(tagName);
@@ -124,7 +124,7 @@ const template =
 
 let parseFromTemplate: (
   html: string,
-  trustedTypePolicy?: TrustedTypePolicyLike,
+  trustedTypePolicy?: TrustedTypePolicy,
 ) => NodeList;
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -137,7 +137,7 @@ if (template && template.content) {
    */
   parseFromTemplate = (
     html: string,
-    trustedTypePolicy?: TrustedTypePolicyLike,
+    trustedTypePolicy?: TrustedTypePolicy,
   ): NodeList => {
     template.innerHTML = getHTMLForInnerHTML(html, trustedTypePolicy) as string;
     return template.content.childNodes;
@@ -156,7 +156,7 @@ const createNodeList = () => document.createDocumentFragment().childNodes;
  */
 export default function domparser(
   html: string,
-  trustedTypePolicy?: TrustedTypePolicyLike,
+  trustedTypePolicy?: TrustedTypePolicy,
 ): NodeList {
   // Escape special characters before parsing
   html = escapeSpecialCharacters(html);
