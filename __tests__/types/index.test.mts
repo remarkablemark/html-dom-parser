@@ -1,4 +1,4 @@
-import parse from '../../src/index.ts';
+import parse from '../../esm/index.mjs';
 
 // $ExpectType (Element | Text | Comment | ProcessingInstruction)[]
 parse('<div>text</div>');
