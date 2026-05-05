@@ -1,7 +1,7 @@
 import { DomHandler } from 'domhandler';
-import type { ParserOptions } from 'htmlparser2';
 import { Parser } from 'htmlparser2';
 
+import type { HTMLDOMParserOptions } from '../types';
 import { unsetRootParent } from './utilities';
 
 /**
@@ -16,7 +16,10 @@ import { unsetRootParent } from './utilities';
  * @param options - Parser options.
  * @returns - DOM nodes.
  */
-export default function HTMLDOMParser(html: string, options?: ParserOptions) {
+export default function HTMLDOMParser(
+  html: string,
+  options?: HTMLDOMParserOptions,
+) {
   if (typeof html !== 'string') {
     throw new TypeError('First argument must be a string.');
   }

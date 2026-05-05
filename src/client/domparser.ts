@@ -1,3 +1,4 @@
+import type { TrustedTypePolicyLike } from '../types';
 import { escapeSpecialCharacters, hasOpenTag } from './utilities';
 
 // constants
@@ -6,16 +7,32 @@ const HEAD = 'head';
 const BODY = 'body';
 const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
+export function getHTMLForInnerHTML(
+  html: string,
+  trustedTypePolicy?: TrustedTypePolicyLike,
+) {
+  return trustedTypePolicy ? trustedTypePolicy.createHTML(html) : html;
+}
+
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* v8 ignore start */
-let parseFromDocument = (html: string, tagName?: string): Document => {
+let parseFromDocument = (
+  html: string,
+  tagName?: string,
+  trustedTypePolicy?: TrustedTypePolicyLike,
+): Document => {
   throw new Error(
     'This browser does not support `document.implementation.createHTMLDocument`',
   );
 };
 
-let parseFromString = (html: string, tagName?: string): Document => {
+let parseFromString = (
+  html: string,
+  tagName?: string,
+  trustedTypePolicy?: TrustedTypePolicyLike,
+): Document => {
+  void trustedTypePolicy;
   throw new Error(
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
@@ -39,7 +56,12 @@ if (typeof DOMParser === 'function') {
    * @param tagName - The element to render the HTML (with 'body' as fallback).
    * @returns - Document.
    */
-  parseFromString = (html: string, tagName?: string): Document => {
+  parseFromString = (
+    html: string,
+    tagName?: string,
+    trustedTypePolicy?: TrustedTypePolicyLike,
+  ): Document => {
+    void trustedTypePolicy;
     if (tagName) {
       html = `<${tagName}>${html}</${tagName}>`;
     }
@@ -66,18 +88,28 @@ if (typeof document === 'object' && document.implementation) {
    * @param tagName - The element to render the HTML (with 'body' as fallback).
    * @returns - Document
    */
-  parseFromDocument = function (html: string, tagName?: string): Document {
+  parseFromDocument = function (
+    html: string,
+    tagName?: string,
+    trustedTypePolicy?: TrustedTypePolicyLike,
+  ): Document {
     if (tagName) {
       const element = htmlDocument.documentElement.querySelector(tagName);
 
       if (element) {
-        element.innerHTML = html;
+        element.innerHTML = getHTMLForInnerHTML(
+          html,
+          trustedTypePolicy,
+        ) as string;
       }
 
       return htmlDocument;
     }
 
-    htmlDocument.documentElement.innerHTML = html;
+    htmlDocument.documentElement.innerHTML = getHTMLForInnerHTML(
+      html,
+      trustedTypePolicy,
+    ) as string;
     return htmlDocument;
   };
 }
@@ -90,7 +122,10 @@ if (typeof document === 'object' && document.implementation) {
 const template =
   typeof document === 'object' && document.createElement('template');
 
-let parseFromTemplate: (html: string) => NodeList;
+let parseFromTemplate: (
+  html: string,
+  trustedTypePolicy?: TrustedTypePolicyLike,
+) => NodeList;
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 if (template && template.content) {
@@ -100,8 +135,11 @@ if (template && template.content) {
    * @param html - HTML string.
    * @returns - Nodes.
    */
-  parseFromTemplate = (html: string): NodeList => {
-    template.innerHTML = html;
+  parseFromTemplate = (
+    html: string,
+    trustedTypePolicy?: TrustedTypePolicyLike,
+  ): NodeList => {
+    template.innerHTML = getHTMLForInnerHTML(html, trustedTypePolicy) as string;
     return template.content.childNodes;
   };
 }
@@ -113,9 +151,13 @@ const createNodeList = () => document.createDocumentFragment().childNodes;
  * Parses HTML string to DOM nodes.
  *
  * @param html - HTML markup.
+ * @param trustedTypePolicy - Trusted Types policy.
  * @returns - DOM nodes.
  */
-export default function domparser(html: string): NodeList {
+export default function domparser(
+  html: string,
+  trustedTypePolicy?: TrustedTypePolicyLike,
+): NodeList {
   // Escape special characters before parsing
   html = escapeSpecialCharacters(html);
 
@@ -143,7 +185,11 @@ export default function domparser(html: string): NodeList {
 
     case HEAD:
     case BODY: {
-      const elements = parseFromDocument(html).querySelectorAll(firstTagName);
+      const elements = parseFromDocument(
+        html,
+        undefined,
+        trustedTypePolicy,
+      ).querySelectorAll(firstTagName);
 
       // if there's a sibling element, then return both elements
       /* v8 ignore next */
@@ -159,10 +205,14 @@ export default function domparser(html: string): NodeList {
     default: {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (parseFromTemplate) {
-        return parseFromTemplate(html);
+        return parseFromTemplate(html, trustedTypePolicy);
       }
 
-      const element = parseFromDocument(html, BODY).querySelector(BODY);
+      const element = parseFromDocument(
+        html,
+        BODY,
+        trustedTypePolicy,
+      ).querySelector(BODY);
 
       return element?.childNodes ?? createNodeList();
     }
