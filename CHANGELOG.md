@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v7.0.1...v7.1.0) (2026-05-05)
+
+
+### Features
+
+* **options:** add CSP support with `trustedTypePolicy` ([#1439](https://github.com/remarkablemark/html-dom-parser/issues/1439)) ([25da34e](https://github.com/remarkablemark/html-dom-parser/commit/25da34eb32b64d8a1409760d4b9d2eb21e746d27))
+
 ## [7.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v7.0.0...v7.0.1) (2026-04-07)
 
 ### Bug Fixes
