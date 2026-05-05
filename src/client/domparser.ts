@@ -1,5 +1,5 @@
-import { escapeSpecialCharacters, hasOpenTag } from './utilities';
 import type { TrustedTypePolicyLike } from '../types';
+import { escapeSpecialCharacters, hasOpenTag } from './utilities';
 
 // constants
 const HTML = 'html';
@@ -7,7 +7,7 @@ const HEAD = 'head';
 const BODY = 'body';
 const FIRST_TAG_REGEX = /<([a-zA-Z]+[0-9]?)/; // e.g., <h1>
 
-function getHTMLForInnerHTML(
+export function getHTMLForInnerHTML(
   html: string,
   trustedTypePolicy?: TrustedTypePolicyLike,
 ) {
@@ -139,10 +139,7 @@ if (template && template.content) {
     html: string,
     trustedTypePolicy?: TrustedTypePolicyLike,
   ): NodeList => {
-    template.innerHTML = getHTMLForInnerHTML(
-      html,
-      trustedTypePolicy,
-    ) as string;
+    template.innerHTML = getHTMLForInnerHTML(html, trustedTypePolicy) as string;
     return template.content.childNodes;
   };
 }

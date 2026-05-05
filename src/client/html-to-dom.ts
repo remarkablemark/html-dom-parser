@@ -1,6 +1,6 @@
+import type { HTMLDOMParserOptions } from '../types';
 import domparser from './domparser';
 import { formatDOM } from './utilities';
-import type { HTMLDOMParserOptions } from '../types';
 
 const DIRECTIVE_REGEX = /<(![a-zA-Z\s]+)>/; // e.g., <!doctype html>
 
@@ -27,5 +27,9 @@ export default function HTMLDOMParser(
   const match = DIRECTIVE_REGEX.exec(html);
   const directive = match ? match[1] : undefined;
 
-  return formatDOM(domparser(html, options?.trustedTypePolicy), null, directive);
+  return formatDOM(
+    domparser(html, options?.trustedTypePolicy),
+    null,
+    directive,
+  );
 }

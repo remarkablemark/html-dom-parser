@@ -62,11 +62,4 @@ export default defineConfig([
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
-  {
-    files: ['__tests__/types/**'],
-
-    rules: {
-      '@typescript-eslint/no-unsafe-call': 'off',
-    },
-  },
 ]);
