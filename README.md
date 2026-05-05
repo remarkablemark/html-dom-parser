@@ -171,22 +171,24 @@ The client parser mimics the server parser by using the [DOM](https://developer.
 
 ## Options
 
-### trustedTypePolicy (browser only)
+### Browser
 
-When running in the browser, you can pass a Trusted Types policy. The parser
-uses `trustedTypePolicy.createHTML` right before assigning to `innerHTML`.
+#### trustedTypePolicy
 
-```js
-const trustedTypePolicy = window.trustedTypes?.createPolicy('my-policy', {
-  createHTML(input) {
-    return input;
-  },
+When running in a browser, you can pass a [Trusted Types](https://developer.mozilla.org/docs/Web/API/Trusted_Types_API) policy so the parser calls `trustedTypePolicy.createHTML` before assigning content to `innerHTML`:
+
+```ts
+parse('<div>Hello</div>', {
+  trustedTypePolicy: window.trustedTypes?.createPolicy('my-policy', {
+    createHTML(input) {
+      // apply sanitization logic here
+      return DOMPurify.sanitize(input);
+    },
+  }),
 });
-
-parse('<div>Hello</div>', { trustedTypePolicy });
 ```
 
-### Server parser options
+### Server
 
 Because the server parser is a wrapper of [htmlparser2](https://github.com/fb55/htmlparser2), which implements [domhandler](https://github.com/fb55/domhandler), you can alter how the server parser parses your code with the options:
 
