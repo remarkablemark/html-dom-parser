@@ -16,19 +16,6 @@ describe('client parser', () => {
   runTests(htmlToDOM, parseDOM, htmlCases);
   testCaseSensitiveTags(htmlToDOM);
 
-  it('uses policy before setting innerHTML', () => {
-    const trustedTypePolicy = {
-      createHTML: vi.fn((input: string) => input),
-    };
-
-    htmlToDOM('<div>test</div>', { trustedTypePolicy });
-
-    expect(trustedTypePolicy.createHTML).toHaveBeenCalledOnce();
-    expect(trustedTypePolicy.createHTML).toHaveBeenCalledWith(
-      '<div>test</div>',
-    );
-  });
-
   if (isBrowser()) {
     describe('trustedTypePolicy', () => {
       it('uses policy before setting template innerHTML', () => {

@@ -6,11 +6,11 @@ export type { Comment, Element, ProcessingInstruction, Text };
 
 export type DOMNode = Comment | Element | ProcessingInstruction | Text;
 
-export interface TrustedTypePolicy {
+export interface TrustedTypePolicyLike {
   createHTML(input: string): unknown;
 }
 
 export type HTMLDOMParserOptions = ParserOptions &
   DomHandlerOptions & {
-    trustedTypePolicy?: TrustedTypePolicy;
+    trustedTypePolicy?: TrustedTypePolicyLike;
   };
