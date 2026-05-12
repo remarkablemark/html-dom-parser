@@ -99,7 +99,7 @@
     "jsdom": "29.1.1",
     "lint-staged": "17.0.4",
     "npm-run-all2": "8.0.4",
-    "playwright": "1.59.1",
+    "playwright": "1.60.0",
     "prettier": "3.8.3",
     "publint": "0.3.20",
     "rollup": "4.60.3",
