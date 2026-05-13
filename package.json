@@ -101,7 +101,7 @@
     "npm-run-all2": "8.0.4",
     "playwright": "1.60.0",
     "prettier": "3.8.3",
-    "publint": "0.3.20",
+    "publint": "0.3.21",
     "rollup": "4.60.3",
     "size-limit": "12.1.0",
     "ts-node": "10.9.2",
