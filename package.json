@@ -85,7 +85,7 @@
     "@size-limit/preset-big-lib": "12.1.0",
     "@types/html-minifier": "4.0.6",
     "@types/jscodeshift": "17.3.0",
-    "@types/node": "25.8.0",
+    "@types/node": "25.9.1",
     "@vitest/browser": "4.1.6",
     "@vitest/browser-playwright": "4.1.6",
     "@vitest/coverage-v8": "4.1.6",
