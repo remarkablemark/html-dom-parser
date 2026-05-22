@@ -99,7 +99,7 @@
     "husky": "9.1.7",
     "jscodeshift": "17.3.0",
     "jsdom": "29.1.1",
-    "lint-staged": "17.0.4",
+    "lint-staged": "17.0.5",
     "npm-run-all2": "8.0.4",
     "playwright": "1.60.0",
     "prettier": "3.8.3",
