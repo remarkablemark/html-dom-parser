@@ -71,6 +71,7 @@
     "htmlparser2": "12.0.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/cli": "21.0.1",
     "@commitlint/config-conventional": "21.0.1",
     "@eslint/compat": "2.0.5",
