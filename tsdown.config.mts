@@ -1,8 +1,4 @@
-import { createRequire } from 'node:module';
-
 import { defineConfig } from 'tsdown';
-
-const require = createRequire(import.meta.url);
 
 const bundleEntries = ['src/index.ts', 'src/client/html-to-dom.ts'];
 
@@ -93,26 +89,5 @@ export default defineConfig([
     platform: 'browser',
     sourcemap: true,
     tsconfig: 'tsconfig.build.json',
-  },
-
-  // umd (htmlparser2)
-  {
-    deps: {
-      alwaysBundle() {
-        return true;
-      },
-    },
-    dts: false,
-    entry: {
-      htmlparser2: require.resolve('htmlparser2'),
-    },
-    failOnWarn: true,
-    format: 'umd',
-    globalName: 'htmlparser2',
-    name: 'umd-vendor',
-    outDir: 'dist',
-    outputOptions: umdOutputOptions,
-    platform: 'browser',
-    sourcemap: true,
   },
 ]);
