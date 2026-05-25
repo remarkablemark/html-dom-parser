@@ -255,6 +255,10 @@ If you're parsing SVG, you can set `lowerCaseTags` to `true` without having to e
 
 ## Migration
 
+### v8
+
+Changed build output to target ES6 instead of ES5.
+
 ### v7
 
 Upgraded [htmlparser2](https://github.com/fb55/htmlparser2/releases/tag/v12.0.0).
