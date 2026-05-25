@@ -14,7 +14,13 @@ export default defineConfig([
   includeIgnoreFile(gitignorePath),
 
   {
+    files: ['tsdown.config.mts'],
+    extends: [tseslint.configs.disableTypeChecked],
+  },
+
+  {
     files: ['**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}'],
+    ignores: ['tsdown.config.mts'],
 
     plugins: {
       'simple-import-sort': simpleImportSort,
