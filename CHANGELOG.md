@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v7.1.0...v8.0.0) (2026-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **tsconfig:** build output now targets ES6 instead of ES5
+
+### Build System
+
+* **tsconfig:** change target from `es5` to `es6` ([d765720](https://github.com/remarkablemark/html-dom-parser/commit/d7657209d8e750b55d2002556d1dec142011152c))
+
 ## [7.1.0](https://github.com/remarkablemark/html-dom-parser/compare/v7.0.1...v7.1.0) (2026-05-05)
 
 
