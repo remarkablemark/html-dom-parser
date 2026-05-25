@@ -10,5 +10,12 @@
     "allowJs": true,
     "rootDir": "."
   },
-  "include": ["__tests__", "scripts", "src", "*.mjs", "*.mts", "*.js", "*.ts"]
+  "include": [
+    "__tests__",
+    "eslint.config.mts",
+    "src",
+    "vitest.config.browser.mts",
+    "vitest.config.mts"
+  ],
+  "exclude": ["tsdown.config.mts"]
 }
