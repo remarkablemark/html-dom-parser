@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es5", "dom"],
+    "target": "es6",
+    "module": "esnext",
+    "lib": ["es6", "dom"],
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "strict": true,
+    "rootDir": "src",
     "outDir": "lib"
   },
   "include": ["src"]
