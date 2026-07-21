@@ -91,12 +91,12 @@
     "lint-staged": "17.1.0",
     "npm-run-all2": "9.0.2",
     "playwright": "1.61.1",
-    "prettier": "3.9.5",
+    "prettier": "3.9.6",
     "publint": "0.3.21",
     "size-limit": "12.1.0",
     "tsdown": "0.22.12",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.64.0",
+    "typescript-eslint": "8.65.0",
     "vitest": "4.1.10"
   },
   "files": [
