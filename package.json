@@ -73,7 +73,7 @@
     "@commitlint/cli": "21.2.1",
     "@commitlint/config-conventional": "21.2.0",
     "@eslint/js": "10.0.1",
-    "@size-limit/preset-big-lib": "12.1.0",
+    "@size-limit/preset-big-lib": "13.0.1",
     "@types/html-minifier": "4.0.6",
     "@types/node": "26.1.1",
     "@vitest/browser": "4.1.10",
