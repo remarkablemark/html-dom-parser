@@ -92,7 +92,7 @@
     "npm-run-all2": "9.0.3",
     "playwright": "1.62.1",
     "prettier": "3.9.6",
-    "publint": "0.3.22",
+    "publint": "0.3.23",
     "size-limit": "13.0.3",
     "tsdown": "0.22.14",
     "typescript": "6.0.3",
