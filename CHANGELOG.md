@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v8.0.0...v8.0.1) (2026-08-09)
+
+
+### Documentation
+
+* **readme:** add StackBlitz ([6256e22](https://github.com/remarkablemark/html-dom-parser/commit/6256e2224c9c6369f84dde7147bc6ff0cd965040))
+
 ## [8.0.0](https://github.com/remarkablemark/html-dom-parser/compare/v7.1.0...v8.0.0) (2026-05-25)
 
 
