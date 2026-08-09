@@ -57,7 +57,7 @@ parse('<p>Hello, World!</p>');
 </p>
 </details>
 
-[JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
+[StackBlitz](https://stackblitz.com/edit/html-dom-parser) | [JSFiddle](https://jsfiddle.net/remarkablemark/ff9yg1yz/) | [Examples](https://github.com/remarkablemark/html-dom-parser/tree/master/examples)
 
 ## Install
 
