@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.2](https://github.com/remarkablemark/html-dom-parser/compare/v8.0.1...v8.0.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* bundle ESM-only server deps into CJS build to avoid ERR_REQUIRE_ESM_RACE_CONDITION ([68e3f8f](https://github.com/remarkablemark/html-dom-parser/commit/68e3f8f24a94699b3e422e86e2fd45cd99ccaef6)), closes [#1551](https://github.com/remarkablemark/html-dom-parser/issues/1551)
+
 ## [8.0.1](https://github.com/remarkablemark/html-dom-parser/compare/v8.0.0...v8.0.1) (2026-08-09)
 
 
