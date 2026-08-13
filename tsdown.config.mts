@@ -28,6 +28,17 @@ export default defineConfig([
     format: 'cjs',
     name: 'cjs',
     outDir: 'lib',
+    deps: {
+      alwaysBundle: [
+        'domhandler',
+        'htmlparser2',
+        'domelementtype',
+        'domutils',
+        'entities',
+        'dom-serializer',
+      ],
+      onlyBundle: false,
+    },
     outExtensions() {
       return {
         dts: '.d.ts',
