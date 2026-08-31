@@ -88,7 +88,7 @@
     "html-minifier": "4.0.0",
     "husky": "9.1.7",
     "jsdom": "30.0.1",
-    "lint-staged": "17.3.0",
+    "lint-staged": "17.4.1",
     "npm-run-all2": "9.0.3",
     "playwright": "1.62.1",
     "prettier": "3.9.6",
