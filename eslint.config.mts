@@ -45,11 +45,4 @@ export default defineConfig([
       'simple-import-sort/imports': 'error',
     },
   },
-  {
-    files: ['test/**'],
-
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-    },
-  },
 ]);
