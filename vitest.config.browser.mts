@@ -8,6 +8,7 @@ export default mergeConfig(
   defineConfig({
     optimizeDeps: {
       include: [
+        'decycle',
         'domhandler',
         'htmlparser2',
         'domelementtype',
