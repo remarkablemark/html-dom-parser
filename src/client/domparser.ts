@@ -15,11 +15,13 @@ export function getHTMLForInnerHTML(
 }
 
 // falls back to `parseFromString` if `createHTMLDocument` cannot be used
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* v8 ignore start */
 let parseFromDocument = (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   html: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   tagName?: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   trustedTypePolicy?: TrustedTypePolicy,
 ): Document => {
   throw new Error(
@@ -27,12 +29,8 @@ let parseFromDocument = (
   );
 };
 
-let parseFromString = (
-  html: string,
-  tagName?: string,
-  trustedTypePolicy?: TrustedTypePolicy,
-): Document => {
-  void trustedTypePolicy;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+let parseFromString = (html: string, tagName?: string): Document => {
   throw new Error(
     'This browser does not support `DOMParser.prototype.parseFromString`',
   );
@@ -56,12 +54,7 @@ if (typeof DOMParser === 'function') {
    * @param tagName - The element to render the HTML (with 'body' as fallback).
    * @returns - Document.
    */
-  parseFromString = (
-    html: string,
-    tagName?: string,
-    trustedTypePolicy?: TrustedTypePolicy,
-  ): Document => {
-    void trustedTypePolicy;
+  parseFromString = (html: string, tagName?: string): Document => {
     if (tagName) {
       html = `<${tagName}>${html}</${tagName}>`;
     }
