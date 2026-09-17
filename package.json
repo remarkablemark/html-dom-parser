@@ -34,7 +34,7 @@
   },
   "scripts": {
     "build": "npm run clean && tsdown",
-    "clean": "rm -rf coverage dist esm lib",
+    "clean": "rm -rf .nyc_output .vitest coverage dist esm lib",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "lint:package": "publint",
