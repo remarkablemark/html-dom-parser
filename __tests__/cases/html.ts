@@ -356,6 +356,10 @@ export default [
     name: 'self-closing div and p',
     data: '<div/><p/>',
   },
+  {
+    name: 'self-closing non-void element',
+    data: '<div /><div />',
+  },
 
   // misc
   {
