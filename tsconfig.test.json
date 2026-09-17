@@ -14,8 +14,8 @@
     "__tests__",
     "eslint.config.mts",
     "src",
+    "tsdown.config.mts",
     "vitest.config.browser.mts",
     "vitest.config.mts"
-  ],
-  "exclude": ["tsdown.config.mts"]
+  ]
 }
