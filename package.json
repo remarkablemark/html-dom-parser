@@ -76,9 +76,9 @@
     "@size-limit/preset-big-lib": "14.0.0",
     "@types/html-minifier": "4.0.6",
     "@types/node": "26.6.2",
-    "@vitest/browser": "5.0.1",
-    "@vitest/browser-playwright": "5.0.1",
-    "@vitest/coverage-v8": "5.0.1",
+    "@vitest/browser": "5.0.2",
+    "@vitest/browser-playwright": "5.0.2",
+    "@vitest/coverage-v8": "5.0.2",
     "decycle": "1.0.0",
     "eslint": "10.11.0",
     "eslint-plugin-prettier": "5.5.6",
@@ -96,7 +96,7 @@
     "tsdown": "0.23.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.70.1",
-    "vitest": "5.0.1"
+    "vitest": "5.0.2"
   },
   "files": [
     "/dist",
