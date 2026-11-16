@@ -90,7 +90,7 @@
     "lint-staged": "17.6.0",
     "npm-run-all2": "9.0.4",
     "playwright": "1.65.0",
-    "prettier": "3.9.10",
+    "prettier": "3.10.1",
     "publint": "0.3.25",
     "size-limit": "14.3.0",
     "tsdown": "0.23.7",
