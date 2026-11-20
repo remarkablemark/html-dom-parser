@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'node:url';
-
 import js from '@eslint/js';
 import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import prettier from 'eslint-plugin-prettier';
@@ -7,7 +5,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tsdoc from 'eslint-plugin-tsdoc';
 import tseslint from 'typescript-eslint';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const gitignorePath = new URL('.gitignore', import.meta.url).pathname;
 
 export default defineConfig([
   includeIgnoreFile(gitignorePath),
@@ -35,11 +33,7 @@ export default defineConfig([
     },
 
     rules: {
-      '@typescript-eslint/ban-ts-comment': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
-      '@typescript-eslint/no-var-requires': 'off',
       'no-console': 'error',
-      'no-debugger': 'error',
       'prettier/prettier': 'error',
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': 'error',
