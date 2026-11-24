@@ -86,7 +86,7 @@
     "husky": "9.1.7",
     "jsdom": "31.0.1",
     "lint-staged": "17.6.1",
-    "npm-run-all2": "9.0.4",
+    "npm-run-all2": "9.1.0",
     "playwright": "1.65.1",
     "prettier": "3.10.1",
     "publint": "0.3.25",
