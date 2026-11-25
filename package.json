@@ -85,7 +85,7 @@
     "eslint-plugin-tsdoc": "0.5.4",
     "husky": "9.1.7",
     "jsdom": "31.0.1",
-    "lint-staged": "17.6.1",
+    "lint-staged": "17.6.2",
     "npm-run-all2": "9.1.0",
     "playwright": "1.65.1",
     "prettier": "3.10.1",
